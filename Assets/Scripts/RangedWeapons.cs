@@ -14,16 +14,17 @@ public class RangedWeapons : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform launchPosition;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        lastFireTime = Time.time - 2;
+        lastFireTime = Time.time - 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     protected void Fire()
@@ -33,14 +34,9 @@ public class RangedWeapons : MonoBehaviour
 
         arrow.transform.position = launchPosition.position;
 
-        arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * 20;
+        arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * 3;
 
-        //Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        //RaycastHit hit;
-        //if (Physics.Raycast(ray, out hit, range))
-        //{
-        //    processHit(hit.collider.gameObject);
-        //}
+
     }
 
     private void processHit(GameObject hitObject)
