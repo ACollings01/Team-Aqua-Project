@@ -6,7 +6,16 @@ public class EnemyAI : MonoBehaviour
 {
     Animator anim;
     public GameObject player;
+
+    //Variables for Bat
     public GameObject spitPrefab;
+    int rand;
+
+    //Variables for Bandit
+    public LayerMask whatIsPlayer;
+    public GameObject banditWeapon;
+    public float attackRadius;
+
 
     public GameObject GetPlayer()
     {
@@ -17,6 +26,8 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        rand = Random.Range(0, 2);
+        Debug.Log(rand);
     }
 
     // Update is called once per frame
@@ -27,41 +38,17 @@ public class EnemyAI : MonoBehaviour
 
     public void getPosition(GameObject Player)
     {
-        Vector3 newPos = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
 
-        if(Player.transform.position.x < 0)
+        if (gameObject.tag == "Bat")
         {
-            newPos.x -= Player.transform.position.x;
+            if (rand == 0)
+                this.transform.Translate(Vector3.left * Time.deltaTime * 5f);
+            else
+                this.transform.Translate(Vector3.right * Time.deltaTime * 5f);
         }
-        else
-        {
-            newPos.x += Player.transform.position.x;
-        }
-
-        if (Player.transform.position.y < 0)
-        {
-            newPos.y -= Player.transform.position.y;
-        }
-        else
-        {
-            newPos.y += Player.transform.position.y;
-        }
-
-        if (Player.transform.position.z < 0)
-        {
-            newPos.z -= Player.transform.position.z;
-        }
-        else
-        {
-            newPos.z += Player.transform.position.z;
-        }
-
-        var direction = newPos - this.transform.position;
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 2 * Time.deltaTime);
-        this.transform.Translate(Vector3.left * Time.deltaTime * 5f);
     }
 
-    public bool attackBat(GameObject player)
+    public void attackBat(GameObject player)
     {
         if (this.gameObject.tag == "Bat")
         {
@@ -75,12 +62,28 @@ public class EnemyAI : MonoBehaviour
             spit.transform.LookAt(player.transform.position);
             rb.AddForce(spit.transform.forward * 500.0f);
             //spit.transform.Translate(0, 0, Time.deltaTime * 5);
-
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
+
+    public void attackBandit(GameObject player)
+    {
+        if(this.gameObject.tag == "Bandit")
+        {
+            Collider[] playerHit = Physics.OverlapSphere(banditWeapon.transform.position, attackRadius, whatIsPlayer);
+
+            for(int i = 0; i < playerHit.Length; i++)
+            {
+                Debug.Log("The player has been hit by the Bandit!");
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(banditWeapon.transform.position, attackRadius);
+    }
+    
+
+
 }

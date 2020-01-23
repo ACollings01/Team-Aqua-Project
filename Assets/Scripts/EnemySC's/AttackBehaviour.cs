@@ -24,6 +24,7 @@ public class AttackBehaviour : StateMachineBehaviour
         {
             timeBtwBatAtt = 2;
             NPC.GetComponent<EnemyAI>().attackBat(Player);
+            NPC.GetComponent<EnemyAI>().attackBandit(Player);
         }
         else
         {
