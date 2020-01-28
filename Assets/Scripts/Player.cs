@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Game game;
-    public float health;
-    public float armour;
+    public int health;
+    public int armour;
     public float speed;
     public Joystick joystick;
 
@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
         startTime = 0.0f;
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
-        float healthDamage = amount;
+        int healthDamage = amount;
         health -= healthDamage * armour;
 
         if (health <= 0)

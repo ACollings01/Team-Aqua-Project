@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour
     private Animator swordAnimator;
     Collider swordCollider;
     private float startTime;
+    private int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -58,11 +59,17 @@ public class Sword : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision enemy)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (enemy.gameObject.tag == "Bandit")
         {
-           //Damage enemy
+            swordDamageDone();
         }
+    }
+
+    public int swordDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
     }
 }
