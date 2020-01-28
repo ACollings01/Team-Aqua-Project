@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
         var rigidbody = GetComponent<Rigidbody>();
 
-        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         if (Input.GetMouseButtonDown(0))
@@ -48,12 +48,12 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             startTime = 0.0f;
-            // Debug.Log("startTime" + startTime);
         }
 
+        //delay quarter second before starting movement to allow for tap and swipe
         if (Time.time > startTime + 0.25f && startTime != 0.0f)
         {
-            //Debug.Log("startTime" + startTime);
+            //Joystick movement
             rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
             transform.rotation = Quaternion.LookRotation(stickMovement);
@@ -64,7 +64,12 @@ public class Player : MonoBehaviour
             rigidbody.velocity = new Vector3(0, 0, 0);
         }
 
-        transform.Translate(movement * speed * Time.deltaTime);
+        //movement for PC
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            transform.rotation = Quaternion.LookRotation(movement);
+            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        }
     }
 
     void OnCollisionEnter(Collision other)

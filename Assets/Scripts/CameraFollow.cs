@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public GameObject player;
-    //private float maxZoom = 8.0f; // This should be less than the camera's distance from the player model to ensure no clipping occurs
-	//private float zoom = 0.0f;
+    private float maxZoom = 8.0f; // This should be less than the camera's distance from the player model to ensure no clipping occurs
+	private float zoom = 0.0f;
 
     private float yOffset = 18; // Determines the max height above the player
-    private float zOffset = -1;  // Determines how far back from the player the camera is
+    private float zOffset = 10;  // Determines how far back from the player the camera is
 
     private void Start()
     {
@@ -30,12 +30,12 @@ public class CameraFollow : MonoBehaviour
 
         // Comment out the two lines above to remove zoom functionality
 
-        transform.localPosition = new Vector3(player.transform.position.x, player.transform.position.y + yOffset - 1.8f, player.transform.position.z - zOffset);
+        transform.localPosition = new Vector3(player.transform.position.x, player.transform.position.y + yOffset - (1.8f * zoom), player.transform.position.z - zOffset + zoom);
 		transform.LookAt(player.transform);
 	}
 
     // Changes the zoom based on amount (negative will zoom out, positive will zoom in)
-	/*void AdjustZoom(float amount)
+	void AdjustZoom(float amount)
 	{
 		if ((zoom < maxZoom && amount > 0) || (zoom > 0 && amount < 0))
 		{
@@ -49,5 +49,4 @@ public class CameraFollow : MonoBehaviour
 		zoom = zoom > maxZoom ? maxZoom : zoom;
 		zoom = zoom < 0 ? 0 : zoom;
 	}
-    */
 }
