@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
 {
     Animator anim;
     public GameObject player;
+    public float speed;
 
     //Variables for Bat
     public GameObject spitPrefab;
@@ -13,7 +14,6 @@ public class EnemyAI : MonoBehaviour
 
     //Variables for Bandit
     public LayerMask whatIsPlayer;
-    public GameObject banditWeapon;
     public float attackRadius;
 
 
@@ -27,7 +27,6 @@ public class EnemyAI : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
-        Debug.Log(rand);
     }
 
     // Update is called once per frame
@@ -42,9 +41,12 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.tag == "Bat")
         {
             if (rand == 0)
-                this.transform.Translate(Vector3.left * Time.deltaTime * 5f);
+                this.transform.Translate(Vector3.left * Time.deltaTime * speed);
             else
-                this.transform.Translate(Vector3.right * Time.deltaTime * 5f);
+                this.transform.Translate(Vector3.right * Time.deltaTime * speed);
+
+
+            anim.SetBool("isAttacking", false);
         }
     }
 
@@ -52,6 +54,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (this.gameObject.tag == "Bat")
         {
+            anim.SetBool("isAttacking", true);
             GameObject spit;
             Rigidbody rb;
 
@@ -69,20 +72,39 @@ public class EnemyAI : MonoBehaviour
     {
         if(this.gameObject.tag == "Bandit")
         {
+            GameObject banditWeapon = GameObject.Find("Bandit/BanditWeapon");
+
             Collider[] playerHit = Physics.OverlapSphere(banditWeapon.transform.position, attackRadius, whatIsPlayer);
 
             for(int i = 0; i < playerHit.Length; i++)
             {
-                Debug.Log("The player has been hit by the Bandit!");
+                //Debug.Log("The player has been hit by the Bandit!");
             }
         }
     }
 
-    void OnDrawGizmosSelected()
+    public void attackWolf(GameObject player)
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(banditWeapon.transform.position, attackRadius);
+        if (this.gameObject.tag == "Wolf")
+        {
+            GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+
+            Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
+
+            for (int i = 0; i < playerHit.Length; i++)
+            {
+                Debug.Log("The player has been hit by the Wolf!");
+                //Attack twice
+            }
+            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        }
     }
+
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(banditWeapon.transform.position, attackRadius);
+    //}
     
 
 

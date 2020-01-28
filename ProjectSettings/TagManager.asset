@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Bat
   - Bandit
+  - Wolf
   layers:
   - Default
   - TransparentFX
