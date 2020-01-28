@@ -8,6 +8,7 @@ public class Sword : MonoBehaviour
     private Animator swordAnimator;
     Collider swordCollider;
     private float startTime;
+    private int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,6 @@ public class Sword : MonoBehaviour
         swordAnimator = sword.GetComponent<Animator>();
 
         swordCollider = GetComponent<Collider>();
-        swordCollider.isTrigger = false;
 
         startTime = 0.0f;
     }
@@ -49,20 +49,26 @@ public class Sword : MonoBehaviour
         if (Time.time < startTime + 0.24f && startTime != 0.0f)
         {
             swordAnimator.SetBool("Quick Click", true);
-            swordCollider.isTrigger = true;
+            swordCollider.enabled = true;
         }
         else
         {
             swordAnimator.SetBool("Quick Click", false);
-            swordCollider.isTrigger = false;
+            swordCollider.enabled = false;
         }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision enemy)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (enemy.gameObject.tag == "Bandit")
         {
-           //Damage enemy
+            swordDamageDone();
         }
+    }
+
+    public int swordDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
     }
 }

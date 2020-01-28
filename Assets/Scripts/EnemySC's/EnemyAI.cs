@@ -6,7 +6,13 @@ public class EnemyAI : MonoBehaviour
 {
     Animator anim;
     public GameObject player;
+
     public float speed;
+
+    public Sword dealDamage;
+
+    public int health;
+
 
     //Variables for Bat
     public GameObject spitPrefab;
@@ -33,6 +39,13 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+
+        //Debug.Log("health = " + health);
+
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void getPosition(GameObject Player)
@@ -107,5 +120,20 @@ public class EnemyAI : MonoBehaviour
     //}
     
 
+    int damageRecieved()
+    {
+        int damageDone = dealDamage.swordDamageDone();
+        health -= damageDone;
+        return health;
+    }
+
+    void OnCollisionEnter(Collision weapon)
+    {
+        if (weapon.collider.tag == "Sword")
+        {
+            Debug.Log("Whap");
+            damageRecieved();
+        }
+    }
 
 }
