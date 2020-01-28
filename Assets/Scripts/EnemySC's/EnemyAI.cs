@@ -103,7 +103,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnCollisionEnter(Collision weapon)
     {
-        if (weapon.gameObject.tag == "Sword")
+        if (weapon.collider.tag == "Sword")
         {
             Debug.Log("Whap");
             damageRecieved();

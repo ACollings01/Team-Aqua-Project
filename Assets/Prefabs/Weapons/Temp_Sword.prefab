@@ -177,7 +177,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235335174597533044}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 7235335175255795763}
   - component: {fileID: 7235335175255795760}
   m_Layer: 0
-  m_Name: Sword 1
+  m_Name: Temp_Sword
   m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235335175255795764}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3950738, w: 0.9186494}
+  m_LocalRotation: {x: 0, y: 0, z: -0.39507243, w: 0.91865}
   m_LocalPosition: {x: 0.9662266, y: 0.64958656, z: 0.323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -308,7 +308,7 @@ Transform:
   - {fileID: 7235335175161827129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 24.001001, y: -166.539, z: -134.513}
+  m_LocalEulerAnglesHint: {x: 180, y: -180, z: -226.541}
 --- !u!95 &7235335175255795762
 Animator:
   serializedVersion: 3
@@ -348,7 +348,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235335175255795764}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.089355, y: 0.9847521, z: 0.089355}

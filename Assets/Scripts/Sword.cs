@@ -17,7 +17,6 @@ public class Sword : MonoBehaviour
         swordAnimator = sword.GetComponent<Animator>();
 
         swordCollider = GetComponent<Collider>();
-        swordCollider.isTrigger = false;
 
         startTime = 0.0f;
     }
@@ -50,12 +49,12 @@ public class Sword : MonoBehaviour
         if (Time.time < startTime + 0.24f && startTime != 0.0f)
         {
             swordAnimator.SetBool("Quick Click", true);
-            swordCollider.isTrigger = true;
+            swordCollider.enabled = true;
         }
         else
         {
             swordAnimator.SetBool("Quick Click", false);
-            swordCollider.isTrigger = false;
+            swordCollider.enabled = false;
         }
     }
 

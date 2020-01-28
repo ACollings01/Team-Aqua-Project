@@ -957,11 +957,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
-    - target: {fileID: 7235335175255795764, guid: 0672282549b15524ebb1af2086be51da,
-        type: 3}
-      propertyPath: m_TagString
-      value: Sword
-      objectReference: {fileID: 0}
     - target: {fileID: 7235335175255795765, guid: 0672282549b15524ebb1af2086be51da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1021,11 +1016,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7235335174597533044, guid: 0672282549b15524ebb1af2086be51da,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7235335174597533042, guid: 0672282549b15524ebb1af2086be51da,
         type: 3}
