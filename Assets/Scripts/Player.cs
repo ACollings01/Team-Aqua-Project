@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Joystick joystick;
 
     private float startTime;
+    private float direction;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,9 @@ public class Player : MonoBehaviour
     {
         var rigidbody = GetComponent<Rigidbody>();
 
+        Vector3 movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+
         if (Input.GetMouseButtonDown(0))
         {
             startTime = Time.time;
@@ -52,13 +56,14 @@ public class Player : MonoBehaviour
             //Debug.Log("startTime" + startTime);
             rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
+            transform.rotation = Quaternion.LookRotation(stickMovement);
+            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
         }
         else
         {
             rigidbody.velocity = new Vector3(0, 0, 0);
         }
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         transform.Translate(movement * speed * Time.deltaTime);
     }
 
