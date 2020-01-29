@@ -9,16 +9,12 @@ public class Player : MonoBehaviour
     public int armour;
     public float speed;
     public Joystick joystick;
-
-    private float startTime;
-    private float direction;
+    bool characterMoving = false;
 
     // Start is called before the first frame update
     void Start()
     {
         joystick = FindObjectOfType<Joystick>();
-
-        startTime = 0.0f;
     }
 
     public void TakeDamage(int amount)
@@ -42,26 +38,24 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            startTime = Time.time;
+            characterMoving = true;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            startTime = 0.0f;
+            characterMoving = false;
         }
 
-        //delay quarter second before starting movement to allow for tap and swipe
-        if (Time.time > startTime + 0.25f && startTime != 0.0f)
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            //Joystick movement
-            rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+            if (characterMoving)
+            {
+                //Joystick movement
+                rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
-            transform.rotation = Quaternion.LookRotation(stickMovement);
-            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
-        }
-        else
-        {
-            rigidbody.velocity = new Vector3(0, 0, 0);
+                transform.rotation = Quaternion.LookRotation(stickMovement);
+                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+            }
         }
 
         //movement for PC

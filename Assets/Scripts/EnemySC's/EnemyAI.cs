@@ -131,7 +131,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (weapon.collider.tag == "Sword")
         {
-            Debug.Log("Whap");
             damageRecieved();
         }
     }
