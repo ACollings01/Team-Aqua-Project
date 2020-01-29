@@ -6,10 +6,10 @@ TagManager:
   tags:
   - Sword
   - Wolf
-  - Undefined
   - Bandit
   - Bat
   - Joystick
+  - Projectile
   layers:
   - Default
   - TransparentFX

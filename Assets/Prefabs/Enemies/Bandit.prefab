@@ -174,9 +174,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  speed: 0
+  dealDamage: {fileID: 0}
+  health: 3
   spitPrefab: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2048
-  banditWeapon: {fileID: 642193270}
+    m_Bits: 256
   attackRadius: 1

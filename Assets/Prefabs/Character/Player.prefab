@@ -126,3 +126,5 @@ MonoBehaviour:
   health: 0
   armour: 0
   speed: 6
+  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}

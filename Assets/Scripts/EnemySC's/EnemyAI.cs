@@ -15,7 +15,6 @@ public class EnemyAI : MonoBehaviour
 
 
     //Variables for Bat
-    public GameObject spitPrefab;
     int rand;
 
     //Variables for Bandit
@@ -44,6 +43,7 @@ public class EnemyAI : MonoBehaviour
 
         if (health <= 0)
         {
+            slimeSplit();
             Destroy(this.gameObject);
         }
     }
@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
     public void getPosition(GameObject Player)
     {
 
-        if (gameObject.tag == "Bat")
+        if (gameObject.name == "Bat")
         {
             if (rand == 0)
                 this.transform.Translate(Vector3.left * Time.deltaTime * speed);
@@ -65,9 +65,10 @@ public class EnemyAI : MonoBehaviour
 
     public void attackBat(GameObject player)
     {
-        if (this.gameObject.tag == "Bat")
+        if (gameObject.name == "Bat")
         {
             anim.SetBool("isAttacking", true);
+            GameObject spitPrefab = (GameObject)Resources.Load("Projectiles/BatProjectile");
             GameObject spit;
             Rigidbody rb;
 
@@ -83,7 +84,7 @@ public class EnemyAI : MonoBehaviour
 
     public void attackBandit(GameObject player)
     {
-        if(this.gameObject.tag == "Bandit")
+        if(gameObject.name == "Bandit")
         {
             GameObject banditWeapon = GameObject.Find("Bandit/BanditWeapon");
 
@@ -98,7 +99,7 @@ public class EnemyAI : MonoBehaviour
 
     public void attackWolf(GameObject player)
     {
-        if (this.gameObject.tag == "Wolf")
+        if (gameObject.name == "Wolf")
         {
             GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
 
@@ -107,9 +108,33 @@ public class EnemyAI : MonoBehaviour
             for (int i = 0; i < playerHit.Length; i++)
             {
                 Debug.Log("The player has been hit by the Wolf!");
+                //player.GetComponent<Player>().health -= enemyDealDamageFunction();
                 //Attack twice
             }
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        }
+    }
+
+
+    public void slimeSplit()
+    {
+        if(gameObject.name == "Slime")
+        {
+            if(health <= 0)
+            {
+                int splitRand = Random.Range(2,4);
+
+                for (int i = 0; i < splitRand; i++)
+                {
+                    GameObject miniSlime;
+                    GameObject miniSlimePrefab = (GameObject)Resources.Load("miniSlime");
+                    Vector3 miniSlimePos = new Vector3(transform.position.x + Random.Range(-4, 4),
+                                                        transform.position.y,
+                                                        transform.position.z + Random.Range(-4, 4));
+
+                    miniSlime = Instantiate(miniSlimePrefab, miniSlimePos, Quaternion.identity);
+                }
+            }
         }
     }
 

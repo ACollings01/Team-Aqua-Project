@@ -6,7 +6,7 @@ public class FollowBehaviour : StateMachineBehaviour
 {
     private Transform PlayerPos;
     int rotSpeed = 10;
-    int Speed = 5;
+    float Speed;
 
     private GameObject Player;
     private GameObject NPC;
@@ -16,6 +16,7 @@ public class FollowBehaviour : StateMachineBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         NPC = animator.gameObject;
+        Speed = NPC.GetComponent<EnemyAI>().speed;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
