@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Staff : MonoBehaviour
 {
-    private Animator swordAnimator;
-    Collider swordCollider;
+    private Animator staffAnimator;
+    Collider staffCollider;
     private bool quickTap = false;
     private bool longTap = false;
     private float startTime;
-    private int damage;
-
 
     bool AnimatorIsPlaying()
     {
-        return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+        return staffAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject sword = transform.gameObject;
-        swordAnimator = sword.GetComponent<Animator>();
+        GameObject staff = transform.gameObject;
+        staffAnimator = staff.GetComponent<Animator>();
 
-        swordCollider = GetComponent<Collider>();
+        staffCollider = GetComponent<Collider>();
 
         startTime = 0.0f;
     }
@@ -47,13 +45,11 @@ public class Sword : MonoBehaviour
             {
                 if (Time.time > startTime + 1.0f && startTime != 0.0f)
                 {
-                    longTap = true;
                     quickTap = false;
                 }
                 else if (Time.time < startTime + 1.0f && startTime != 0.0f)
                 {
                     quickTap = true;
-                    longTap = false;
                 }
 
                 startTime = 0;
@@ -62,28 +58,13 @@ public class Sword : MonoBehaviour
 
         if (quickTap && AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap", true);
-            swordCollider.enabled = true;
+            staffAnimator.SetBool("Quick Tap Staff", true);
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap", false);
-            swordCollider.enabled = false;
+            staffAnimator.SetBool("Quick Tap Staff", false);
             quickTap = false;
         }
-
-        if (longTap && AnimatorIsPlaying())
-        {
-            swordAnimator.SetBool("Long Tap", true);
-            swordCollider.enabled = true;
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            swordAnimator.SetBool("Long Tap", false);
-            swordCollider.enabled = false;
-            longTap = false;
-        }
-
 
         //for PC controls
         if (Input.GetKeyDown(KeyCode.Space))
@@ -95,19 +76,5 @@ public class Sword : MonoBehaviour
         {
             startTime = 0.0f;
         }
-    }
-
-    void OnCollisionEnter(Collision enemy)
-    {
-        if (enemy.gameObject.tag == "Bandit")
-        {
-            swordDamageDone();
-        }
-    }
-
-    public int swordDamageDone()
-    {
-        damage = Random.Range(8, 11);
-        return damage;
     }
 }
