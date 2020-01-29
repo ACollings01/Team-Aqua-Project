@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
@@ -7,8 +8,17 @@ public class Sword : MonoBehaviour
 
     private Animator swordAnimator;
     Collider swordCollider;
+    private bool quickTap = false;
+    private bool longTap = false;
     private float startTime;
     private int damage;
+    private int delay = 0;
+
+
+    bool AnimatorIsPlaying()
+    {
+        return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,16 +34,58 @@ public class Sword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //for joystick controls
-        if (Input.GetMouseButtonDown(0))
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            startTime = Time.time;
+            Debug.Log("Tooch");
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                startTime = Time.time;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (Time.time > startTime + 1.0f && startTime != 0.0f)
+                {
+                    longTap = true;
+                    quickTap = false;
+                }
+                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
+                {
+                    quickTap = true;
+                    longTap = false;
+                }
+
+                startTime = 0;
+            }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (quickTap && AnimatorIsPlaying())
         {
-            startTime = 0.0f;
+            swordAnimator.SetBool("Quick Tap", true);
+            swordCollider.enabled = true;
         }
+        else if (!AnimatorIsPlaying())
+        {
+            swordAnimator.SetBool("Quick Tap", false);
+            swordCollider.enabled = false;
+            quickTap = false;
+        }
+
+        if (longTap && AnimatorIsPlaying())
+        {
+            swordAnimator.SetBool("Long Tap", true);
+            swordCollider.enabled = true;
+        }
+        else if (!AnimatorIsPlaying())
+        {
+            swordAnimator.SetBool("Long Tap", false);
+            swordCollider.enabled = false;
+            longTap = false;
+        }
+
 
         //for PC controls
         if (Input.GetKeyDown(KeyCode.Space))
@@ -44,17 +96,6 @@ public class Sword : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             startTime = 0.0f;
-        }
-
-        if (Time.time < startTime + 0.24f && startTime != 0.0f)
-        {
-            swordAnimator.SetBool("Quick Click", true);
-            swordCollider.enabled = true;
-        }
-        else
-        {
-            swordAnimator.SetBool("Quick Click", false);
-            swordCollider.enabled = false;
         }
     }
 
