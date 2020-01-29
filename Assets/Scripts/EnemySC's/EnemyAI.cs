@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public float speed;
 
     public Sword dealDamage;
+    public Bow dealDamageBow;
 
     public int health;
 
@@ -127,11 +128,25 @@ public class EnemyAI : MonoBehaviour
         return health;
     }
 
+    int damageRecievedBow()
+    {
+        int damageDone2 = dealDamageBow.bowDamageDone();
+        health -= damageDone2;
+
+        return health;
+    }
+
     void OnCollisionEnter(Collision weapon)
     {
         if (weapon.collider.tag == "Sword")
         {
             damageRecieved();
+        }
+
+        if (weapon.collider.tag == "Bow")
+        {
+            damageRecievedBow();
+
         }
     }
 

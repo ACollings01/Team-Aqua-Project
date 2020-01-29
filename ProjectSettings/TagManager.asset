@@ -10,6 +10,8 @@ TagManager:
   - Bandit
   - Bat
   - Joystick
+  - Projectile
+  - Bow
   layers:
   - Default
   - TransparentFX
