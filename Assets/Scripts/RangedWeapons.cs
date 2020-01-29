@@ -8,8 +8,8 @@ public class RangedWeapons : MonoBehaviour
 {
 
     public float fireRate;
-    public int range;
-    public int damage;
+    //public int range;
+    //public int damage;
     protected float lastFireTime;
     public GameObject arrowPrefab;
     public Transform launchPosition;
@@ -38,6 +38,8 @@ public class RangedWeapons : MonoBehaviour
 
 
     }
+
+
 
     private void processHit(GameObject hitObject)
     {
