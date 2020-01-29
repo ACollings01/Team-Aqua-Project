@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3e10a238-0c12-4863-bfca-3cc711c4aa7a}">
+		<property name="assetPath">
+			<value>ES_Cave Water Drips 1 - SFX Producer.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>30.408000000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{91681a95-57fc-475d-a41d-d2e660e83730}</destination>
+		</relationship>
+	</object>
+</objects>
