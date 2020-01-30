@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     Animator anim;
-    public GameObject player;
+    GameObject player;
 
     public float speed;
 
@@ -15,18 +15,21 @@ public class EnemyAI : MonoBehaviour
 
     public int health;
 
+    public int minDamage;
+    public int maxDamage;
+
 
     //Variables for Bat
     int rand;
+    GameObject[] spitProjectiles;
 
     //Variables for Bandit
     public LayerMask whatIsPlayer;
     public float attackRadius;
 
-
-    public GameObject GetPlayer()
+    private void Awake()
     {
-        return player;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Start is called before the first frame update
@@ -48,7 +51,21 @@ public class EnemyAI : MonoBehaviour
             slimeSplit();
             Destroy(this.gameObject);
         }
+
+        spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach(GameObject spitProjectile in spitProjectiles)
+        {
+            float distance = Vector3.Distance(spitProjectile.transform.position, spitProjectile.transform.parent.gameObject.transform.position);
+
+            if(distance > 50)
+            {
+                Destroy(spitProjectile);
+            }
+        }
+
     }
+
+    ////////////////////////////////////////////////// BAT /////////////////////////////////////////////////
 
     public void getPosition(GameObject Player)
     {
@@ -75,6 +92,7 @@ public class EnemyAI : MonoBehaviour
             Rigidbody rb;
 
             spit = Instantiate(spitPrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
+            spit.transform.parent = gameObject.transform;
             rb = spit.GetComponent<Rigidbody>();
 
             var direction = spit.transform.position - player.transform.position;
@@ -83,6 +101,8 @@ public class EnemyAI : MonoBehaviour
             //spit.transform.Translate(0, 0, Time.deltaTime * 5);
         }
     }
+
+    ///////////////////////////////////// BANDIT //////////////////////////////////////////////////////
 
     public void attackBandit(GameObject player)
     {
@@ -94,10 +114,13 @@ public class EnemyAI : MonoBehaviour
 
             for(int i = 0; i < playerHit.Length; i++)
             {
-                //Debug.Log("The player has been hit by the Bandit!");
+                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+                Debug.Log("The player has been hit by the Bandit!");
             }
         }
     }
+
+    //////////////////////////////////// WOLF ///////////////////////////////////////////////
 
     public void attackWolf(GameObject player)
     {
@@ -110,13 +133,32 @@ public class EnemyAI : MonoBehaviour
             for (int i = 0; i < playerHit.Length; i++)
             {
                 Debug.Log("The player has been hit by the Wolf!");
-                //player.GetComponent<Player>().health -= enemyDealDamageFunction();
+                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
                 //Attack twice
             }
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
         }
     }
 
+    /////////////////////////////////// SLIME /////////////////////////////////////////////////
+
+    public void attackSlime(GameObject player)
+    {
+        if (gameObject.name == "Slime")
+        {
+            GameObject slimeFace = GameObject.Find("Slime/SlimeFace");
+
+            Collider[] playerHit = Physics.OverlapSphere(slimeFace.transform.position, attackRadius, whatIsPlayer);
+
+            for (int i = 0; i < playerHit.Length; i++)
+            {
+                Debug.Log("The player has been hit by the Slime!");
+                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+                //Attack twice
+            }
+            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        }
+    }
 
     public void slimeSplit()
     {
@@ -140,12 +182,38 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void attackMiniSlime(GameObject player)
+    {
+        if (gameObject.name == "miniSlime")
+        {
+            GameObject slimeFace = GameObject.Find("miniSlime/SlimeFace");
+
+            Collider[] playerHit = Physics.OverlapSphere(slimeFace.transform.position, attackRadius, whatIsPlayer);
+
+            for (int i = 0; i < playerHit.Length; i++)
+            {
+                Debug.Log("The player has been hit by the Mini Slime!");
+                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+                //Attack twice
+            }
+            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //void OnDrawGizmosSelected()
     //{
     //    Gizmos.color = Color.red;
     //    Gizmos.DrawWireSphere(banditWeapon.transform.position, attackRadius);
     //}
-    
+
+
+    int dealDamageToPlayer(int min, int max)
+    {
+        int damage = Random.Range(min, max + 1);
+        return damage;
+    }
 
     int damageRecievedSword()
     {
