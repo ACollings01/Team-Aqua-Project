@@ -262,5 +262,4 @@ public class EnemyAI : MonoBehaviour
             Destroy(weapon.gameObject);
         }
     }
-
 }

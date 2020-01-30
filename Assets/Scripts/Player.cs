@@ -64,6 +64,8 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
         }
+
+        CheckHealth();
     }
 
     void OnCollisionEnter(Collision other)
@@ -71,6 +73,14 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Projectile")
         {
             Destroy(other.gameObject);
+        }
+    }
+
+    private void CheckHealth()
+    {
+        if (health <= 0)
+        {
+            Debug.Log("Player Died");
         }
     }
 }
