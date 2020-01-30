@@ -244,9 +244,10 @@ public class EnemyAI : MonoBehaviour
             damageRecievedSword();
         }
 
-        if (weapon.collider.tag == "Bow")
+        if (weapon.collider.tag == "Arrow")
         {
             damageRecievedBow();
+            Destroy(weapon.gameObject);
 
         }
 

@@ -4,15 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bow
-  - Bandit
-  - Bat
-  - Projectile
+  - Enemy
   - Wolf
   - Sword
-  - Joystick
-  - Enemy
-  - Fire
+  - Arrow
+  - Projectile
+  - Bow
+  - Magic
   layers:
   - Default
   - TransparentFX
@@ -22,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - Player
+  - 
   - 
   - 
   - 

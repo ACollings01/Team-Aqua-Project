@@ -10,9 +10,10 @@ public class Bow : RangedWeapons
     private bool longTap = false;
     private float startTime;
     private int damageBow;
-    private GameObject Player;
 
     Vector3 lookAtClick;
+
+    GameObject[] arrowProjectiles;
 
     bool AnimatorIsPlaying()
     {
@@ -22,12 +23,11 @@ public class Bow : RangedWeapons
     void Start()
     {
         GameObject bow = transform.gameObject;
-
-        Player = GameObject.FindGameObjectWithTag("Player");
-
         bowAnimator = bow.GetComponent<Animator>();
 
         startTime = 0.0f;
+
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -84,7 +84,7 @@ public class Bow : RangedWeapons
                 {
                     lastFireTime = Time.time;
 
-                    Fire();
+                    FireArrow();
                 }
             }
 
@@ -102,12 +102,18 @@ public class Bow : RangedWeapons
             startTime = 0.0f;
         }
 
-        /*if (Input.GetMouseButtonDown(0) && (Time.time - lastFireTime) > fireRate)
+        arrowProjectiles = GameObject.FindGameObjectsWithTag("Arrow");
+
+        foreach (GameObject arrowProjectile in arrowProjectiles)
         {
-            lastFireTime = Time.time;
-            
-            Fire();
-        }*/
+            float distance = Vector3.Distance(arrowProjectile.transform.position, Player.transform.position);
+
+            if (distance > 50)
+            {
+                Destroy(arrowProjectile);
+            }
+        }
+
     }
 
     void OnCollisionEnter(Collision enemy)

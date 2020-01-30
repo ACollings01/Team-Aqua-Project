@@ -9,7 +9,11 @@ public class Staff : RangedWeapons
     private bool quickTap = false;
     private bool longTap = false;
     private float startTime;
-    private int damage;
+    private int damageStaff;
+
+    Vector3 lookAtClick;
+
+    GameObject[] magicProjectiles;
 
     bool AnimatorIsPlaying()
     {
@@ -23,11 +27,16 @@ public class Staff : RangedWeapons
         staffAnimator = staff.GetComponent<Animator>();
 
         startTime = 0.0f;
+
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
             //Debug.Log("Tooch");
@@ -48,6 +57,11 @@ public class Staff : RangedWeapons
                 else if (Time.time < startTime + 1.0f && startTime != 0.0f)
                 {
                     quickTap = true;
+
+                    if (Physics.Raycast(ray, out hit, 1000))
+                    {
+                        lookAtClick = hit.point;
+                    }
                 }
 
                 startTime = 0;
@@ -57,10 +71,24 @@ public class Staff : RangedWeapons
         if (quickTap && AnimatorIsPlaying())
         {
             staffAnimator.SetBool("Quick Tap Staff", true);
+
+            Player.transform.LookAt(lookAtClick);
         }
         else if (!AnimatorIsPlaying())
         {
             staffAnimator.SetBool("Quick Tap Staff", false);
+
+            if (quickTap)
+            {
+                Player.transform.LookAt(lookAtClick);
+                if ((Time.time - lastFireTime) > fireRate)
+                {
+                    lastFireTime = Time.time;
+
+                    FireMagic();
+                }
+            }
+
             quickTap = false;
         }
 
@@ -75,12 +103,18 @@ public class Staff : RangedWeapons
             startTime = 0.0f;
         }
 
-        if (Input.GetMouseButtonDown(0) && (Time.time - lastFireTime) > fireRate)
-        {
-            lastFireTime = Time.time;
+        magicProjectiles = GameObject.FindGameObjectsWithTag("Magic");
 
-            Fire();
+        foreach (GameObject arrowProjectile in magicProjectiles)
+        {
+            float distance = Vector3.Distance(arrowProjectile.transform.position, Player.transform.position);
+
+            if (distance > 20)
+            {
+                Destroy(arrowProjectile);
+            }
         }
+
     }
 
     void OnCollisionEnter(Collision enemy)
@@ -93,7 +127,7 @@ public class Staff : RangedWeapons
 
     public int staffDamageDone()
     {
-        damage = Random.Range(12, 16);
-        return damage;
+        damageStaff = Random.Range(12, 16);
+        return damageStaff;
     }
 }
