@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -21,6 +21,6 @@ public class GameManager : Singleton<GameManager>
     // Script will be filled later, will activate when player steps on a magic circle
     public void ActivateMCircle()
     {
-        Debug.Log("Player Stepped On A Magic Circle");
+        SceneManager.LoadScene("MainMenu");
     }
 }
