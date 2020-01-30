@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43116c8985345b64eb5c1317b2bb35eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 8
   dealDamageSword: {fileID: 0}
   dealDamageBow: {fileID: 0}
