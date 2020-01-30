@@ -121,7 +121,7 @@ public class Staff : RangedWeapons
     {
         if (enemy.gameObject.tag == "Enemy")
         {
-            staffDamageDone();
+            enemy.gameObject.GetComponent<EnemyAI>().health -= staffDamageDone();
         }
     }
 

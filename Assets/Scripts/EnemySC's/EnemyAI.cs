@@ -8,11 +8,6 @@ public class EnemyAI : MonoBehaviour
     GameObject player;
 
     public float speed;
-
-    public Sword dealDamageSword;
-    public Bow dealDamageBow;
-    public Staff dealDamageStaff;
-
     public int health;
 
     public int minDamage;
@@ -212,54 +207,5 @@ public class EnemyAI : MonoBehaviour
     {
         int damage = Random.Range(min, max + 1);
         return damage;
-    }
-
-    int damageRecievedSword()
-    {
-        int damageDoneSword = dealDamageSword.swordDamageDone();
-        health -= damageDoneSword;
-        return health;
-    }
-
-    int damageRecievedBow()
-    {
-        int damageDoneBow = dealDamageBow.bowDamageDone();
-        health -= damageDoneBow;
-
-        return health;
-    }
-
-    int damageRecievedStaff()
-    {
-        int damageDoneStaff = dealDamageStaff.staffDamageDone();
-        health -= damageDoneStaff;
-
-        return health;
-    }
-
-    void OnCollisionEnter(Collision weapon)
-    {
-        if (weapon.collider.tag == "Sword")
-        {
-            damageRecievedSword();
-        }
-
-        if (weapon.collider.tag == "Arrow")
-        {
-            damageRecievedBow();
-            Destroy(weapon.gameObject);
-
-        }
-
-        if (weapon.collider.tag == "Staff")
-        {
-            damageRecievedStaff();
-
-        }
-
-        if (weapon.gameObject.tag == "Projectile")
-        {
-            Destroy(weapon.gameObject);
-        }
     }
 }

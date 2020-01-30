@@ -101,7 +101,7 @@ public class Sword : MonoBehaviour
     {
         if (enemy.gameObject.tag == "Enemy")
         {
-            swordDamageDone();
+            enemy.gameObject.GetComponent<EnemyAI>().health -= swordDamageDone();
         }
     }
 
