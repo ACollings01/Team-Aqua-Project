@@ -12,6 +12,7 @@ TagManager:
   - Sword
   - Joystick
   - Enemy
+  - Arrow
   layers:
   - Default
   - TransparentFX

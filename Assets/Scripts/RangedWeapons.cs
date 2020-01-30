@@ -14,12 +14,15 @@ public class RangedWeapons : MonoBehaviour
     public GameObject arrowPrefab;
     public Transform launchPosition;
     public int speed;
+    public GameObject arrow;
 
 
     // Start is called before the first frame update
     void Start()
     {
         lastFireTime = Time.time - 1;
+
+        arrow = Instantiate(arrowPrefab) as GameObject;
     }
 
     // Update is called once per frame
@@ -32,7 +35,7 @@ public class RangedWeapons : MonoBehaviour
     {
         Vector3 rotation = new Vector3(launchPosition.position.x, launchPosition.position.y, launchPosition.position.z);
 
-        GameObject arrow = Instantiate(arrowPrefab) as GameObject;
+        arrow = Instantiate(arrowPrefab) as GameObject;
 
         arrow.transform.position = new Vector3(launchPosition.position.x, launchPosition.position.y, launchPosition.position.z + 0.5f);
         arrow.transform.rotation = Quaternion.LookRotation(rotation);

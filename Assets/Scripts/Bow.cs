@@ -11,8 +11,12 @@ public class Bow : RangedWeapons
     private float startTime;
     private int damageBow;
     private GameObject Player;
+    private GameObject Arrow;
+    private float distanceToPlayer;
 
     Vector3 lookAtClick;
+    Vector3 playerPosition;
+    Vector3 arrowPosition;
 
     bool AnimatorIsPlaying()
     {
@@ -102,12 +106,18 @@ public class Bow : RangedWeapons
             startTime = 0.0f;
         }
 
-        /*if (Input.GetMouseButtonDown(0) && (Time.time - lastFireTime) > fireRate)
+        playerPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+        arrowPosition = new Vector3(arrow.transform.position.x, arrow.transform.position.y, arrow.transform.position.z);
+
+        distanceToPlayer = Vector3.Distance(playerPosition, arrowPosition);
+
+        if (distanceToPlayer > 30)
         {
-            lastFireTime = Time.time;
-            
-            Fire();
-        }*/
+            if (gameObject.tag == "Arrow")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void OnCollisionEnter(Collision enemy)
