@@ -19,7 +19,7 @@ public class AttackBehaviour : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        NPC.transform.LookAt(Player.transform.position);
+        NPC.transform.LookAt(new Vector3(Player.transform.position.x, NPC.transform.position.y, Player.transform.position.z));
         if (timeBtwBatAtt <= 0)
         {
             timeBtwBatAtt = 2;

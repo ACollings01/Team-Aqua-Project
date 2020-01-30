@@ -13,22 +13,34 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
+<<<<<<< HEAD
   - {fileID: 114926347275053366}
   - {fileID: 114724471389165648}
+=======
+  - {fileID: 114082618203738264}
+  - {fileID: 114593743080066188}
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   EditorEvents:
-  - {fileID: 114200506680065654}
-  - {fileID: 114634681686630534}
-  - {fileID: 114152865203935162}
-  - {fileID: 114681456987871212}
-  - {fileID: 114900879418709122}
+  - {fileID: 114194743830627522}
+  - {fileID: 114099577448292436}
+  - {fileID: 114413096341384340}
+  - {fileID: 114928476356329178}
+  - {fileID: 114436903318769764}
   EditorParameters: []
   MasterBanks:
+<<<<<<< HEAD
   - {fileID: 114724471389165648}
   StringsBanks:
   - {fileID: 114926347275053366}
   stringsBankWriteTime: 637159807480000000
+=======
+  - {fileID: 114593743080066188}
+  StringsBanks:
+  - {fileID: 114082618203738264}
+  stringsBankWriteTime: 637159829211537870
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   cacheVersion: 3
---- !u!114 &114152865203935162
+--- !u!114 &114082618203738264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37,9 +49,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Cave Water Drips 1 - SFX Producer
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: event:/ES_Cave Water Drips 1 - SFX Producer
   guid: b7322ed2dc6ba54eaf26b69beed6cc22
   Banks:
@@ -52,6 +65,17 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 30408
 --- !u!114 &114200506680065654
+=======
+  Path: ProjectSettings/FMod/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637159829211537870
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1018
+  Exists: 1
+--- !u!114 &114099577448292436
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,18 +85,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Dungeon - Dream Cave
+  m_Name: event:/ES_Walk Forest Trail - SFX Producer
   m_EditorClassIdentifier: 
-  Path: event:/ES_Dungeon - Dream Cave
-  guid: 713e6c5dcca9fa4db0ef57db8e4f91da
+  Path: event:/ES_Walk Forest Trail - SFX Producer
+  guid: 99b0e140ecf9744a8a6f56b366d2c7dd
   Banks:
+<<<<<<< HEAD
   - {fileID: 114724471389165648}
+=======
+  - {fileID: 114593743080066188}
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+<<<<<<< HEAD
   Length: 152256
 --- !u!114 &114619867731791666
 MonoBehaviour:
@@ -93,29 +122,10 @@ MonoBehaviour:
   FileSizes: []
   Exists: 0
 --- !u!114 &114634681686630534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Walk Forest Trail - SFX Producer
-  m_EditorClassIdentifier: 
-  Path: event:/ES_Walk Forest Trail - SFX Producer
-  guid: 99b0e140ecf9744a8a6f56b366d2c7dd
-  Banks:
-  - {fileID: 114724471389165648}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+=======
   Length: 21216
---- !u!114 &114681456987871212
+--- !u!114 &114194743830627522
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,18 +135,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Volcanoe Lava Bubbles - SFX Producer
+  m_Name: event:/ES_Dungeon - Dream Cave
   m_EditorClassIdentifier: 
-  Path: event:/ES_Volcanoe Lava Bubbles - SFX Producer
-  guid: f03926f56b55604bad882056fc728434
+  Path: event:/ES_Dungeon - Dream Cave
+  guid: 713e6c5dcca9fa4db0ef57db8e4f91da
   Banks:
+<<<<<<< HEAD
   - {fileID: 114724471389165648}
+=======
+  - {fileID: 114593743080066188}
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+  Length: 152256
+--- !u!114 &114413096341384340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Cave Water Drips 1 - SFX Producer
+  m_EditorClassIdentifier: 
+  Path: event:/ES_Cave Water Drips 1 - SFX Producer
+  guid: b7322ed2dc6ba54eaf26b69beed6cc22
+  Banks:
+<<<<<<< HEAD
+  - {fileID: 114724471389165648}
+=======
+  - {fileID: 114593743080066188}
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+<<<<<<< HEAD
   Length: 61200
 --- !u!114 &114724471389165648
 MonoBehaviour:
@@ -157,6 +199,10 @@ MonoBehaviour:
   FileSizes: []
   Exists: 1
 --- !u!114 &114900879418709122
+=======
+  Length: 30408
+--- !u!114 &114436903318769764
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,7 +217,11 @@ MonoBehaviour:
   Path: event:/ES_Alien Cave Wind 1 - SFX Producer
   guid: ff44dc2495e94e479b271e129b9a77cd
   Banks:
+<<<<<<< HEAD
   - {fileID: 114724471389165648}
+=======
+  - {fileID: 114593743080066188}
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -179,7 +229,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 138984
---- !u!114 &114926347275053366
+--- !u!114 &114593743080066188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,13 +239,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.strings.bank
+  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
   SubDir: 
+<<<<<<< HEAD
   lastModified: 637159807480000000
+=======
+  lastModified: 637159829211537870
+>>>>>>> b87393b9c2f42bc73a5e96a7820f2c1864adb3dd
   LoadResult: 0
-  FileSizes:
-  - Name: Desktop
-    Value: 1018
+  FileSizes: []
   Exists: 1
+--- !u!114 &114928476356329178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Volcanoe Lava Bubbles - SFX Producer
+  m_EditorClassIdentifier: 
+  Path: event:/ES_Volcanoe Lava Bubbles - SFX Producer
+  guid: f03926f56b55604bad882056fc728434
+  Banks:
+  - {fileID: 114593743080066188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 61200

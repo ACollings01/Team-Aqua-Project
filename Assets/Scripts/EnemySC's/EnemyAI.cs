@@ -8,11 +8,14 @@ public class EnemyAI : MonoBehaviour
     GameObject player;
 
     public float speed;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 39428b5441ce29ab0008402314b818d12558ff60
     public int health;
 
     public int minDamage;
     public int maxDamage;
-
 
     //Variables for Bat
     int rand;
@@ -25,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+   
     }
 
     // Start is called before the first frame update

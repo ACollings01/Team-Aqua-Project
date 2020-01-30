@@ -22,7 +22,7 @@ public class FollowBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var direction = Player.transform.position - NPC.transform.position;
+        var direction = new Vector3(Player.transform.position.x - NPC.transform.position.x, NPC.transform.position.y, Player.transform.position.z - NPC.transform.position.z);
         NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
         NPC.transform.Translate(0, 0, Time.deltaTime * Speed);
 
