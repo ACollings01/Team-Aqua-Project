@@ -97,11 +97,11 @@ public class Sword : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision enemy)
+    void OnCollisionEnter(Collision other)
     {
-        if (enemy.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            swordDamageDone();
+            other.gameObject.GetComponent<EnemyAI>().health -= swordDamageDone();
         }
     }
 
