@@ -8,8 +8,8 @@ public class CameraFollow : MonoBehaviour
     private float maxZoom = 8.0f; // This should be less than the camera's distance from the player model to ensure no clipping occurs
 	private float zoom = 0.0f;
 
-    private float yOffset = 9; // Determines the max height above the player
-    private float zOffset = 5;  // Determines how far back from the player the camera is
+    private float yOffset = 18; // Determines the max height above the player
+    private float zOffset = 10;  // Determines how far back from the player the camera is
 
     private void Start()
     {

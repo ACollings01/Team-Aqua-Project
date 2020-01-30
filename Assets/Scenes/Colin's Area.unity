@@ -234,12 +234,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1627594073482465871}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &305809248 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 305809248, guid: e14c97738ee3196469f191110d1aa7e4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1627594073482465871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &360211170
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,36 +876,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1627594074341382461, guid: e14c97738ee3196469f191110d1aa7e4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627594074153587871, guid: e14c97738ee3196469f191110d1aa7e4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
-      propertyPath: magicPrefab
-      value: 
-      objectReference: {fileID: 6855304083809344935, guid: 2d4fe224c08ac2e428d1d72cbfd7e558,
-        type: 3}
-    - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
-      propertyPath: fireRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
-      propertyPath: launchPosition
-      value: 
-      objectReference: {fileID: 305809248}
-    - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
-      propertyPath: magicLaunchPosition
-      value: 
-      objectReference: {fileID: 305809248}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
