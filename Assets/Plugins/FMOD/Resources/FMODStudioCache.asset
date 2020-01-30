@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114199266438132322}
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   EditorEvents:
   - {fileID: 114999412368830748}
   - {fileID: 114545722005502092}
@@ -23,10 +23,10 @@ MonoBehaviour:
   - {fileID: 114300735349185730}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   StringsBanks:
   - {fileID: 114199266438132322}
-  stringsBankWriteTime: 637158985276385700
+  stringsBankWriteTime: 637159091227048917
   cacheVersion: 3
 --- !u!114 &114199266438132322
 MonoBehaviour:
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ProjectSettings/FMod/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637158985276385700
+  lastModified: 637159091227048917
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -63,7 +63,7 @@ MonoBehaviour:
   Path: event:/ES_Alien Cave Wind 1 - SFX Producer
   guid: ff44dc2495e94e479b271e129b9a77cd
   Banks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -122,7 +122,7 @@ MonoBehaviour:
   Path: event:/ES_Cave Water Drips 1 - SFX Producer
   guid: b7322ed2dc6ba54eaf26b69beed6cc22
   Banks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   Path: event:/ES_Walk Forest Trail - SFX Producer
   guid: 99b0e140ecf9744a8a6f56b366d2c7dd
   Banks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -153,6 +153,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 21216
+--- !u!114 &114629343581218748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637159091227038944
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &114819181046051572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +204,7 @@ MonoBehaviour:
   Path: event:/ES_Volcanoe Lava Bubbles - SFX Producer
   guid: f03926f56b55604bad882056fc728434
   Banks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -211,7 +229,7 @@ MonoBehaviour:
   lastModified: 637158985276385700
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &114999412368830748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +245,7 @@ MonoBehaviour:
   Path: event:/ES_Dungeon - Dream Cave
   guid: 713e6c5dcca9fa4db0ef57db8e4f91da
   Banks:
-  - {fileID: 114911729591227622}
+  - {fileID: 114629343581218748}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1

@@ -34,7 +34,7 @@ public class Sword : MonoBehaviour
     {
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("Tooch");
+            //Debug.Log("Tooch");
         }
         else
         {
@@ -99,7 +99,7 @@ public class Sword : MonoBehaviour
 
     void OnCollisionEnter(Collision enemy)
     {
-        if (enemy.gameObject.tag == "Bandit")
+        if (enemy.gameObject.tag == "Enemy")
         {
             swordDamageDone();
         }

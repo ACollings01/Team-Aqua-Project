@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 912252147475262001}
   m_Layer: 9
   m_Name: Bat
-  m_TagString: Bat
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,9 +144,8 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 5
   dealDamage: {fileID: 0}
+  dealDamageBow: {fileID: 0}
   health: 3
-  spitPrefab: {fileID: 5212634836481384135, guid: a8da9f87908c81c4f88ea06b85aa0751,
-    type: 3}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256

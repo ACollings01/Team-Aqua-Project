@@ -9,8 +9,9 @@ public class EnemyAI : MonoBehaviour
 
     public float speed;
 
-    public Sword dealDamage;
+    public Sword dealDamageSword;
     public Bow dealDamageBow;
+    public Staff dealDamageStaff;
 
     public int health;
 
@@ -146,17 +147,25 @@ public class EnemyAI : MonoBehaviour
     //}
     
 
-    int damageRecieved()
+    int damageRecievedSword()
     {
-        int damageDone = dealDamage.swordDamageDone();
-        health -= damageDone;
+        int damageDoneSword = dealDamageSword.swordDamageDone();
+        health -= damageDoneSword;
         return health;
     }
 
     int damageRecievedBow()
     {
-        int damageDone2 = dealDamageBow.bowDamageDone();
-        health -= damageDone2;
+        int damageDoneBow = dealDamageBow.bowDamageDone();
+        health -= damageDoneBow;
+
+        return health;
+    }
+
+    int damageRecievedStaff()
+    {
+        int damageDoneStaff = dealDamageStaff.staffDamageDone();
+        health -= damageDoneStaff;
 
         return health;
     }
@@ -165,13 +174,24 @@ public class EnemyAI : MonoBehaviour
     {
         if (weapon.collider.tag == "Sword")
         {
-            damageRecieved();
+            damageRecievedSword();
         }
 
         if (weapon.collider.tag == "Bow")
         {
             damageRecievedBow();
 
+        }
+
+        if (weapon.collider.tag == "Staff")
+        {
+            damageRecievedStaff();
+
+        }
+
+        if (weapon.gameObject.tag == "Projectile")
+        {
+            Destroy(weapon.gameObject);
         }
     }
 

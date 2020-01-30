@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Staff : MonoBehaviour
+public class Staff : RangedWeapons
 {
     private Animator staffAnimator;
-    Collider staffCollider;
     private bool quickTap = false;
     private bool longTap = false;
     private float startTime;
+    private int damage;
 
     bool AnimatorIsPlaying()
     {
@@ -22,8 +22,6 @@ public class Staff : MonoBehaviour
         GameObject staff = transform.gameObject;
         staffAnimator = staff.GetComponent<Animator>();
 
-        staffCollider = GetComponent<Collider>();
-
         startTime = 0.0f;
     }
 
@@ -32,7 +30,7 @@ public class Staff : MonoBehaviour
     {
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            Debug.Log("Tooch");
+            //Debug.Log("Tooch");
         }
         else
         {
@@ -76,5 +74,26 @@ public class Staff : MonoBehaviour
         {
             startTime = 0.0f;
         }
+
+        if (Input.GetMouseButtonDown(0) && (Time.time - lastFireTime) > fireRate)
+        {
+            lastFireTime = Time.time;
+
+            Fire();
+        }
+    }
+
+    void OnCollisionEnter(Collision enemy)
+    {
+        if (enemy.gameObject.tag == "Enemy")
+        {
+            staffDamageDone();
+        }
+    }
+
+    public int staffDamageDone()
+    {
+        damage = Random.Range(12, 16);
+        return damage;
     }
 }

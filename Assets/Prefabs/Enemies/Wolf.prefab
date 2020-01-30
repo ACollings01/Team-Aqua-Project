@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1296766072}
   m_Layer: 0
   m_Name: Wolf
-  m_TagString: Wolf
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 8
   dealDamage: {fileID: 0}
+  dealDamageBow: {fileID: 0}
   health: 3
-  spitPrefab: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
