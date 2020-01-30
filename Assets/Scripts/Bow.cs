@@ -9,7 +9,6 @@ public class Bow : RangedWeapons
     private bool quickTap = false;
     private bool longTap = false;
     private float startTime;
-    private int damageBow;
 
     Vector3 lookAtClick;
 
@@ -114,19 +113,5 @@ public class Bow : RangedWeapons
             }
         }
 
-    }
-
-    void OnCollisionEnter(Collision enemy)
-    {
-        if (enemy.gameObject.tag == "Enemy")
-        {
-            bowDamageDone();
-        }
-    }
-
-    public int bowDamageDone()
-    {
-        damageBow = Random.Range(4, 8);
-        return damageBow;
     }
 }

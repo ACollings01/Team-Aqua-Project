@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114199266438132322}
-  - {fileID: 114297867814214768}
+  - {fileID: 114082618203738264}
+  - {fileID: 114593743080066188}
   EditorEvents:
-  - {fileID: 114999412368830748}
-  - {fileID: 114545722005502092}
-  - {fileID: 114458601445230460}
-  - {fileID: 114837420916464190}
-  - {fileID: 114300735349185730}
+  - {fileID: 114194743830627522}
+  - {fileID: 114099577448292436}
+  - {fileID: 114413096341384340}
+  - {fileID: 114928476356329178}
+  - {fileID: 114436903318769764}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 114297867814214768}
+  - {fileID: 114593743080066188}
   StringsBanks:
-  - {fileID: 114199266438132322}
+  - {fileID: 114082618203738264}
   stringsBankWriteTime: 637159829211537870
   cacheVersion: 3
---- !u!114 &114199266438132322
+--- !u!114 &114082618203738264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1018
   Exists: 1
---- !u!114 &114259422800390942
+--- !u!114 &114099577448292436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,16 +57,90 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Walk Forest Trail - SFX Producer
   m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159250028272334
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114297867814214768
+  Path: event:/ES_Walk Forest Trail - SFX Producer
+  guid: 99b0e140ecf9744a8a6f56b366d2c7dd
+  Banks:
+  - {fileID: 114593743080066188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 21216
+--- !u!114 &114194743830627522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Dungeon - Dream Cave
+  m_EditorClassIdentifier: 
+  Path: event:/ES_Dungeon - Dream Cave
+  guid: 713e6c5dcca9fa4db0ef57db8e4f91da
+  Banks:
+  - {fileID: 114593743080066188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 152256
+--- !u!114 &114413096341384340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Cave Water Drips 1 - SFX Producer
+  m_EditorClassIdentifier: 
+  Path: event:/ES_Cave Water Drips 1 - SFX Producer
+  guid: b7322ed2dc6ba54eaf26b69beed6cc22
+  Banks:
+  - {fileID: 114593743080066188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 30408
+--- !u!114 &114436903318769764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ES_Alien Cave Wind 1 - SFX Producer
+  m_EditorClassIdentifier: 
+  Path: event:/ES_Alien Cave Wind 1 - SFX Producer
+  guid: ff44dc2495e94e479b271e129b9a77cd
+  Banks:
+  - {fileID: 114593743080066188}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 138984
+--- !u!114 &114593743080066188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,220 +158,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &114300735349185730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Alien Cave Wind 1 - SFX Producer
-  m_EditorClassIdentifier: 
-  Path: event:/ES_Alien Cave Wind 1 - SFX Producer
-  guid: ff44dc2495e94e479b271e129b9a77cd
-  Banks:
-  - {fileID: 114297867814214768}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 138984
---- !u!114 &114343223727550104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637158895384854723
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114348671634576234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637158903580012866
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114458601445230460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Cave Water Drips 1 - SFX Producer
-  m_EditorClassIdentifier: 
-  Path: event:/ES_Cave Water Drips 1 - SFX Producer
-  guid: b7322ed2dc6ba54eaf26b69beed6cc22
-  Banks:
-  - {fileID: 114297867814214768}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 30408
---- !u!114 &114545722005502092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Walk Forest Trail - SFX Producer
-  m_EditorClassIdentifier: 
-  Path: event:/ES_Walk Forest Trail - SFX Producer
-  guid: 99b0e140ecf9744a8a6f56b366d2c7dd
-  Banks:
-  - {fileID: 114297867814214768}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 21216
---- !u!114 &114546809545952824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159250028272334
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114629343581218748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159091227038944
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114643424121966718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159698627035211
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114699301051885662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159807480000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114815813048640626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637159091227038944
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114819181046051572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637158898949109544
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114837420916464190
+--- !u!114 &114928476356329178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,7 +173,7 @@ MonoBehaviour:
   Path: event:/ES_Volcanoe Lava Bubbles - SFX Producer
   guid: f03926f56b55604bad882056fc728434
   Banks:
-  - {fileID: 114297867814214768}
+  - {fileID: 114593743080066188}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -320,44 +181,3 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 61200
---- !u!114 &114911729591227622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: ProjectSettings/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637158985276385700
-  LoadResult: 0
-  FileSizes: []
-  Exists: 0
---- !u!114 &114999412368830748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/ES_Dungeon - Dream Cave
-  m_EditorClassIdentifier: 
-  Path: event:/ES_Dungeon - Dream Cave
-  guid: 713e6c5dcca9fa4db0ef57db8e4f91da
-  Banks:
-  - {fileID: 114297867814214768}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 152256
