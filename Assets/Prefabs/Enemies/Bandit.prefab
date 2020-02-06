@@ -174,10 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  dealDamageSword: {fileID: 0}
-  dealDamageBow: {fileID: 0}
-  dealDamageStaff: {fileID: 0}
-  health: 3
+  health: 30
   minDamage: 1
   maxDamage: 2
   whatIsPlayer:
