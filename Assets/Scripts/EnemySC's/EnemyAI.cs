@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    Animator anim;
+    protected Animator anim;
     GameObject player;
 
     public float speed;
@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach(GameObject spitProjectile in spitProjectiles)
         {
-            float distance = Vector3.Distance(spitProjectile.transform.position, spitProjectile.transform.parent.gameObject.transform.position);
+            float distance = Vector3.Distance(spitProjectile.transform.position, GameObject.Find("Bat").transform.position);
 
             if(distance > 50)
             {
@@ -61,9 +61,8 @@ public class EnemyAI : MonoBehaviour
 
     ////////////////////////////////////////////////// BAT /////////////////////////////////////////////////
 
-    public void getPosition(GameObject Player)
+    public void moveAroundPlayer(GameObject Player)
     {
-
         if (gameObject.name == "Bat")
         {
             if (rand == 0)
@@ -86,13 +85,11 @@ public class EnemyAI : MonoBehaviour
             Rigidbody rb;
 
             spit = Instantiate(spitPrefab, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
-            spit.transform.parent = gameObject.transform;
+            //spit.transform.parent = gameObject.transform;
             rb = spit.GetComponent<Rigidbody>();
 
-            var direction = spit.transform.position - player.transform.position;
             spit.transform.LookAt(player.transform.position);
             rb.AddForce(spit.transform.forward * 500.0f);
-            //spit.transform.Translate(0, 0, Time.deltaTime * 5);
         }
     }
 
@@ -198,8 +195,9 @@ public class EnemyAI : MonoBehaviour
 
     //void OnDrawGizmosSelected()
     //{
+    //    GameObject slimeFace = GameObject.Find("Bandit/BanditWeapon");
     //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(banditWeapon.transform.position, attackRadius);
+    //    Gizmos.DrawWireSphere(slimeFace.transform.position, attackRadius);
     //}
 
 
