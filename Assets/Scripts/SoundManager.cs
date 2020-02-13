@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManger Instance = null;
+    public static SoundManager Instance = null;
     private AudioSource soundEffectAudio;
 
     public AudioClip ES_Walk_Forest_Trail;
