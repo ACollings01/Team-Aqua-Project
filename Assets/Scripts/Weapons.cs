@@ -17,8 +17,7 @@ public class Weapons : MonoBehaviour
 
     void Start()
     {
-        whatIsEnemy = LayerMask.GetMask("Enemy");
-        swordAttackRadius = 1;
+
     }
 
     void Update()
@@ -59,14 +58,18 @@ public class Weapons : MonoBehaviour
 
     protected void swordAttack()
     {
-       GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        swordAttackRadius = 1;
+
+        GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
 
        Collider[] enemyHit = Physics.OverlapSphere(playerSword.transform.position, swordAttackRadius, whatIsEnemy);
+
+        Debug.Log(enemyHit.Length);
 
        for (int i = 0; i < enemyHit.Length; i++)
        {
            enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
-           Debug.Log("The player has hit the enemy!");
        }
     }
 
@@ -75,4 +78,5 @@ public class Weapons : MonoBehaviour
         damage = Random.Range(8, 11);
         return damage;
     }
+
 }

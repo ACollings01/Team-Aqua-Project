@@ -47,4 +47,11 @@ public class Sword : Weapons
             longTap = false;
         }
     }
+
+    void OnDrawGizmosSelected()
+    {
+        GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(playerSword.transform.position, 1);
+    }
 }
