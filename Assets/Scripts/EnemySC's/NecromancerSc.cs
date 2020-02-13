@@ -28,6 +28,8 @@ public class NecromancerSc : EnemyAI
 
         fireball.transform.LookAt(player.transform.position);
         rb.AddForce(fireball.transform.forward * 500.0f);
+
+        anim.SetBool("shootFireball", false);
     }
 
     public void summonZombies(GameObject player)
@@ -45,19 +47,35 @@ public class NecromancerSc : EnemyAI
             zombie.name = "Zombie";
         }
 
+        anim.SetBool("summonZombies", false);
     }
 
     public void shootHomingFireballs(GameObject player)
     {
         anim.SetBool("shootHomingFireballs", true);  //Set animator to shootingHomingFireballs
 
+        StartCoroutine(spawnHomingFireballs());
+
+        anim.SetBool("shootHomingFireballs", false);
+    }
+
+    IEnumerator spawnHomingFireballs()
+    {
         int rand = Random.Range(4, 9); //Set the number of homingFireBalls that will spawn
 
         for (int i = 1; i <= rand; i++)
         {
-            
             GameObject homingPrefab = (GameObject)Resources.Load("Projectiles/HomingFireball"); //Find and retrieve the homingFireball prefab
             GameObject homingFireball = Instantiate(homingPrefab, transform.Find("fireballPos" + i.ToString()).transform.position, Quaternion.identity); //Instantiate the homingFireball prefab
+
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        GameObject[] homingFireballs = GameObject.FindGameObjectsWithTag("Projectile");
+
+        for(int i = 0; i < homingFireballs.Length; i++)
+        {
+            homingFireballs[i].GetComponent<HomingFireball>().enabled = true;
         }
     }
 

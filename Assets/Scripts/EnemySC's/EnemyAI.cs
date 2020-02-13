@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach(GameObject spitProjectile in spitProjectiles)
         {
-            float distance = Vector3.Distance(spitProjectile.transform.position, GameObject.Find("Bat").transform.position);
+            float distance = Vector3.Distance(spitProjectile.transform.position, GameObject.Find("Player").transform.position);
 
             if(distance > 50)
             {

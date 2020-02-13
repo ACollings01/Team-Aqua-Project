@@ -58,6 +58,7 @@ public class AttackBehaviour : StateMachineBehaviour
                 {
                     NPC.GetComponent<NecromancerSc>().shootHomingFireballs(Player);
                     timeTillNextAttack = Random.Range(2f, 5f); //Randomize the time until the Necromancers next attack
+                    Debug.Log("Shot Homing");
                 }
             }
             else
