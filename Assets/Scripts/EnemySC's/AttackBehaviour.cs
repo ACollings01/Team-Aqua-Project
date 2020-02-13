@@ -29,6 +29,7 @@ public class AttackBehaviour : StateMachineBehaviour
             NPC.GetComponent<EnemyAI>().attackWolf(Player);
             NPC.GetComponent<EnemyAI>().attackSlime(Player);
             NPC.GetComponent<EnemyAI>().attackMiniSlime(Player);
+            NPC.GetComponent<EnemyAI>().attackZombie(Player);
         }
         else
         {

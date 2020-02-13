@@ -111,6 +111,22 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    ///////////////////////////////////// ZOMBIE //////////////////////////////////////////////////////
+
+    public void attackZombie(GameObject player)
+    {
+        if (gameObject.name == "Zombie")
+        {
+            Collider[] playerHit = Physics.OverlapSphere(transform.position, attackRadius, whatIsPlayer);
+
+            for (int i = 0; i < playerHit.Length; i++)
+            {
+                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+                Debug.Log("The player has been hit by the Zombie!");
+            }
+        }
+    }
+
     //////////////////////////////////// WOLF ///////////////////////////////////////////////
 
     public void attackWolf(GameObject player)
