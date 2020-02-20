@@ -16,8 +16,6 @@ public class Sword : Weapons
         GameObject sword = transform.gameObject;
         swordAnimator = sword.GetComponent<Animator>();
 
-        //swordCollider = GetComponent<Collider>();
-
         startTime = 0.0f;
     }
 
