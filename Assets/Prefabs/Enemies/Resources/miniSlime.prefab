@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6499332588800261782}
   - component: {fileID: 6499332588800261783}
   - component: {fileID: 6499332588800261780}
-  - component: {fileID: 6499332588800261781}
   - component: {fileID: 6499332588800261786}
+  - component: {fileID: 8560066621130501326}
   m_Layer: 0
   m_Name: miniSlime
   m_TagString: Enemy
@@ -111,29 +111,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &6499332588800261781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5760221185989575049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43116c8985345b64eb5c1317b2bb35eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  dealDamageSword: {fileID: 0}
-  dealDamageBow: {fileID: 0}
-  dealDamageStaff: {fileID: 0}
-  health: 3
-  minDamage: 1
-  maxDamage: 1
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  attackRadius: 2
 --- !u!95 &6499332588800261786
 Animator:
   serializedVersion: 3
@@ -153,6 +130,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8560066621130501326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5760221185989575049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cc29dc295e0e8418565c3daa89dfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  health: 5
+  minDamage: 1
+  maxDamage: 2
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  attackRadius: 1
 --- !u!1 &8284103127374094655
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 420593820}
   - component: {fileID: 420593821}
   - component: {fileID: 420593817}
-  - component: {fileID: 7182318257900780751}
+  - component: {fileID: 1611982439916830276}
   m_Layer: 9
   m_Name: Bandit
   m_TagString: Enemy
@@ -161,7 +161,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7182318257900780751
+--- !u!114 &1611982439916830276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,17 +170,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 605873424066916892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43116c8985345b64eb5c1317b2bb35eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 53e677bbdad62bd42b5f903f3d2c92a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  dealDamageSword: {fileID: 0}
-  dealDamageBow: {fileID: 0}
-  dealDamageStaff: {fileID: 0}
-  health: 3
-  minDamage: 1
-  maxDamage: 2
+  speed: 3
+  health: 10
+  minDamage: 7
+  maxDamage: 9
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   attackRadius: 1

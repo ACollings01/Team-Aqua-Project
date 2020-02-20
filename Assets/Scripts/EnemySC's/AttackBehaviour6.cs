@@ -21,25 +21,25 @@ public class AttackBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC.transform.LookAt(new Vector3(Player.transform.position.x, NPC.transform.position.y, Player.transform.position.z));
+
         if (timeBtwBatAtt <= 0)
         {
             timeBtwBatAtt = 2;
-            NPC.GetComponent<EnemyAI>().attackBat(Player);
-            NPC.GetComponent<EnemyAI>().attackBandit(Player);
-            NPC.GetComponent<EnemyAI>().attackWolf(Player);
-            NPC.GetComponent<EnemyAI>().attackSlime(Player);
-            NPC.GetComponent<EnemyAI>().attackMiniSlime(Player);
-            NPC.GetComponent<EnemyAI>().attackZombie(Player);
+            NPC.GetComponent<BatSc>().attackBat(Player);
+            NPC.GetComponent<BanditSc>().attackBandit(Player);
+            NPC.GetComponent<WolfSc>().attackWolf(Player);
+            NPC.GetComponent<SlimeSc>().attackSlime(Player);
+            NPC.GetComponent<SlimeSc>().attackMiniSlime(Player);
+            NPC.GetComponent<ZombieSc>().attackZombie(Player);
         }
         else
         {
             timeBtwBatAtt -= Time.deltaTime;
-            NPC.GetComponent<EnemyAI>().moveAroundPlayer(Player);
+            NPC.GetComponent<BatSc>().moveAroundPlayer(Player);
         }
 
         if (NPC.name == "Necromancer")
         {
-
             if (timeTillNextAttack <= 0) //Check to see if the time has reached 0 or less than
             {
                 int rand = Random.Range(0, 3); //Pick a random attack
@@ -58,16 +58,13 @@ public class AttackBehaviour : StateMachineBehaviour
                 {
                     NPC.GetComponent<NecromancerSc>().shootHomingFireballs(Player);
                     timeTillNextAttack = Random.Range(2f, 5f); //Randomize the time until the Necromancers next attack
-                    Debug.Log("Shot Homing");
                 }
             }
             else
             {
                 timeTillNextAttack -= Time.deltaTime; //If the time remaining is still above 0, decrease it
             }
-        }
-
-        
+        }   
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state

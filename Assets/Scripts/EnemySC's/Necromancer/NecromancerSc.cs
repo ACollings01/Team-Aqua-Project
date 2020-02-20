@@ -13,7 +13,7 @@ public class NecromancerSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        
+        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
     }
 
     public void shootFireball(GameObject player)
@@ -38,10 +38,10 @@ public class NecromancerSc : EnemyAI
 
         int rand = Random.Range(2, 4); //Randomize the amount of zombies that will spawn
 
-        Vector3 distance = new Vector3(transform.position.x + Random.Range(-4f, 4f), 0, transform.position.z + Random.Range(-4f, 4f));
-
         for (int i = 0; i < rand; i++)
         {
+            Vector3 distance = new Vector3(transform.position.x + Random.Range(-4f, 4f), 0, transform.position.z + Random.Range(-4f, 4f));
+
             GameObject zombiePrefab = (GameObject)Resources.Load("Zombie(Necromancer)");
             GameObject zombie = Instantiate(zombiePrefab, distance, Quaternion.identity);
             zombie.name = "Zombie";
@@ -67,13 +67,14 @@ public class NecromancerSc : EnemyAI
         {
             GameObject homingPrefab = (GameObject)Resources.Load("Projectiles/HomingFireball"); //Find and retrieve the homingFireball prefab
             GameObject homingFireball = Instantiate(homingPrefab, transform.Find("fireballPos" + i.ToString()).transform.position, Quaternion.identity); //Instantiate the homingFireball prefab
+            homingFireball.name = "homingFireball";
 
             yield return new WaitForSeconds(0.3f);
         }
 
         GameObject[] homingFireballs = GameObject.FindGameObjectsWithTag("Projectile");
 
-        for(int i = 0; i < homingFireballs.Length; i++)
+        for (int i = 0; i < homingFireballs.Length; i++)
         {
             homingFireballs[i].GetComponent<HomingFireball>().enabled = true;
         }
