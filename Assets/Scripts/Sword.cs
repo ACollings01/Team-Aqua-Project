@@ -28,22 +28,32 @@ public class Sword : Weapons
         if (quickTap && AnimatorIsPlaying())
         {
             swordAnimator.SetBool("Quick Tap", true);
-            swordAttack();
+
+            if (attackOnce == false)
+            {
+                swordAttack();
+            }
         }
         else if (!AnimatorIsPlaying())
         {
             swordAnimator.SetBool("Quick Tap", false);
+            attackOnce = false;
             quickTap = false;
         }
 
         if (longTap && AnimatorIsPlaying())
         {
             swordAnimator.SetBool("Long Tap", true);
-            swordAttack();
+
+            if (attackOnce == false)
+            {
+                swordAttack();
+            }
         }
         else if (!AnimatorIsPlaying())
         {
             swordAnimator.SetBool("Long Tap", false);
+            attackOnce = false;
             longTap = false;
         }
     }

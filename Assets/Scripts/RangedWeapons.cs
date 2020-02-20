@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class RangedWeapons : MonoBehaviour
+public class RangedWeapons : Weapons
 {
     public GameObject arrowPrefab;
     public GameObject magicPrefab;
@@ -62,19 +62,5 @@ public class RangedWeapons : MonoBehaviour
         magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
 
-    }
-
-
-
-    private void processHit(GameObject hitObject)
-    {
-        //if (hitObject.GetComponent<Player>() != null)
-        //{
-        //    hitObject.GetComponent<Player>().TakeDamage(damage);
-        //}
-        //if (hitObject.GetComponent<Bat>() != null)
-        //{
-        //    hitObject.GetComponent<Robot>().TakeDamage(damage);
-        //}
     }
 }

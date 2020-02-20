@@ -9,6 +9,7 @@ public class Weapons : MonoBehaviour
     protected bool longTap = false;
     protected float startTime;
     protected int damage;
+    protected bool attackOnce = false;
 
     LayerMask whatIsEnemy;
     float swordAttackRadius;
@@ -69,7 +70,8 @@ public class Weapons : MonoBehaviour
 
        for (int i = 0; i < enemyHit.Length; i++)
        {
-           enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
+            enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
+            attackOnce = true;
        }
     }
 
