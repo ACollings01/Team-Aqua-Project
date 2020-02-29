@@ -6,9 +6,6 @@ using UnityEngine;
 public class Bow : RangedWeapons
 {
     private Animator bowAnimator;
-    private bool quickTap = false;
-    private bool longTap = false;
-    private float startTime;
 
     Vector3 lookAtClick;
 
@@ -36,33 +33,11 @@ public class Bow : RangedWeapons
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            //Debug.Log("Tooch");
+            //Debug.Log("Touch");
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startTime = Time.time;
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = true;
-
-                    if (Physics.Raycast(ray, out hit, 1000))
-                    {
-                        lookAtClick = hit.point;
-                    }
-                }
-
-                startTime = 0;
-            }
+            lengthOfTap();
         }
 
         if (quickTap && AnimatorIsPlaying())
@@ -88,17 +63,6 @@ public class Bow : RangedWeapons
             }
 
             quickTap = false;
-        }
-
-        //for PC controls
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startTime = Time.time;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            startTime = 0.0f;
         }
 
         arrowProjectiles = GameObject.FindGameObjectsWithTag("Arrow");
