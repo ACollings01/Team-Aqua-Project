@@ -12,6 +12,9 @@ TagManager:
   - Bow
   - Magic
   - Joystick
+  - Spear
+  - Shield
+  - Thrown Spear
   layers:
   - Default
   - TransparentFX

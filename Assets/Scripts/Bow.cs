@@ -7,8 +7,6 @@ public class Bow : RangedWeapons
 {
     private Animator bowAnimator;
 
-    Vector3 lookAtClick;
-
     GameObject[] arrowProjectiles;
 
     bool AnimatorIsPlaying()
@@ -31,18 +29,16 @@ public class Bow : RangedWeapons
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            //Debug.Log("Touch");
-        }
-        else
-        {
-            lengthOfTap();
-        }
+        lengthOfTap();
 
         if (quickTap && AnimatorIsPlaying())
         {
             bowAnimator.SetBool("Quick Tap Bow", true);
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+            }
 
             Player.transform.LookAt(lookAtClick);
             

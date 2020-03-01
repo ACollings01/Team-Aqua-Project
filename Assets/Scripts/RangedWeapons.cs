@@ -8,16 +8,22 @@ public class RangedWeapons : Weapons
 {
     public GameObject arrowPrefab;
     public GameObject magicPrefab;
+    public GameObject spearPrefab;
+    public GameObject fireAtPrefab;
     public Transform arrowLaunchPosition;
     public Transform magicLaunchPosition;
-    public GameObject arrow;
-    public GameObject magic;
+    public Transform spearLaunchPosition;
     public GameObject Player;
+
+    private GameObject arrow;
+    private GameObject magic;
+    private GameObject spear;
 
     public int speed;
     public float fireRate;
 
     protected float lastFireTime;
+    protected GameObject fireAt;
 
 
     // Start is called before the first frame update
@@ -60,6 +66,21 @@ public class RangedWeapons : Weapons
         magic.transform.rotation = Quaternion.LookRotation(rotation);
 
         magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
+
+
+    }
+
+    protected void ThrowSpear()
+    {
+        Vector3 rotation = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
+
+        spear = Instantiate(spearPrefab, transform.position, Quaternion.identity);
+        spear.tag = "Thrown Spear";
+
+        spear.transform.position = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
+        spear.transform.rotation = Quaternion.LookRotation(rotation);
+
+        spear.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
 
     }
