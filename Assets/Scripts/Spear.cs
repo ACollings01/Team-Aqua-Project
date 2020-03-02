@@ -36,14 +36,14 @@ public class Spear : RangedWeapons
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.435f, hit.point.z);
             }
 
             Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
-                swordAttack();
+                spearAttack();
             }
         }
         else if (!AnimatorIsPlaying())
@@ -90,7 +90,20 @@ public class Spear : RangedWeapons
         {
             float distance = Vector3.Distance(spearProjectile.transform.position, Player.transform.position);
 
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+            }
+
+            while (spearProjectile)
+            spearProjectile.transform.LookAt(lookAtClickProjectile);
+
             if (distance > 50)
+            {
+                Destroy(spearProjectile);
+            }
+
+            if (Time.time > startTime + 5.0f && startTime != 0.0f)
             {
                 Destroy(spearProjectile);
             }

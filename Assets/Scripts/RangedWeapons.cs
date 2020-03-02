@@ -52,7 +52,6 @@ public class RangedWeapons : Weapons
 
         arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
-
     }
 
     protected void FireMagic()
@@ -67,21 +66,19 @@ public class RangedWeapons : Weapons
 
         magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
-
     }
 
     protected void ThrowSpear()
     {
-        Vector3 rotation = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
+        //Vector3 rotation = new Vector3(spearLaunchPosition.rotation.x, spearLaunchPosition.rotation.y, spearLaunchPosition.rotation.z);
 
         spear = Instantiate(spearPrefab, transform.position, Quaternion.identity);
         spear.tag = "Thrown Spear";
 
-        spear.transform.position = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
-        spear.transform.rotation = Quaternion.LookRotation(rotation);
+        //spear.transform.position = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
+        //spear.transform.rotation = Quaternion.LookRotation(rotation);
 
         spear.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
-
 
     }
 }

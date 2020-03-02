@@ -11,6 +11,7 @@ public class Weapons : MonoBehaviour
     protected int damage;
     protected bool attackOnce = false;
     protected Vector3 lookAtClick;
+    protected Vector3 lookAtClickProjectile;
 
     LayerMask whatIsEnemy;
     float swordAttackRadius;
