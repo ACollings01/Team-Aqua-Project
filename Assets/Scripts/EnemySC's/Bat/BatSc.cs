@@ -29,6 +29,11 @@ public class BatSc : EnemyAI
                 Destroy(spitProjectile);
             }
         }
+
+        if (this.health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void moveAroundPlayer(GameObject Player)

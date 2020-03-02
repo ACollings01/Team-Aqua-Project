@@ -15,6 +15,9 @@ TagManager:
   - Spear
   - Shield
   - Thrown Spear
+  - Fireball
+  - HomingFireball
+  - HomingProjectile
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - 
   - Enemy
   - Player
-  - 
+  - Fireball
   - 
   - 
   - 
