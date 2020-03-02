@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackBehaviour : StateMachineBehaviour
+public class BanditAttackBehaviour : StateMachineBehaviour
 {
     private GameObject Player;
     private GameObject NPC;
 
-    float timeBtwBatAtt = 2;
+    float timeBtwBatAtt = 2f;
+    float timeTillNextAttack = 4f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -20,22 +21,16 @@ public class AttackBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         NPC.transform.LookAt(new Vector3(Player.transform.position.x, NPC.transform.position.y, Player.transform.position.z));
+
         if (timeBtwBatAtt <= 0)
         {
             timeBtwBatAtt = 2;
-            NPC.GetComponent<EnemyAI>().attackBat(Player);
-            NPC.GetComponent<EnemyAI>().attackBandit(Player);
-            NPC.GetComponent<EnemyAI>().attackWolf(Player);
-            NPC.GetComponent<EnemyAI>().attackSlime(Player);
-            NPC.GetComponent<EnemyAI>().attackMiniSlime(Player);
+            NPC.GetComponent<BanditSc>().attackBandit(Player);
         }
         else
         {
             timeBtwBatAtt -= Time.deltaTime;
-            NPC.GetComponent<EnemyAI>().getPosition(Player);
         }
-        
-        
     }
 
     //OnStateExit is called when a transition ends and the state machine finishes evaluating this state

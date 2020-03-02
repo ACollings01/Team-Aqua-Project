@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1296766071}
   - component: {fileID: 1296766068}
   - component: {fileID: 1296766067}
-  - component: {fileID: 1296766072}
+  - component: {fileID: 4526227548030108506}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Enemy
@@ -144,7 +144,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1296766072
+--- !u!114 &4526227548030108506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,19 +153,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8688383584727737070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43116c8985345b64eb5c1317b2bb35eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 594981f7830a03448a64e9f1a72d7be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  dealDamageSword: {fileID: 0}
-  dealDamageBow: {fileID: 0}
-  dealDamageStaff: {fileID: 0}
-  health: 3
-  minDamage: 0
-  maxDamage: 0
+  speed: 3
+  health: 10
+  minDamage: 4
+  maxDamage: 6
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   attackRadius: 1
 --- !u!1 &8688383584823075726
 GameObject:
