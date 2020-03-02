@@ -55,13 +55,13 @@ public class RangedWeapons : Weapons
 
     protected void FireMagic()
     {
-        Vector3 rotation = new Vector3(magicLaunchPosition.position.x, magicLaunchPosition.position.y, magicLaunchPosition.position.z);
+        //Vector3 rotation = new Vector3(magicLaunchPosition.position.x, magicLaunchPosition.position.y, magicLaunchPosition.position.z);
 
         magic = Instantiate(magicPrefab, transform.position, Quaternion.identity);
         magic.tag = "Magic";
 
-        magic.transform.position = new Vector3(magicLaunchPosition.position.x, magicLaunchPosition.position.y, magicLaunchPosition.position.z + 0.5f);
-        magic.transform.rotation = Quaternion.LookRotation(rotation);
+        magic.transform.position = new Vector3(magicLaunchPosition.position.x - 0.1f, magicLaunchPosition.position.y, magicLaunchPosition.position.z);
+        //magic.transform.rotation = Quaternion.LookRotation(rotation);
 
         magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
