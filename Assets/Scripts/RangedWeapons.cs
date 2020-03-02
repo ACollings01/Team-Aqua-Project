@@ -8,16 +8,21 @@ public class RangedWeapons : Weapons
 {
     public GameObject arrowPrefab;
     public GameObject magicPrefab;
+    public GameObject spearPrefab;
+    public GameObject fireAtPrefab;
     public Transform arrowLaunchPosition;
     public Transform magicLaunchPosition;
-    public GameObject arrow;
-    public GameObject magic;
-    public GameObject Player;
+    public Transform spearLaunchPosition;
+
+    private GameObject arrow;
+    private GameObject magic;
+    private GameObject spear;
 
     public int speed;
     public float fireRate;
 
     protected float lastFireTime;
+    protected GameObject fireAt;
 
 
     // Start is called before the first frame update
@@ -36,16 +41,15 @@ public class RangedWeapons : Weapons
 
     protected void FireArrow()
     {
-        Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+        //Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
 
         arrow = Instantiate(arrowPrefab, transform.position ,Quaternion.identity);
         arrow.tag = "Arrow";
 
-        arrow.transform.position = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z + 0.5f);
-        arrow.transform.rotation = Quaternion.LookRotation(rotation);
+        arrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+        //arrow.transform.rotation = Quaternion.LookRotation(rotation);
 
         arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
-
 
     }
 
@@ -61,6 +65,19 @@ public class RangedWeapons : Weapons
 
         magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
+    }
+
+    protected void ThrowSpear()
+    {
+        //Vector3 rotation = new Vector3(spearLaunchPosition.rotation.x, spearLaunchPosition.rotation.y, spearLaunchPosition.rotation.z);
+
+        spear = Instantiate(spearPrefab, transform.position, Quaternion.identity);
+        spear.tag = "Thrown Spear";
+
+        //spear.transform.position = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
+        //spear.transform.rotation = Quaternion.LookRotation(rotation);
+
+        spear.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
     }
 }

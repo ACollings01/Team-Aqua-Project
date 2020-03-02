@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : Weapons
+public class Shield : Weapons
 {
-    private Animator swordAnimator;
+    private Animator shieldAnimator;
+    Rigidbody playerBody;
 
     bool AnimatorIsPlaying()
     {
-        return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+        return shieldAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
     }
 
     void Start()
     {
-        GameObject sword = transform.gameObject;
-        swordAnimator = sword.GetComponent<Animator>();
-
+        GameObject shield = transform.gameObject;
+        shieldAnimator = shield.GetComponent<Animator>();
+      
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        playerBody = Player.GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -30,7 +32,7 @@ public class Sword : Weapons
 
         if (quickTap && AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap", true);
+            shieldAnimator.SetBool("Quick Tap Shield", true);
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
@@ -41,28 +43,40 @@ public class Sword : Weapons
 
             if (attackOnce == false)
             {
-                swordAttack();
+                shieldAttack();
             }
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap", false);
+            shieldAnimator.SetBool("Quick Tap Shield", false);
             attackOnce = false;
             quickTap = false;
         }
 
         if (longTap && AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Long Tap", true);
+            shieldAnimator.SetBool("Long Tap Shield", true);
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+
+            Player.transform.LookAt(lookAtClick);
+
+            playerBody.isKinematic = false;
+
+            playerBody.velocity = transform.parent.forward * 10;
 
             if (attackOnce == false)
             {
-                swordAttack();
+                shieldAttack();
             }
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Long Tap", false);
+            shieldAnimator.SetBool("Long Tap Shield", false);
+            playerBody.isKinematic = true;
             attackOnce = false;
             longTap = false;
         }
@@ -70,8 +84,8 @@ public class Sword : Weapons
 
     void OnDrawGizmosSelected()
     {
-        GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
+        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerSword.transform.position, 1);
+        Gizmos.DrawWireSphere(playerShield.transform.position, 1);
     }
 }

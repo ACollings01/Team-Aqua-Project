@@ -10,6 +10,9 @@ public class Weapons : MonoBehaviour
     protected float startTime;
     protected int damage;
     protected bool attackOnce = false;
+    protected Vector3 lookAtClick;
+    protected Vector3 lookAtClickProjectile;
+    public GameObject Player;
 
     LayerMask whatIsEnemy;
     float swordAttackRadius;
@@ -66,7 +69,7 @@ public class Weapons : MonoBehaviour
 
        Collider[] enemyHit = Physics.OverlapSphere(playerSword.transform.position, swordAttackRadius, whatIsEnemy);
 
-        Debug.Log(enemyHit.Length);
+        //Debug.Log(enemyHit.Length);
 
        for (int i = 0; i < enemyHit.Length; i++)
        {
@@ -75,7 +78,55 @@ public class Weapons : MonoBehaviour
        }
     }
 
+    protected void spearAttack()
+    {
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        spearAttackRadius = .5f;
+
+        GameObject playerSpear = GameObject.Find("Player/Player_Model/Spear");
+
+        Collider[] enemyHit = Physics.OverlapSphere(playerSpear.transform.position, spearAttackRadius, whatIsEnemy);
+
+        //Debug.Log(enemyHit.Length);
+
+        for (int i = 0; i < enemyHit.Length; i++)
+        {
+            enemyHit[i].GetComponent<EnemyAI>().health -= spearDamageDone();
+            attackOnce = true;
+        }
+    }
+
+    protected void shieldAttack()
+    {
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        shieldAttackRadius = 1;
+
+        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
+
+        Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
+
+        //Debug.Log(enemyHit.Length);
+
+        for (int i = 0; i < enemyHit.Length; i++)
+        {
+            enemyHit[i].GetComponent<EnemyAI>().health -= shieldDamageDone();
+            attackOnce = true;
+        }
+    }
+
     public int swordDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
+    }
+
+    public int spearDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
+    }
+
+    public int shieldDamageDone()
     {
         damage = Random.Range(8, 11);
         return damage;

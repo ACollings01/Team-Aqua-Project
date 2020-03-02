@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         var rigidbody = GetComponent<Rigidbody>();
+        var flat = GetComponent<Transform>();
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
