@@ -28,6 +28,8 @@ public class Bow : RangedWeapons
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        int layerMask = 1 << 9;
+        layerMask = ~layerMask;
 
         lengthOfTap();
 
@@ -35,13 +37,13 @@ public class Bow : RangedWeapons
         {
             bowAnimator.SetBool("Quick Tap Bow", true);
 
-            if (Physics.Raycast(ray, out hit, 1000))
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.237f, hit.point.z);
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
 
             Player.transform.LookAt(lookAtClick);
-            
+
         }
         else if (!AnimatorIsPlaying())
         {

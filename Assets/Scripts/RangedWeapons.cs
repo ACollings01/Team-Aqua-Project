@@ -13,7 +13,6 @@ public class RangedWeapons : Weapons
     public Transform arrowLaunchPosition;
     public Transform magicLaunchPosition;
     public Transform spearLaunchPosition;
-    public GameObject Player;
 
     private GameObject arrow;
     private GameObject magic;

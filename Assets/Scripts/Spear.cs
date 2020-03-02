@@ -36,7 +36,7 @@ public class Spear : RangedWeapons
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.435f, hit.point.z);
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
 
             Player.transform.LookAt(lookAtClick);
@@ -59,7 +59,7 @@ public class Spear : RangedWeapons
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
 
             Player.transform.LookAt(lookAtClick);
