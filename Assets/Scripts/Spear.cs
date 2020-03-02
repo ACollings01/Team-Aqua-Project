@@ -95,18 +95,20 @@ public class Spear : RangedWeapons
                 lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
             }
 
-            while (spearProjectile)
-            spearProjectile.transform.LookAt(lookAtClickProjectile);
+            if (!AnimatorIsPlaying())
+            {
+                spearProjectile.transform.LookAt(lookAtClickProjectile);
+            }
 
             if (distance > 50)
             {
                 Destroy(spearProjectile);
             }
 
-            if (Time.time > startTime + 5.0f && startTime != 0.0f)
+            /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
             {
                 Destroy(spearProjectile);
-            }
+            }*/
         }
 
     }

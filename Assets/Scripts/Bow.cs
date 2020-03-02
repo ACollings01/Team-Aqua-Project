@@ -67,15 +67,25 @@ public class Bow : RangedWeapons
         {
             float distance = Vector3.Distance(arrowProjectile.transform.position, Player.transform.position);
 
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+            }
+
+            if (!AnimatorIsPlaying())
+            {
+                arrowProjectile.transform.LookAt(lookAtClickProjectile);
+            }
+
             if (distance > 50)
             {
                 Destroy(arrowProjectile);
             }
 
-            if (Time.time > startTime + 5.0f && startTime != 0.0f)
+            /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
             {
                 Destroy(arrowProjectile);
-            }
+            }*/
         }
 
     }

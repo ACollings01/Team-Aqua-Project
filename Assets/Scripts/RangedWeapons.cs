@@ -42,13 +42,13 @@ public class RangedWeapons : Weapons
 
     protected void FireArrow()
     {
-        Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+        //Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
 
         arrow = Instantiate(arrowPrefab, transform.position ,Quaternion.identity);
         arrow.tag = "Arrow";
 
-        arrow.transform.position = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z + 0.5f);
-        arrow.transform.rotation = Quaternion.LookRotation(rotation);
+        arrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+        //arrow.transform.rotation = Quaternion.LookRotation(rotation);
 
         arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
 
