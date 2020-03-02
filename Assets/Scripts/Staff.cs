@@ -6,12 +6,7 @@ using UnityEngine;
 public class Staff : RangedWeapons
 {
     private Animator staffAnimator;
-    private bool quickTap = false;
-    private bool longTap = false;
-    private float startTime;
     private int damageStaff;
-
-    Vector3 lookAtClick;
 
     GameObject[] magicProjectiles;
 
@@ -37,40 +32,16 @@ public class Staff : RangedWeapons
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            //Debug.Log("Tooch");
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startTime = Time.time;
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = true;
-
-                    if (Physics.Raycast(ray, out hit, 1000))
-                    {
-                        lookAtClick = hit.point;
-                    }
-                }
-
-                startTime = 0;
-            }
-        }
+        lengthOfTap();
 
         if (quickTap && AnimatorIsPlaying())
         {
             staffAnimator.SetBool("Quick Tap Staff", true);
+
+            if (Physics.Raycast(ray, out hit, 1000))
+            {
+                lookAtClick = hit.point;
+            }
 
             Player.transform.LookAt(lookAtClick);
         }

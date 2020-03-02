@@ -11,7 +11,10 @@ TagManager:
   - Projectile
   - Bow
   - Magic
-  - Fire
+  - Joystick
+  - Spear
+  - Shield
+  - Thrown Spear
   layers:
   - Default
   - TransparentFX
@@ -21,9 +24,9 @@ TagManager:
   - UI
   - 
   - 
-  - EnemyProjectile
   - Enemy
   - Player
+  - 
   - 
   - 
   - 
