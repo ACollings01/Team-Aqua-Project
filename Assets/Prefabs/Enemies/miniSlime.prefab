@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6499332588800261780}
   - component: {fileID: 6499332588800261786}
   - component: {fileID: 8560066621130501326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: miniSlime
   m_TagString: Enemy
   m_Icon: {fileID: 0}

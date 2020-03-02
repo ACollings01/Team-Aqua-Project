@@ -15,6 +15,9 @@ TagManager:
   - Spear
   - Shield
   - Thrown Spear
+  - Fireball
+  - HomingFireball
+  - HomingProjectile
   - Staff
   layers:
   - Default
@@ -27,7 +30,7 @@ TagManager:
   - 
   - Enemy
   - Player
-  - 
+  - Fireball
   - 
   - 
   - 

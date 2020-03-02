@@ -14,6 +14,11 @@ public class ZombieSc : EnemyAI
     void Update()
     {
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+
+        if (this.health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void attackZombie(GameObject player)

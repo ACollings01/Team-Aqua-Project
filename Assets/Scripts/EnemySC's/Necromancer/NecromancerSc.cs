@@ -14,6 +14,11 @@ public class NecromancerSc : EnemyAI
     void Update()
     {
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+
+        if (this.health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void shootFireball(GameObject player)
@@ -72,12 +77,24 @@ public class NecromancerSc : EnemyAI
             yield return new WaitForSeconds(0.3f);
         }
 
-        GameObject[] homingFireballs = GameObject.FindGameObjectsWithTag("Projectile");
+        GameObject[] homingFireballs = GameObject.FindGameObjectsWithTag("HomingFireball");
 
         for (int i = 0; i < homingFireballs.Length; i++)
         {
             homingFireballs[i].GetComponent<HomingFireball>().enabled = true;
         }
+    }
+
+    public int dealHomingDamage(int min, int max)
+    {
+        int damage = Random.Range(min - 9, max - 9);
+        return damage;
+    }
+
+    public int dealFireballDamage(int min, int max)
+    {
+        int damage = Random.Range(min, max + 1);
+        return damage;
     }
 
 }
