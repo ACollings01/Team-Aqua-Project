@@ -46,8 +46,18 @@ public class SoundManager : Singleton<SoundManager>
 
     public AudioClip ES_Walk_Forest_Trail;
     public AudioClip ES_Volcanoe_Lava_Bubbles;
-    public AudioClip ES_Cave_Water_Drips;
-    public AudioClip ES_Alien_Cave_Wind;
+    public AudioClip Ambiances_Cave_Level;
+    public AudioClip ES_Dungeon_Dream_Cave;
+    public AudioClip Fire_Staff_Fireball_hit;
+    public AudioClip Fire_Staff_Woosh;
+    public AudioClip Ice_Staff_Hit_1;
+    public AudioClip Ice_Staff_Swoosh_1;
+    public AudioClip Lightning_Staff_Lightning_Strike;
+    public AudioClip Wolf_Howl;
+    public AudioClip Wolf_Bite_2;
+    public AudioClip Wolf_Damage_2;
+    public AudioClip Wolf_Death_3;
+
 
     // Start is called before the first frame update
     void Start()
