@@ -15,6 +15,7 @@ TagManager:
   - Spear
   - Shield
   - Thrown Spear
+  - Staff
   layers:
   - Default
   - TransparentFX
