@@ -58,6 +58,17 @@ public class Player : MonoBehaviour
                 transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
             }
         }
+        else
+        {
+            if (characterMoving)
+            {
+                //Joystick movement
+                rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                transform.rotation = Quaternion.LookRotation(stickMovement);
+                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+            }
+        }
 
         //movement for PC
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))

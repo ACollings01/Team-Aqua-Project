@@ -18,6 +18,7 @@ TagManager:
   - Fireball
   - HomingFireball
   - HomingProjectile
+  - Staff
   layers:
   - Default
   - TransparentFX

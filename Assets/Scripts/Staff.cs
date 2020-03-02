@@ -6,31 +6,30 @@ using UnityEngine;
 public class Staff : RangedWeapons
 {
     private Animator staffAnimator;
-    private int damageStaff;
 
-    GameObject[] magicProjectiles;
+    GameObject[] staffProjectiles;
 
     bool AnimatorIsPlaying()
     {
         return staffAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        GameObject staff = transform.gameObject;
-        staffAnimator = staff.GetComponent<Animator>();
+        GameObject bow = transform.gameObject;
+        staffAnimator = bow.GetComponent<Animator>();
 
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        int layerMask = 1 << 9;
+        layerMask = ~layerMask;
 
         lengthOfTap();
 
@@ -38,12 +37,13 @@ public class Staff : RangedWeapons
         {
             staffAnimator.SetBool("Quick Tap Staff", true);
 
-            if (Physics.Raycast(ray, out hit, 1000))
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
             {
-                lookAtClick = hit.point;
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
 
             Player.transform.LookAt(lookAtClick);
+
         }
         else if (!AnimatorIsPlaying())
         {
@@ -63,42 +63,32 @@ public class Staff : RangedWeapons
             quickTap = false;
         }
 
-        //for PC controls
-        if (Input.GetKeyDown(KeyCode.Space))
+        staffProjectiles = GameObject.FindGameObjectsWithTag("Staff");
+
+        foreach (GameObject staffProjectile in staffProjectiles)
         {
-            startTime = Time.time;
-        }
+            float distance = Vector3.Distance(staffProjectile.transform.position, Player.transform.position);
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            startTime = 0.0f;
-        }
-
-        magicProjectiles = GameObject.FindGameObjectsWithTag("Magic");
-
-        foreach (GameObject arrowProjectile in magicProjectiles)
-        {
-            float distance = Vector3.Distance(arrowProjectile.transform.position, Player.transform.position);
-
-            if (distance > 20)
+            if (Physics.Raycast(ray, out hit, 1000))
             {
-                Destroy(arrowProjectile);
+                lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
             }
+
+            if (!AnimatorIsPlaying())
+            {
+                staffProjectile.transform.LookAt(lookAtClickProjectile);
+            }
+
+            if (distance > 50)
+            {
+                Destroy(staffProjectile);
+            }
+
+            /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
+            {
+                Destroy(staffProjectile);
+            }*/
         }
 
-    }
-
-    void OnCollisionEnter(Collision enemy)
-    {
-        if (enemy.gameObject.tag == "Enemy")
-        {
-            enemy.gameObject.GetComponent<EnemyAI>().health -= staffDamageDone();
-        }
-    }
-
-    public int staffDamageDone()
-    {
-        damageStaff = Random.Range(12, 16);
-        return damageStaff;
     }
 }
