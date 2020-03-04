@@ -90,16 +90,6 @@ public class Spear : RangedWeapons
         {
             float distance = Vector3.Distance(spearProjectile.transform.position, Player.transform.position);
 
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
-            }
-
-            if (!AnimatorIsPlaying())
-            {
-                spearProjectile.transform.LookAt(lookAtClickProjectile);
-            }
-
             if (distance > 50)
             {
                 Destroy(spearProjectile);
