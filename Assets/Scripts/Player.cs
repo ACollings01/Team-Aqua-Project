@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         var rigidbody = GetComponent<Rigidbody>();
+        var flat = GetComponent<Transform>();
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
@@ -47,6 +48,17 @@ public class Player : MonoBehaviour
         }
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            if (characterMoving)
+            {
+                //Joystick movement
+                rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                transform.rotation = Quaternion.LookRotation(stickMovement);
+                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+            }
+        }
+        else
         {
             if (characterMoving)
             {

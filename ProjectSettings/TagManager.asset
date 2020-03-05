@@ -11,7 +11,15 @@ TagManager:
   - Projectile
   - Bow
   - Magic
-  - Fire
+  - Joystick
+  - Spear
+  - Shield
+  - Thrown Spear
+  - Fireball
+  - HomingFireball
+  - HomingProjectile
+  - Staff
+
   layers:
   - Default
   - TransparentFX
@@ -21,9 +29,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Fireball
   - 
   - 
   - 
