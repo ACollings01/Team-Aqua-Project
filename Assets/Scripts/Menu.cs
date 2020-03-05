@@ -16,4 +16,9 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("TownScene");
     }
+
+    public void ShopUI()
+    {
+        SceneManager.LoadScene("ShopUI");
+    }
 }

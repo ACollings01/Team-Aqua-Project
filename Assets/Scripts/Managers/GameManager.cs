@@ -23,4 +23,9 @@ public class GameManager : Singleton<GameManager>
     {
         SceneManager.LoadScene("MagicCircleUI");
     }
+
+    public void ActivateShop()
+    {
+        SceneManager.LoadScene("ShopUI");
+    }
 }
