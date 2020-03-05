@@ -178,5 +178,5 @@ MonoBehaviour:
   maxDamage: 9
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
   attackRadius: 1
