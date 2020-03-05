@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4282260b84aea4143abb0aa07a090046, type: 3}
-  m_Name: Coin
+  m_Script: {fileID: 11500000, guid: 2a1d558d3c91044409b4aee3b703f931, type: 3}
+  m_Name: Spear
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  type: 2
-  description: Money Money Money
+  type: 1
+  description: A powerful mid-range spear capable of being thrown.
+  defenseBonus: 0
+  attackBonus: 12
