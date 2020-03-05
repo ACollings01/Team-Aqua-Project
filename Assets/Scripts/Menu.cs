@@ -5,25 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //tutorial I used to help https://www.youtube.com/watch?v=zc8ac_qUXQY
 
     public void StartGame()
     {
         SceneManager.LoadScene("Prototype Level");
     }
-    // 2
-    public void Quit()
+    
+    public void TownScene()
     {
-        Application.Quit();
+        SceneManager.LoadScene("TownScene");
+    }
+
+    public void ShopUI()
+    {
+        SceneManager.LoadScene("ShopUI");
     }
 }
