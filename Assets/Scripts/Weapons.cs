@@ -14,7 +14,7 @@ public class Weapons : MonoBehaviour
     protected Vector3 lookAtClickProjectile;
     public GameObject Player;
 
-    LayerMask whatIsEnemy;
+    protected LayerMask whatIsEnemy;
     float swordAttackRadius;
     float spearAttackRadius;
     float shieldAttackRadius;

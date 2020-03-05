@@ -32,6 +32,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1744896524488111762, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,14 +96,15 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
-    - target: {fileID: 1294847704, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1294847703, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 36cd534c1f8ff6147b221cf8379e4a0c, type: 2}
+    - target: {fileID: 5843987380772829060, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
+        type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
 --- !u!1 &591301898057586276 stripped
