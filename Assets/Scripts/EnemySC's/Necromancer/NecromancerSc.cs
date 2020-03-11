@@ -13,6 +13,8 @@ public class NecromancerSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        crawlToSurface();
+
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         if (this.health <= 0)
@@ -45,7 +47,7 @@ public class NecromancerSc : EnemyAI
 
         for (int i = 0; i < rand; i++)
         {
-            Vector3 distance = new Vector3(transform.position.x + Random.Range(-4f, 4f), 0, transform.position.z + Random.Range(-4f, 4f));
+            Vector3 distance = new Vector3(transform.position.x + Random.Range(-4f, 4f), -2, transform.position.z + Random.Range(-4f, 4f));
 
             GameObject zombiePrefab = (GameObject)Resources.Load("Zombie(Necromancer)");
             GameObject zombie = Instantiate(zombiePrefab, distance, Quaternion.identity);
@@ -95,6 +97,20 @@ public class NecromancerSc : EnemyAI
     {
         int damage = Random.Range(min, max + 1);
         return damage;
+    }
+
+    void crawlToSurface()
+    {
+        if (transform.position.y <= 1)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 2);
+        }
+        else
+        {
+            this.GetComponent<Animator>().enabled = true;
+            this.GetComponent<Collider>().enabled = true;
+            this.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 
 }

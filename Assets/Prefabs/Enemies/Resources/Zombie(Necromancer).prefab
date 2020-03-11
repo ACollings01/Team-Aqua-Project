@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!136 &1294847703
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591301898057586276}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2043800354617967400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,18 +10,7 @@ PrefabInstance:
     - target: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
       propertyPath: m_Name
-      value: Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Zombie(Necromancer)
       objectReference: {fileID: 0}
     - target: {fileID: 1744896524488111762, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
@@ -92,24 +67,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1294847707, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294847703, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 36cd534c1f8ff6147b221cf8379e4a0c, type: 2}
-    - target: {fileID: 5843987380772829060, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
-        type: 3}
-      propertyPath: whatIsPlayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}
---- !u!1 &591301898057586276 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2043800354617967400}
-  m_PrefabAsset: {fileID: 0}

@@ -17,6 +17,8 @@ public class BatSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        crawlToSurface();
+
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
@@ -65,6 +67,19 @@ public class BatSc : EnemyAI
 
             spit.transform.LookAt(player.transform.position);
             rb.AddForce(spit.transform.forward * 500.0f);
+        }
+    }
+
+    void crawlToSurface()
+    {
+        if (transform.position.y <= 1)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 2);
+        }
+        else
+        {
+            this.GetComponent<Animator>().enabled = true;
+            this.GetComponent<Collider>().enabled = true;
         }
     }
 }

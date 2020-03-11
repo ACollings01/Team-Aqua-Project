@@ -13,6 +13,8 @@ public class BanditSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        crawlToSurface();
+
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         if (this.health <= 0)
@@ -34,6 +36,20 @@ public class BanditSc : EnemyAI
                 player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
                 Debug.Log("The player has been hit by the Bandit!");
             }
+        }
+    }
+
+    void crawlToSurface()
+    {
+        if (transform.position.y <= 1)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 2);
+        }
+        else
+        {
+            this.GetComponent<Animator>().enabled = true;
+            this.GetComponent<Collider>().enabled = true;
+            this.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }
