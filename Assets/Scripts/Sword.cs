@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : Weapons
 {
     private Animator swordAnimator;
-
+    
     bool AnimatorIsPlaying()
     {
         return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
@@ -13,7 +13,7 @@ public class Sword : Weapons
 
     void Start()
     {
-        GameObject sword = transform.gameObject;
+        GameObject sword = GameObject.Find("Sword");
         swordAnimator = sword.GetComponent<Animator>();
 
         startTime = 0.0f;
@@ -70,8 +70,7 @@ public class Sword : Weapons
 
     void OnDrawGizmosSelected()
     {
-        GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerSword.transform.position, 1);
+        Gizmos.DrawWireSphere(SwordBlade.transform.position, 1);
     }
 }

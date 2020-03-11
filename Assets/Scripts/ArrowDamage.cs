@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowDamage : MonoBehaviour
+public class ArrowDamage : RangedWeapons
 {
     // Start is called before the first frame update
     void Start()
