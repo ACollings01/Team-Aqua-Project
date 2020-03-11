@@ -9,15 +9,23 @@ public class Weapons : MonoBehaviour
     protected bool longTap = false;
     protected float startTime;
     protected int damage;
+    protected int layerMask;
+    protected int ignoreLayerMask;
     protected bool attackOnce = false;
+    protected bool checkOnce = false;
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
-    public GameObject Player;
+    protected GameObject Player;
+
+    [SerializeField]
+    protected GameObject SwordBlade;
 
     protected LayerMask whatIsEnemy;
     float swordAttackRadius;
     float spearAttackRadius;
     float shieldAttackRadius;
+
+   
 
     void Start()
     {
@@ -65,9 +73,7 @@ public class Weapons : MonoBehaviour
         whatIsEnemy = LayerMask.GetMask("Enemy");
         swordAttackRadius = 1;
 
-        GameObject playerSword = GameObject.Find("Player/Player_Model/Sword");
-
-       Collider[] enemyHit = Physics.OverlapSphere(playerSword.transform.position, swordAttackRadius, whatIsEnemy);
+       Collider[] enemyHit = Physics.OverlapSphere(SwordBlade.transform.position, swordAttackRadius, whatIsEnemy);
 
         //Debug.Log(enemyHit.Length);
 
