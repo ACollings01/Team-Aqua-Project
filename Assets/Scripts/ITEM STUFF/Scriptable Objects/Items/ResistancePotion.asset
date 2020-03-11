@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f6c5dda3843c42a5a076c2c9ac090, type: 3}
   m_Name: ResistancePotion
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1386930064806638413, guid: 026496647295f9345abbeb3a82c9ace7, type: 3}
   type: 0
   description: 'A powerful mixture that hardens the skin, increasing one''s durability
     significantly!
