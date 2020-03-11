@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
 
     public int minDamage;
     public int maxDamage;
+    private AudioSource audioSource;
 
     //Variables for Bat
     int rand;
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
     }
@@ -120,9 +122,11 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.name == "Wolf")
         {
+            audioSource.PlayOneShot(SoundManager.Instance.Wolf_Howl);
             GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
 
             Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
+            audioSource.PlayOneShot(SoundManager.Instance.Wolf_Bite_2);
 
             for (int i = 0; i < playerHit.Length; i++)
             {

@@ -10,10 +10,12 @@ public class Player : MonoBehaviour
     public float speed;
     public Joystick joystick;
     bool characterMoving = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         joystick = FindObjectOfType<Joystick>();
     }
 
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             characterMoving = false;
+            audioSource.PlayOneShot(SoundManager.Instance.ES_Walk_Forest_Trail);
         }
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())

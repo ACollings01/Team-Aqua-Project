@@ -10,6 +10,7 @@ public class Staff : RangedWeapons
     private bool longTap = false;
     private float startTime;
     private int damageStaff;
+    private AudioSource audioSource;
 
     Vector3 lookAtClick;
 
@@ -25,6 +26,8 @@ public class Staff : RangedWeapons
     {
         GameObject staff = transform.gameObject;
         staffAnimator = staff.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 
@@ -122,6 +125,11 @@ public class Staff : RangedWeapons
         if (enemy.gameObject.tag == "Enemy")
         {
             enemy.gameObject.GetComponent<EnemyAI>().health -= staffDamageDone();
+
+            audioSource.PlayOneShot(SoundManager.Instance.Fire_Staff_Fireball_hit);
+            audioSource.PlayOneShot(SoundManager.Instance.Ice_Staff_Hit_1);
+            audioSource.PlayOneShot(SoundManager.Instance.Lightning_Staff_Lightning_Strike);
+
         }
     }
 
