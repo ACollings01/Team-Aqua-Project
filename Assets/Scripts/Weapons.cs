@@ -9,7 +9,10 @@ public class Weapons : MonoBehaviour
     protected bool longTap = false;
     protected float startTime;
     protected int damage;
+    protected int layerMask;
+    protected int ignoreLayerMask;
     protected bool attackOnce = false;
+    protected bool checkOnce = false;
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
     protected GameObject Player;
@@ -21,6 +24,8 @@ public class Weapons : MonoBehaviour
     float swordAttackRadius;
     float spearAttackRadius;
     float shieldAttackRadius;
+
+   
 
     void Start()
     {

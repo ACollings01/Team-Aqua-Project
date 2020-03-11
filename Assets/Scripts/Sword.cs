@@ -13,7 +13,7 @@ public class Sword : Weapons
 
     void Start()
     {
-        GameObject sword = GameObject.Find("BaseModelAnimatedSword");
+        GameObject sword = GameObject.Find("Sword");
         swordAnimator = sword.GetComponent<Animator>();
 
         startTime = 0.0f;
@@ -30,7 +30,7 @@ public class Sword : Weapons
 
         if (quickTap && AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap Sword", true);
+            swordAnimator.SetBool("Quick Tap", true);
 
             if (Physics.Raycast(ray, out hit, 1000))
             {
@@ -46,14 +46,14 @@ public class Sword : Weapons
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Quick Tap Sword", false);
+            swordAnimator.SetBool("Quick Tap", false);
             attackOnce = false;
             quickTap = false;
         }
 
         if (longTap && AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Long Tap Sword", true);
+            swordAnimator.SetBool("Long Tap", true);
 
             if (attackOnce == false)
             {
@@ -62,7 +62,7 @@ public class Sword : Weapons
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Long Tap Sword", false);
+            swordAnimator.SetBool("Long Tap", false);
             attackOnce = false;
             longTap = false;
         }
