@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BanditAttackBehaviour : StateMachineBehaviour
+public class BanditRangedAttackBehaviour : StateMachineBehaviour
 {
     private GameObject Player;
     private GameObject NPC;
@@ -25,7 +25,7 @@ public class BanditAttackBehaviour : StateMachineBehaviour
         if (timeBtwBatAtt <= 0)
         {
             timeBtwBatAtt = 2;
-            NPC.GetComponent<BanditSc>().attackBandit(Player);
+            NPC.GetComponent<BanditRangedSc>().attackBandit(Player);
         }
         else
         {
