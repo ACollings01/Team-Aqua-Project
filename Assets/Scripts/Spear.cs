@@ -21,6 +21,8 @@ public class Spear : RangedWeapons
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        layerMask = LayerMask.GetMask("Player", "Enemy");
+        ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
     }
 
     void Update()
@@ -28,16 +30,25 @@ public class Spear : RangedWeapons
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        layerMask = ~layerMask;
+
         lengthOfTap();
+
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        {
+            lookAtClick = lookAtClick;
+        }
+        else if (quickTap == false)
+        {
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+        }
 
         if (quickTap && AnimatorIsPlaying())
         {
             spearAnimator.SetBool("Quick Tap Spear", true);
-
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-            }
 
             Player.transform.LookAt(lookAtClick);
 
@@ -56,11 +67,6 @@ public class Spear : RangedWeapons
         if (longTap && AnimatorIsPlaying())
         {
             spearAnimator.SetBool("Long Tap Spear", true);
-
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-            }
 
             Player.transform.LookAt(lookAtClick);
 

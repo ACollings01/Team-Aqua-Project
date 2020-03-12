@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5356413758966625024
 Transform:
   m_ObjectHideFlags: 0
@@ -67,14 +67,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832248169df317f438ef3c324ddcbd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 0}
   spearPrefab: {fileID: 5356413758966625025, guid: a37bf268aeee1f14dbfa0731cf75e6fe,
     type: 3}
+  fireAtPrefab: {fileID: 0}
   arrowLaunchPosition: {fileID: 0}
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 0}
-  Player: {fileID: 0}
   speed: 10
   fireRate: 0.5
 --- !u!136 &5356413758966625029
