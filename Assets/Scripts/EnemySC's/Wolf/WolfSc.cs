@@ -26,20 +26,17 @@ public class WolfSc : EnemyAI
 
     public void attackWolf(GameObject player)
     {
-        if (gameObject.name == "Wolf")
+        GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+
+        Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
+
+        for (int i = 0; i < playerHit.Length; i++)
         {
-            GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
-
-            Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
-
-            for (int i = 0; i < playerHit.Length; i++)
-            {
-                Debug.Log("The player has been hit by the Wolf!");
-                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
-                //Attack twice
-            }
-            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+            Debug.Log("The player has been hit by the Wolf!");
+            playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+            //Attack twice
         }
+        transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
 
     void crawlToSurface()

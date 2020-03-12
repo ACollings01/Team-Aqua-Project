@@ -9,14 +9,13 @@ public class SpawnerSc : MonoBehaviour
     public GameObject player;
     //Hold a number for the amount of enemies to spawn
     public int numberOfEnemies;
-    public float distance;
 
     bool enemiesSpawned = false;
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(this.transform.position, player.transform.position);
+        float distance = Vector3.Distance(this.transform.position, player.transform.position);
         //Check for distance between object and player
         if (distance <= 20)
         {

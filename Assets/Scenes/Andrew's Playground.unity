@@ -268,6 +268,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1627594073692287074, guid: e14c97738ee3196469f191110d1aa7e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1627594073692287073, guid: e14c97738ee3196469f191110d1aa7e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -332,6 +337,11 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1627594074341382458, guid: e14c97738ee3196469f191110d1aa7e4,
+        type: 3}
+      propertyPath: SwordBlade
+      value: 
+      objectReference: {fileID: 2014630616}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
 --- !u!1 &569984486 stripped
@@ -1178,6 +1188,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 912252147475262004, guid: 6f1add67f0c684848b3b463a55fa1809,
     type: 3}
   m_PrefabInstance: {fileID: 1880846532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2014630616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1627594073665891453, guid: e14c97738ee3196469f191110d1aa7e4,
+    type: 3}
+  m_PrefabInstance: {fileID: 437942418}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2085671756
 PrefabInstance:

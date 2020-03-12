@@ -25,16 +25,13 @@ public class ZombieSc : EnemyAI
 
     public void attackZombie(GameObject player)
     {
-        if (gameObject.name == "Zombie")
-        {
-            Collider[] playerHit = Physics.OverlapSphere(transform.position, attackRadius, whatIsPlayer);
+        Collider[] playerHit = Physics.OverlapSphere(transform.position, attackRadius, whatIsPlayer);
 
-            for (int i = 0; i < playerHit.Length; i++)
-            {
-                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
-                Debug.Log("The player has been hit by the Zombie!");
-            }
-        }
+        for (int i = 0; i < playerHit.Length; i++)
+        {
+            playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+            Debug.Log("The player has been hit by the Zombie!");
+        }  
     }
 
     void crawlToSurface()

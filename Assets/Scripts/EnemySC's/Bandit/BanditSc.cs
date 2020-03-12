@@ -25,17 +25,14 @@ public class BanditSc : EnemyAI
 
     public void attackBandit(GameObject player)
     {
-        if (gameObject.name == "Bandit")
+        GameObject banditWeapon = GameObject.Find("Bandit/BanditWeapon");
+
+        Collider[] playerHit = Physics.OverlapSphere(banditWeapon.transform.position, attackRadius, whatIsPlayer);
+
+        for (int i = 0; i < playerHit.Length; i++)
         {
-            GameObject banditWeapon = GameObject.Find("Bandit/BanditWeapon");
-
-            Collider[] playerHit = Physics.OverlapSphere(banditWeapon.transform.position, attackRadius, whatIsPlayer);
-
-            for (int i = 0; i < playerHit.Length; i++)
-            {
-                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
-                Debug.Log("The player has been hit by the Bandit!");
-            }
+            playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+            Debug.Log("The player has been hit by the Bandit!");
         }
     }
 
