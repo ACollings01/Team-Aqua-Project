@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeAttackBehaviour : StateMachineBehaviour
+public class MiniSlimeAttackBehaviour : StateMachineBehaviour
 {
     private GameObject Player;
     private GameObject NPC;
@@ -25,7 +25,7 @@ public class SlimeAttackBehaviour : StateMachineBehaviour
         if (timeBtwBatAtt <= 0)
         {
             timeBtwBatAtt = 2;
-            NPC.GetComponent<SlimeSc>().attackSlime(Player);
+            NPC.GetComponent<MiniSlimeSc>().attackMiniSlime(Player);
         }
         else
         {

@@ -13,6 +13,8 @@ public class WolfSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
+        crawlToSurface();
+
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         if (this.health <= 0)
@@ -24,19 +26,30 @@ public class WolfSc : EnemyAI
 
     public void attackWolf(GameObject player)
     {
-        if (gameObject.name == "Wolf")
+        GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+
+        Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
+
+        for (int i = 0; i < playerHit.Length; i++)
         {
-            GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+            Debug.Log("The player has been hit by the Wolf!");
+            playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
+            //Attack twice
+        }
+        transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+    }
 
-            Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
-
-            for (int i = 0; i < playerHit.Length; i++)
-            {
-                Debug.Log("The player has been hit by the Wolf!");
-                player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
-                //Attack twice
-            }
-            transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+    void crawlToSurface()
+    {
+        if (transform.position.y <= 1)
+        {
+            transform.Translate(Vector3.up * Time.deltaTime * 2);
+        }
+        else
+        {
+            this.GetComponent<Animator>().enabled = true;
+            this.GetComponent<Collider>().enabled = true;
+            this.GetComponent<Rigidbody>().useGravity = true;
         }
     }
 }

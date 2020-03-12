@@ -121,7 +121,7 @@ Animator:
   m_GameObject: {fileID: 5760221185989575049}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b5f58b2981418dd43bed2c96f680a756, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2d8da89a8008622499cb5a48f79a8bda, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   maxDamage: 2
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 512
   attackRadius: 1
 --- !u!1 &8284103127374094655
 GameObject:
