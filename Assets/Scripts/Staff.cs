@@ -22,25 +22,34 @@ public class Staff : RangedWeapons
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        layerMask = LayerMask.GetMask("Player", "Enemy");
+        ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
     }
 
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        int layerMask = 1 << 9;
+
         layerMask = ~layerMask;
 
         lengthOfTap();
 
-        if (quickTap && AnimatorIsPlaying())
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            staffAnimator.SetBool("Quick Tap Staff", true);
-
+            lookAtClick = lookAtClick;
+        }
+        else if (quickTap == false)
+        {
             if (Physics.Raycast(ray, out hit, 1000, layerMask))
             {
                 lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
+        }
+
+        if (quickTap && AnimatorIsPlaying())
+        {
+            staffAnimator.SetBool("Quick Tap Staff", true);
 
             Player.transform.LookAt(lookAtClick);
 

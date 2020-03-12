@@ -20,6 +20,9 @@ public class Shield : Weapons
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        layerMask = LayerMask.GetMask("Player", "Enemy");
+        ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+
         playerBody = Player.GetComponent<Rigidbody>();
     }
 
@@ -28,16 +31,25 @@ public class Shield : Weapons
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        layerMask = ~layerMask;
+
         lengthOfTap();
+
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        {
+            lookAtClick = lookAtClick;
+        }
+        else if (quickTap == false)
+        {
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+        }
 
         if (quickTap && AnimatorIsPlaying())
         {
             shieldAnimator.SetBool("Quick Tap Shield", true);
-
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-            }
 
             Player.transform.LookAt(lookAtClick);
 
