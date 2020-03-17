@@ -1,16 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using yaSingleton;
 
 [System.Serializable]
 public class Sound
 {
     public string name;
     public AudioClip clip;
-
-    public static SoundManager Instance;
-    public GameSounds[] gameSounds;
 
     [Range(0f, 10f)]
     public float volume = 5f;
@@ -45,23 +41,37 @@ public class Sound
 public class SoundManager : Singleton<SoundManager>
 {
     public new static SoundManager Instance = null;
-    private AudioSource soundEffectAudio;
+    public AudioSource soundEffectAudio;
 
-    
-    public AudioClip ES_Walk_Forest_Trail;
-    public AudioClip ES_Volcanoe_Lava_Bubbles;
-    public AudioClip Ambiances_Cave_Level;
-    public AudioClip ES_Dungeon_Dream_Cave;
-    public AudioClip Fire_Staff_Fireball_hit;
-    public AudioClip Fire_Staff_Woosh;
-    public AudioClip Ice_Staff_Hit_1;
-    public AudioClip Ice_Staff_Swoosh_1;
-    public AudioClip Lightning_Staff_Lightning_Strike;
-    public AudioClip Wolf_Howl;
-    public AudioClip Wolf_Bite_2;
-    public AudioClip Wolf_Damage_2;
-    public AudioClip Wolf_Death_3;
+    float masterVolume = 1.0f;
 
+    //public AudioClip ES_Walk_Forest_Trail;
+    //public AudioClip ES_Volcanoe_Lava_Bubbles;
+    //public AudioClip Ambiances_Cave_Level;
+    //public AudioClip ES_Dungeon_Dream_Cave;
+    //public AudioClip Fire_Staff_Fireball_hit;
+    //public AudioClip Fire_Staff_Woosh;
+    //public AudioClip Ice_Staff_Hit_1;
+    //public AudioClip Ice_Staff_Swoosh_1;
+    //public AudioClip Lightning_Staff_Lightning_Strike;
+    //public AudioClip Wolf_Howl;
+    //public AudioClip Wolf_Bite_2;
+    //public AudioClip Wolf_Damage_2;
+    //public AudioClip Wolf_Death_3;
+
+    public Sound ES_Walk_Forest_Trail;
+    public Sound ES_Volcanoe_Lava_Bubbles;
+    public Sound Ambiances_Cave_Level;
+    public Sound ES_Dungeon_Dream_Cave;
+    public Sound Fire_Staff_Fireball_hit;
+    public Sound Fire_Staff_Woosh;
+    public Sound Ice_Staff_Hit_1;
+    public Sound Ice_Staff_Swoosh_1;
+    public Sound Lightning_Staff_Lightning_Strike;
+    public Sound Wolf_Howl;
+    public Sound Wolf_Bite_2;
+    public Sound Wolf_Damage_2;
+    public Sound Wolf_Death_3;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +92,26 @@ public class SoundManager : Singleton<SoundManager>
                     soundEffectAudio = source;
                 }
             }
+            ES_Walk_Forest_Trail.SetSoundEffectAudio(soundEffectAudio);
+            Wolf_Howl.SetSoundEffectAudio(soundEffectAudio);
+            Wolf_Bite_2.SetSoundEffectAudio(soundEffectAudio);
+            Wolf_Damage_2.SetSoundEffectAudio(soundEffectAudio);
+            Fire_Staff_Fireball_hit.SetSoundEffectAudio(soundEffectAudio);
+            ES_Volcanoe_Lava_Bubbles.SetSoundEffectAudio(soundEffectAudio);
+            Lightning_Staff_Lightning_Strike.SetSoundEffectAudio(soundEffectAudio);
+            Ambiances_Cave_Level.SetSoundEffectAudio(soundEffectAudio);
+
+
         }
+    }
+
+    public void PlayClip(AudioSource clip)
+    {
+        Debug.Log("SMPLAY");
+        //soundEffectAudio.clip = clip;
+        //clip.SetSoundEffectAudio(soundEffectAudio);
+        //clip.volume = masterVolume * clip.volume;
+        clip.Play();
     }
 
     public void PlayOneShot(AudioClip clip)

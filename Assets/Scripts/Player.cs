@@ -41,12 +41,13 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             characterMoving = true;
+            this.GetComponent<AudioSource>().Play();
+            SoundManager.Instance.PlayClip(this.GetComponent<AudioSource>());
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             characterMoving = false;
-            audioSource.PlayOneShot(SoundManager.Instance.ES_Walk_Forest_Trail);
         }
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())

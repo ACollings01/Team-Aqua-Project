@@ -126,9 +126,9 @@ public class Staff : RangedWeapons
         {
             enemy.gameObject.GetComponent<EnemyAI>().health -= staffDamageDone();
 
-            audioSource.PlayOneShot(SoundManager.Instance.Fire_Staff_Fireball_hit);
-            audioSource.PlayOneShot(SoundManager.Instance.Ice_Staff_Hit_1);
-            audioSource.PlayOneShot(SoundManager.Instance.Lightning_Staff_Lightning_Strike);
+          // // audioSource.PlayOneShot(SoundManager.Instance.Fire_Staff_Fireball_hit);
+           // audioSource.PlayOneShot(SoundManager.Instance.Ice_Staff_Hit_1);
+           // audioSource.PlayOneShot(SoundManager.Instance.Lightning_Staff_Lightning_Strike);
 
         }
     }

@@ -122,17 +122,17 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.name == "Wolf")
         {
-            audioSource.PlayOneShot(SoundManager.Instance.Wolf_Howl);
+            SoundManager.Instance.PlayClip(this.GetComponent<AudioSource>());
             GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
 
             Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
-            audioSource.PlayOneShot(SoundManager.Instance.Wolf_Bite_2);
 
             for (int i = 0; i < playerHit.Length; i++)
             {
                 Debug.Log("The player has been hit by the Wolf!");
                 player.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
                 //Attack twice
+                SoundManager.Instance.PlayClip(this.GetComponent<AudioSource>());
             }
             transform.Translate(-Vector3.forward * Time.deltaTime * speed);
         }
@@ -144,6 +144,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.name == "Slime")
         {
+
             GameObject slimeFace = GameObject.Find("Slime/SlimeFace");
 
             Collider[] playerHit = Physics.OverlapSphere(slimeFace.transform.position, attackRadius, whatIsPlayer);
