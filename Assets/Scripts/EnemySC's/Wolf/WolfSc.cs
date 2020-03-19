@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WolfSc : EnemyAI
 {
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {

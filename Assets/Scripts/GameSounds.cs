@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class GameSounds : MonoBehaviour
+public class GameSounds 
 {
     public string audioName;
     public AudioClip audioClip;

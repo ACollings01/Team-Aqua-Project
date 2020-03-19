@@ -42,8 +42,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             characterMoving = true;
-            this.GetComponent<AudioSource>().Play();
-            SoundManager.Instance.PlayClip(this.GetComponent<AudioSource>());
+            SoundManager.Instance.PlayClip(audioSource);
         }
 
         if (Input.GetMouseButtonUp(0))

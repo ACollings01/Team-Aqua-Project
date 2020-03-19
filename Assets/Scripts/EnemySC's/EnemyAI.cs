@@ -20,19 +20,26 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
     }
-   
-    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //void OnDrawGizmosSelected()
-    //{
-    //    GameObject slimeFace = GameObject.Find("Bandit/BanditWeapon");
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(slimeFace.transform.position, attackRadius);
-    //}
+    // Start is called before the first frame update
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+       //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //void OnDrawGizmosSelected()
+        //{
+        //    GameObject slimeFace = GameObject.Find("Bandit/BanditWeapon");
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(slimeFace.transform.position, attackRadius);
+        //}
 
 
-    public int dealDamageToPlayer(int min, int max)
+        public int dealDamageToPlayer(int min, int max)
     {
         int damage = Random.Range(min, max + 1);
         return damage;

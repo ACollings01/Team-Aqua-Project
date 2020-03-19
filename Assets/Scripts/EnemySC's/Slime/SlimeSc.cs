@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SlimeSc : EnemyAI
 {
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
     }
 
@@ -14,6 +16,8 @@ public class SlimeSc : EnemyAI
     void Update()
     {
         crawlToSurface();
+
+        SoundManager.Instance.PlayClip(audioSource);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
