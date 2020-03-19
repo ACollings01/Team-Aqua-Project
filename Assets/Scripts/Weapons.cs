@@ -1,22 +1,141 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
+    protected bool quickTap = false;
+    protected bool longTap = false;
+    protected float startTime;
+    protected int damage;
+    protected int layerMask;
+    protected int ignoreLayerMask;
+    protected bool attackOnce = false;
+    protected bool checkOnce = false;
+    protected Vector3 lookAtClick;
+    protected Vector3 lookAtClickProjectile;
+    protected GameObject Player;
 
-    public float attackTime = 0.2f;
-    public float weaponDamage = 5.0f;
+    [SerializeField]
+    protected GameObject SwordBlade;
 
-    // Start is called before the first frame update
+    protected LayerMask whatIsEnemy;
+    float swordAttackRadius;
+    float spearAttackRadius;
+    float shieldAttackRadius;
+
+   
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    protected void lengthOfTap()
+    {
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        {
+            //Debug.Log("Tooch");
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                startTime = Time.time;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (Time.time > startTime + 1.0f && startTime != 0.0f)
+                {
+                    longTap = true;
+                    quickTap = false;
+                }
+                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
+                {
+                    quickTap = true;
+                    longTap = false;
+                }
+
+                startTime = 0;
+            }
+        }
+    }
+
+    protected void swordAttack()
+    {
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        swordAttackRadius = 1;
+
+       Collider[] enemyHit = Physics.OverlapSphere(SwordBlade.transform.position, swordAttackRadius, whatIsEnemy);
+
+        //Debug.Log(enemyHit.Length);
+
+       for (int i = 0; i < enemyHit.Length; i++)
+       {
+            enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
+            attackOnce = true;
+       }
+    }
+
+    protected void spearAttack()
+    {
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        spearAttackRadius = .5f;
+
+        GameObject playerSpear = GameObject.Find("Player/Player_Model/Spear");
+
+        Collider[] enemyHit = Physics.OverlapSphere(playerSpear.transform.position, spearAttackRadius, whatIsEnemy);
+
+        //Debug.Log(enemyHit.Length);
+
+        for (int i = 0; i < enemyHit.Length; i++)
+        {
+            enemyHit[i].GetComponent<EnemyAI>().health -= spearDamageDone();
+            attackOnce = true;
+        }
+    }
+
+    protected void shieldAttack()
+    {
+        whatIsEnemy = LayerMask.GetMask("Enemy");
+        shieldAttackRadius = 1;
+
+        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
+
+        Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
+
+        //Debug.Log(enemyHit.Length);
+
+        for (int i = 0; i < enemyHit.Length; i++)
+        {
+            enemyHit[i].GetComponent<EnemyAI>().health -= shieldDamageDone();
+            attackOnce = true;
+        }
+    }
+
+    public int swordDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
+    }
+
+    public int spearDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
+    }
+
+    public int shieldDamageDone()
+    {
+        damage = Random.Range(8, 11);
+        return damage;
+    }
+
 }

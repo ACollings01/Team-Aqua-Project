@@ -43,9 +43,9 @@ GameObject:
   - component: {fileID: 596128043}
   - component: {fileID: 596128042}
   - component: {fileID: 596128041}
-  - component: {fileID: 596128040}
   - component: {fileID: 596128039}
-  m_Layer: 0
+  - component: {fileID: 396195244089200676}
+  m_Layer: 8
   m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -137,33 +137,10 @@ BoxCollider:
   m_GameObject: {fileID: 1567866384804843060}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &596128040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567866384804843060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43116c8985345b64eb5c1317b2bb35eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  dealDamageSword: {fileID: 0}
-  dealDamageBow: {fileID: 0}
-  dealDamageStaff: {fileID: 0}
-  health: 3
-  minDamage: 1
-  maxDamage: 2
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 256
-  attackRadius: 2
 --- !u!95 &596128039
 Animator:
   serializedVersion: 3
@@ -172,7 +149,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567866384804843060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 564489cd093a924478c50aba8e37adfd, type: 2}
   m_CullingMode: 0
@@ -183,3 +160,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &396195244089200676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567866384804843060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cc29dc295e0e8418565c3daa89dfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  health: 10
+  minDamage: 7
+  maxDamage: 9
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRadius: 1

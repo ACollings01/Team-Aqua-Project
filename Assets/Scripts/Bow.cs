@@ -6,11 +6,6 @@ using UnityEngine;
 public class Bow : RangedWeapons
 {
     private Animator bowAnimator;
-    private bool quickTap = false;
-    private bool longTap = false;
-    private float startTime;
-
-    Vector3 lookAtClick;
 
     GameObject[] arrowProjectiles;
 
@@ -27,41 +22,28 @@ public class Bow : RangedWeapons
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        layerMask = LayerMask.GetMask("Player", "Enemy");
+        ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
     }
 
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
+        layerMask = ~layerMask;
 
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        lengthOfTap();
+
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            //Debug.Log("Tooch");
+            lookAtClick = lookAtClick;
         }
-        else
+        else if (quickTap == false)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
             {
-                startTime = Time.time;
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = true;
-
-                    if (Physics.Raycast(ray, out hit, 1000))
-                    {
-                        lookAtClick = hit.point;
-                    }
-                }
-
-                startTime = 0;
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
             }
         }
 
@@ -70,7 +52,7 @@ public class Bow : RangedWeapons
             bowAnimator.SetBool("Quick Tap Bow", true);
 
             Player.transform.LookAt(lookAtClick);
-            
+
         }
         else if (!AnimatorIsPlaying())
         {
@@ -90,17 +72,6 @@ public class Bow : RangedWeapons
             quickTap = false;
         }
 
-        //for PC controls
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            startTime = Time.time;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            startTime = 0.0f;
-        }
-
         arrowProjectiles = GameObject.FindGameObjectsWithTag("Arrow");
 
         foreach (GameObject arrowProjectile in arrowProjectiles)
@@ -111,6 +82,12 @@ public class Bow : RangedWeapons
             {
                 Destroy(arrowProjectile);
             }
+
+           /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
+            {
+                Destroy(arrowProjectile);
+                Debug.Log("Time Destroyed");
+            }*/
         }
 
     }
