@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1d558d3c91044409b4aee3b703f931, type: 3}
   m_Name: Spear
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1547110639439626594, guid: 5e2eb4c4f77bd7f45bd936063c78bbe6, type: 3}
   type: 1
   description: A powerful mid-range spear capable of being thrown.
   defenseBonus: 0

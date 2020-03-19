@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5f6c5dda3843c42a5a076c2c9ac090, type: 3}
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 7546771698705580472, guid: d5296cb8d2ba7eb43874c110defb9cf7, type: 3}
   type: 0
   description: 'A potion which invigorates you with energy and well being.
 
     Restores 30% - 50% of Max HP.'
   restoreHealthValue: 30
+  armorClassValue: 0

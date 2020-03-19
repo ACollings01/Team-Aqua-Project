@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4282260b84aea4143abb0aa07a090046, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 8616448849570138292, guid: a49aa9b34b8c60843a0effd78c0b802a, type: 3}
   type: 2
   description: Money Money Money

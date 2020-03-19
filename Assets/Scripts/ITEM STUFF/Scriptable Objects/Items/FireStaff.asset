@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1d558d3c91044409b4aee3b703f931, type: 3}
   m_Name: FireStaff
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1969415324582851545, guid: 81a5f5912dd92e24389494837cdf424d, type: 3}
   type: 1
   description: A staff empowered by the deity of flames.
   defenseBonus: 0
