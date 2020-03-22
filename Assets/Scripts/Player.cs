@@ -10,10 +10,12 @@ public class Player : MonoBehaviour
     public float speed;
     public Joystick joystick;
     bool characterMoving = false;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         joystick = FindObjectOfType<Joystick>();
     }
 
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             characterMoving = true;
+            SoundManager.Instance.PlayClip(audioSource);
         }
 
         if (Input.GetMouseButtonUp(0))

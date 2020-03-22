@@ -5,17 +5,19 @@ namespace UnityStandardAssets.CrossPlatformInput
 {
     public class ButtonHandler : MonoBehaviour
     {
+        private AudioSource audioSource;
 
         public string Name;
 
         void OnEnable()
         {
-
+            audioSource = GetComponent<AudioSource>();
         }
 
         public void SetDownState()
         {
             CrossPlatformInputManager.SetButtonDown(Name);
+            SoundManager.Instance.PlayClip(audioSource);
         }
 
 

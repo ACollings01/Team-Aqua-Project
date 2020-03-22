@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SlimeSc : EnemyAI
 {
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
     }
 
@@ -14,6 +16,8 @@ public class SlimeSc : EnemyAI
     void Update()
     {
         crawlToSurface();
+
+        SoundManager.Instance.PlayClip(audioSource);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -44,6 +48,8 @@ public class SlimeSc : EnemyAI
         if (health <= 0)
         {
             int splitRand = Random.Range(2, 4);
+
+            SoundManager.Instance.PlayClip(audioSource);
 
             for (int i = 0; i < splitRand; i++)
             {

@@ -7,6 +7,7 @@ public class Staff : RangedWeapons
 {
     private Animator staffAnimator;
 
+    private AudioSource audioSource;
     GameObject[] staffProjectiles;
 
     bool AnimatorIsPlaying()
@@ -18,6 +19,8 @@ public class Staff : RangedWeapons
     {
         GameObject bow = transform.gameObject;
         staffAnimator = bow.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 

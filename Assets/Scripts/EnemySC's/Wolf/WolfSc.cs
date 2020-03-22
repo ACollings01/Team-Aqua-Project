@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WolfSc : EnemyAI
 {
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class WolfSc : EnemyAI
     {
         GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
 
+        SoundManager.Instance.PlayClip(audioSource);
+
         Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
 
         for (int i = 0; i < playerHit.Length; i++)
@@ -35,6 +39,7 @@ public class WolfSc : EnemyAI
             Debug.Log("The player has been hit by the Wolf!");
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             //Attack twice
+            SoundManager.Instance.PlayClip(audioSource);
         }
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }

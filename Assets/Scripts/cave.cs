@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class cave : MonoBehaviour
 {
-    [FMODUnity.EventRef]
-    public string inputsound;
-    bool windincave;
-    bool waterdrips;
-    bool bubblinglava;
+    private AudioSource audioSource;
+
+     void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
