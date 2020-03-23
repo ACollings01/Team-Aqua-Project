@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SlimeSc : EnemyAI
 {
-    private AudioSource audioSource;
+    public AudioSource slime;
+    public AudioSource split;
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
     }
 
@@ -16,8 +16,6 @@ public class SlimeSc : EnemyAI
     void Update()
     {
         crawlToSurface();
-
-        SoundManager.Instance.PlayClip(audioSource);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -31,6 +29,9 @@ public class SlimeSc : EnemyAI
     public void attackSlime(GameObject player)
     {
         GameObject slimeFace = GameObject.Find("Slime/SlimeFace");
+
+        SoundManager.Instance.PlayClip(slime);
+
 
         Collider[] playerHit = Physics.OverlapSphere(slimeFace.transform.position, attackRadius, whatIsPlayer);
 
@@ -49,7 +50,7 @@ public class SlimeSc : EnemyAI
         {
             int splitRand = Random.Range(2, 4);
 
-            SoundManager.Instance.PlayClip(audioSource);
+            SoundManager.Instance.PlayClip(split);
 
             for (int i = 0; i < splitRand; i++)
             {
