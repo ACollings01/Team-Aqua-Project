@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4128244277350785796}
   - component: {fileID: 8540431743177080088}
   - component: {fileID: 3632353612991722327}
-  - component: {fileID: 7216200815690646512}
   - component: {fileID: 6819800080485382014}
+  - component: {fileID: 6254998422536768491}
   m_Layer: 10
   m_Name: BatProjectile
   m_TagString: Projectile
@@ -93,19 +93,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &7216200815690646512
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5212634836481384135}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6819800080485382014
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -122,3 +109,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6254998422536768491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212634836481384135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 902e69764c54946408b06c232017bd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  health: 0
+  minDamage: 6
+  maxDamage: 8
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
+  attackRadius: 0
