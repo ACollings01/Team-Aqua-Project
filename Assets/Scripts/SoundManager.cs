@@ -41,7 +41,7 @@ public class Sound
 public class SoundManager : Singleton<SoundManager>
 {
     public new static SoundManager Instance = null;
-    public AudioSource soundEffectAudio;
+    private AudioSource soundEffectAudio;
 
     float masterVolume = 1.0f;
 
