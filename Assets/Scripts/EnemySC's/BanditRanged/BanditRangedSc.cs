@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BanditSc : EnemyAI
+public class BanditRangedSc : EnemyAI
 {
-
-    private AudioSource audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +16,6 @@ public class BanditSc : EnemyAI
         crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        SoundManager.Instance.PlayClip(audioSource);
 
         if (this.health <= 0)
         {
@@ -29,15 +25,17 @@ public class BanditSc : EnemyAI
 
     public void attackBandit(GameObject player)
     {
-        GameObject banditWeapon = GameObject.Find("Bandit/BanditWeapon");
+        anim.SetBool("isAttacking", true);
+        GameObject arrowPrefab = (GameObject)Resources.Load("Projectiles/BanditArrow");
+        GameObject arrow;
+        Rigidbody rb;
 
-        Collider[] playerHit = Physics.OverlapSphere(banditWeapon.transform.position, attackRadius, whatIsPlayer);
+        arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        //spit.transform.parent = gameObject.transform;
+        rb = arrow.GetComponent<Rigidbody>();
 
-        for (int i = 0; i < playerHit.Length; i++)
-        {
-            playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
-            Debug.Log("The player has been hit by the Bandit!");
-        }
+        arrow.transform.LookAt(player.transform.position);
+        rb.AddForce(arrow.transform.forward * 500.0f);
     }
 
     void crawlToSurface()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HomingFireball : MonoBehaviour
+public class HomingFireball : NecromancerSc
 {
     GameObject player;
     GameObject Necromancer;
@@ -13,7 +13,6 @@ public class HomingFireball : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        Necromancer = GameObject.Find("Necromancer");
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class HomingFireball : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            other.gameObject.GetComponent<Player>().health -= Necromancer.GetComponent<NecromancerSc>().dealHomingDamage(Necromancer.GetComponent<NecromancerSc>().minDamage, Necromancer.GetComponent<NecromancerSc>().maxDamage);
+            other.gameObject.GetComponent<Player>().health -= dealHomingDamage(minDamage, maxDamage);
         }
     }
 }

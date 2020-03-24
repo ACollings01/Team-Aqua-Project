@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBallProjectile : MonoBehaviour
+public class BanditArrowDamage : BanditRangedSc
 {
-    GameObject Necromancer;
-
     // Start is called before the first frame update
     void Start()
     {
-        Necromancer = GameObject.Find("Necromancer");
+        
     }
 
     // Update is called once per frame
@@ -22,7 +20,7 @@ public class FireBallProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Player>().health -= Necromancer.GetComponent<NecromancerSc>().dealFireballDamage(Necromancer.GetComponent<NecromancerSc>().minDamage, Necromancer.GetComponent<NecromancerSc>().maxDamage);
+            other.gameObject.GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             Destroy(gameObject);
         }
     }
