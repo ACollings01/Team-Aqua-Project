@@ -10,11 +10,15 @@ public class Player : MonoBehaviour
     public float speed;
     public Joystick joystick;
     bool characterMoving = false;
+    private Animator playerAnimator;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject player = GameObject.Find("Player");
+        playerAnimator = player.GetComponent<Animator>();
+
         audioSource = GetComponent<AudioSource>();
         joystick = FindObjectOfType<Joystick>();
     }
@@ -42,12 +46,14 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             characterMoving = true;
-            SoundManager.Instance.PlayClip(audioSource);
+            playerAnimator.SetBool("IsMoving", true);
+            //SoundManager.Instance.PlayClip(audioSource);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             characterMoving = false;
+            playerAnimator.SetBool("IsMoving", false);
         }
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
@@ -81,6 +87,11 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            playerAnimator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsMoving", false);
         }
 
         CheckHealth();
