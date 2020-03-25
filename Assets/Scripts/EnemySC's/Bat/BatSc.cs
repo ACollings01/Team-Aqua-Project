@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BatSc : EnemyAI
 {
+    public AudioSource bats;
+    public AudioSource projectile;
     int rand;
     GameObject[] spitProjectiles;
 
@@ -19,6 +21,8 @@ public class BatSc : EnemyAI
     {
         crawlToSurface();
 
+        SoundManager.Instance.PlayClip(bats);
+
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
@@ -30,6 +34,7 @@ public class BatSc : EnemyAI
             {
                 Destroy(spitProjectile);
             }
+            SoundManager.Instance.PlayClip(projectile);
         }
 
         if (this.health <= 0)
