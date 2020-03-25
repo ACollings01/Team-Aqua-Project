@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlimeSc : EnemyAI
 {
     private AudioSource audioSource;
+    bool spawned = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,10 @@ public class SlimeSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
-        SoundManager.Instance.PlayClip(audioSource);
+        //SoundManager.Instance.PlayClip(audioSource);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -75,6 +77,7 @@ public class SlimeSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            spawned = true;
         }
     }
 
