@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : Weapons
 {
+    public AudioSource swordattack;
     private Animator swordAnimator;
     
     /*bool AnimatorIsPlaying()
@@ -15,7 +16,6 @@ public class Sword : Weapons
     {
         GameObject sword = GameObject.Find("Player");
         swordAnimator = sword.GetComponent<Animator>();
-
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -87,6 +87,7 @@ public class Sword : Weapons
             if (attackOnce == false)
             {
                 swordAttack();
+                SoundManager.Instance.PlayClip(swordattack);
             }
         }
         else if (!AnimatorIsPlaying())
