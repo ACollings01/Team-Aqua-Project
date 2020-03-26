@@ -27,9 +27,8 @@ public class Weapons : MonoBehaviour
 
    
 
-    public void Start()
+    void Start()
     {
-        GameObject player = GameObject.Find("Player");
 
     }
 
@@ -46,30 +45,26 @@ public class Weapons : MonoBehaviour
         }
         else
         {
-            if ((Player.GetComponent<Player>().characterMoving && Input.touchCount > 1)
-                || Input.touchCount > 0)
-            {
                 if (Input.GetMouseButtonDown(0))
                 {
                     startTime = Time.time;
                 }
-            }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    longTap = true;
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                {
-                    quickTap = true;
-                    longTap = false;
-                }
+                    if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                    {
+                        longTap = true;
+                        quickTap = false;
+                    }
+                    else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                    {
+                        quickTap = true;
+                        longTap = false;
+                    }
 
-                startTime = 0;
-            }
+                    startTime = 0;
+                }
         }
     }
 
