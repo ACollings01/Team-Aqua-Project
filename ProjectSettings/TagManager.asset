@@ -19,7 +19,7 @@ TagManager:
   - HomingFireball
   - HomingProjectile
   - Staff
-
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -33,7 +33,7 @@ TagManager:
   - Player
   - Fireball
   - Ignore Tap
-  - 
+  - Joystick
   - 
   - 
   - 

@@ -27,9 +27,9 @@ public class Weapons : MonoBehaviour
 
    
 
-    void Start()
+    public void Start()
     {
-
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class Weapons : MonoBehaviour
 
     protected void lengthOfTap()
     {
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1))
         {
             //Debug.Log("Tooch");
         }
