@@ -18,11 +18,11 @@ public class Sword : Weapons
         swordAnimator = sword.GetComponent<Animator>();
         startTime = 0.0f;
 
-        Player = GameObject.FindGameObjectWithTag("Player");
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
 
         audioSource = GetComponent<AudioSource>();
+        base.Start();
     }
 
     void Update()
