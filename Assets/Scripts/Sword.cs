@@ -23,8 +23,6 @@ public class Sword : Weapons
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
 
         audioSource = GetComponent<AudioSource>();
-
-        base.Start();
     }
 
     void Update()

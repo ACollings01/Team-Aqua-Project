@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int armour;
     public float speed;
     public Joystick joystick;
-    public bool characterMoving = false;
+    bool characterMoving = false;
     private Animator playerAnimator;
     private AudioSource audioSource;
 
@@ -43,20 +43,16 @@ public class Player : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
-        //if (Input.touchCount > 0)
-        {
-            if (joystick.Horizontal == 0.0 && joystick.Vertical == 0.0f)/* || Input.GetTouch(0).phase == TouchPhase.Ended*/
+            if (Input.GetMouseButtonUp(0))
             {
                 characterMoving = false;
                 playerAnimator.SetBool("IsMoving", false);
                 audioSource.Stop();
             }
-        }
-            
 
-       // if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            if (!characterMoving && (joystick.Horizontal != 0.0  || joystick.Vertical != 0.0f))
+            if (Input.GetMouseButtonDown(0))
             {
                 characterMoving = true;
                 playerAnimator.SetBool("IsMoving", true);
@@ -68,14 +64,11 @@ public class Player : MonoBehaviour
                 //Joystick movement
                 rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
-                if (stickMovement != Vector3.zero)
-                {
-                    transform.rotation = Quaternion.LookRotation(stickMovement);
-                    transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
-                }
+                transform.rotation = Quaternion.LookRotation(stickMovement);
+                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
             }
         }
-       /* else
+        else
         {
             if (characterMoving)
             {
@@ -88,7 +81,7 @@ public class Player : MonoBehaviour
                     transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
                 }            
             }
-        }*/
+        }
 
         //movement for PC
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) /*&& movement != Vector3.zero*/)
