@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
                 audioSource.Stop();
             }
 
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1))
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
         {
             if (Input.GetMouseButtonDown(0))
             {
