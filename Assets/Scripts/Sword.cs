@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Sword : Weapons
 {
-    public AudioSource swordattack;
     private Animator swordAnimator;
-    
+    private AudioSource audioSource;
+
     /*bool AnimatorIsPlaying()
     {
         return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
@@ -21,6 +21,8 @@ public class Sword : Weapons
         Player = GameObject.FindGameObjectWithTag("Player");
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -49,11 +51,14 @@ public class Sword : Weapons
             //swordAnimator.SetBool("Quick Tap Sword", true);
             swordAnimator.SetTrigger("Quick Tap Sword");
 
+            audioSource.Play();
+
             //Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
                 swordAttack();
+
             }
             quickTap = false;
         }
