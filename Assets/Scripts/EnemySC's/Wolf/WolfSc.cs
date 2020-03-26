@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class WolfSc : EnemyAI
 {
+
     public AudioSource howl;
     public AudioSource attack;
     public AudioSource damagetaken;
-    public AudioSource death;
+    public AudioSource death
+    
+    private AudioSource audioSource;
+    bool spawned = false;
 
 
     // Start is called before the first frame update
@@ -19,7 +23,8 @@ public class WolfSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -32,9 +37,13 @@ public class WolfSc : EnemyAI
 
     public void attackWolf(GameObject player)
     {
-        GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+        GameObject wolfHead = GameObject.Find("Wolf/Head");
+
 
         SoundManager.Instance.PlayClip(howl);
+
+        //SoundManager.Instance.PlayClip(audioSource);
+
 
         Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
 
@@ -61,6 +70,7 @@ public class WolfSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            spawned = true;
         }
     }
 }
