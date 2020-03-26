@@ -43,21 +43,23 @@ public class Player : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            characterMoving = true;
-            playerAnimator.SetBool("IsMoving", true);
-            //SoundManager.Instance.PlayClip(audioSource);
-        }
-
         if (Input.GetMouseButtonUp(0))
         {
             characterMoving = false;
             playerAnimator.SetBool("IsMoving", false);
+            audioSource.Stop();
         }
+
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                characterMoving = true;
+                playerAnimator.SetBool("IsMoving", true);
+                audioSource.Play();
+            }          
+
             if (characterMoving)
             {
                 //Joystick movement
@@ -78,20 +80,25 @@ public class Player : MonoBehaviour
                 {
                     transform.rotation = Quaternion.LookRotation(stickMovement);
                     transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
-                }               
+                }            
             }
         }
 
         //movement for PC
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movement != Vector3.zero)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) /*&& movement != Vector3.zero*/)
         {
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+            {
+                audioSource.Play();
+            }
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
             playerAnimator.SetBool("IsMoving", true);
         }
-        else
+        else if (!characterMoving)
         {
             playerAnimator.SetBool("IsMoving", false);
+            audioSource.Stop();
         }
 
         CheckHealth();
