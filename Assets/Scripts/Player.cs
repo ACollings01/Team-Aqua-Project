@@ -64,8 +64,11 @@ public class Player : MonoBehaviour
                 //Joystick movement
                 rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
-                transform.rotation = Quaternion.LookRotation(stickMovement);
-                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                if (stickMovement != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(stickMovement);
+                    transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                }
             }
         }
         else
