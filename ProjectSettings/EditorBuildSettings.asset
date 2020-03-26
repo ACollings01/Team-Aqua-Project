@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tanman's Dungeon.unity
     guid: bae58854ae87e424cad3f047a4052470
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 9014b17de35411545a0be0169b14a1f8
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 1602848f42f87964aa9d8128ef295d3d
   - enabled: 1

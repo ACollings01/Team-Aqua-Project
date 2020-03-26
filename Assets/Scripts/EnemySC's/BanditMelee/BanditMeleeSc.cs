@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BanditMeleeSc : EnemyAI
 {
+
+    private AudioSource audioSource;
+
+    bool spawned = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +18,11 @@ public class BanditMeleeSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        //SoundManager.Instance.PlayClip(audioSource);
 
         if (this.health <= 0)
         {
@@ -47,6 +54,7 @@ public class BanditMeleeSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            spawned = true;
         }
     }
 }

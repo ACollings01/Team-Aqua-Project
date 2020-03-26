@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BatSc : EnemyAI
 {
+    public AudioSource bats;
+    public AudioSource projectile;
     int rand;
     GameObject[] spitProjectiles;
+
+    bool spawned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +21,10 @@ public class BatSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
+
+        //SoundManager.Instance.PlayClip(bats);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -30,6 +37,7 @@ public class BatSc : EnemyAI
             {
                 Destroy(spitProjectile);
             }
+            //SoundManager.Instance.PlayClip(projectile);
         }
 
         if (this.health <= 0)
@@ -74,6 +82,7 @@ public class BatSc : EnemyAI
         {
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
+            spawned = true;
         }
     }
 }

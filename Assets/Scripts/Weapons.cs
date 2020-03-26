@@ -45,26 +45,26 @@ public class Weapons : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startTime = Time.time;
-            }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    longTap = true;
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
-                {
-                    quickTap = true;
-                    longTap = false;
+                    startTime = Time.time;
                 }
 
-                startTime = 0;
-            }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                    {
+                        longTap = true;
+                        quickTap = false;
+                    }
+                    else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                    {
+                        quickTap = true;
+                        longTap = false;
+                    }
+
+                    startTime = 0;
+                }
         }
     }
 

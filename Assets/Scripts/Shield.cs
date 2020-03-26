@@ -6,6 +6,7 @@ public class Shield : Weapons
 {
     private Animator shieldAnimator;
     Rigidbody playerBody;
+    private AudioSource audioSource;
 
     bool AnimatorIsPlaying()
     {
@@ -64,6 +65,8 @@ public class Shield : Weapons
             attackOnce = false;
             quickTap = false;
         }
+
+        SoundManager.Instance.PlayClip(audioSource);
 
         if (longTap && AnimatorIsPlaying())
         {

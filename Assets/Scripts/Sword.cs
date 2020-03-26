@@ -5,22 +5,24 @@ using UnityEngine;
 public class Sword : Weapons
 {
     private Animator swordAnimator;
-    
-    bool AnimatorIsPlaying()
+    private AudioSource audioSource;
+
+    /*bool AnimatorIsPlaying()
     {
         return swordAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
+    }*/
 
     void Start()
     {
-        GameObject sword = GameObject.Find("Sword");
+        GameObject sword = GameObject.Find("Player");
         swordAnimator = sword.GetComponent<Animator>();
-
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -44,39 +46,61 @@ public class Sword : Weapons
             }
         }
 
-        if (quickTap && AnimatorIsPlaying())
+        if (quickTap /*&& AnimatorIsPlaying()*/)
         {
-            swordAnimator.SetBool("Quick Tap", true);
+            //swordAnimator.SetBool("Quick Tap Sword", true);
+            swordAnimator.SetTrigger("Quick Tap Sword");
 
-            Player.transform.LookAt(lookAtClick);
+            audioSource.Play();
+
+            //Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
                 swordAttack();
+
             }
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            swordAnimator.SetBool("Quick Tap", false);
-            attackOnce = false;
             quickTap = false;
         }
 
-        if (longTap && AnimatorIsPlaying())
+        if (longTap)
         {
-            swordAnimator.SetBool("Long Tap", true);
+            swordAnimator.SetTrigger("Long Tap Sword");
 
             if (attackOnce == false)
             {
                 swordAttack();
             }
+            longTap = false;
+        }
+
+        if (!quickTap && !longTap)
+        {
+            attackOnce = false;
+        }
+        /*else if (!AnimatorIsPlaying())
+        {
+            swordAnimator.SetBool("Quick Tap Sword", false);
+            attackOnce = false;
+            quickTap = false;
+        }*/
+
+        /*if (longTap && AnimatorIsPlaying())
+        {
+            swordAnimator.SetBool("Long Tap Sword", true);
+
+            if (attackOnce == false)
+            {
+                swordAttack();
+                SoundManager.Instance.PlayClip(swordattack);
+            }
         }
         else if (!AnimatorIsPlaying())
         {
-            swordAnimator.SetBool("Long Tap", false);
+            swordAnimator.SetBool("Long Tap Sword", false);
             attackOnce = false;
             longTap = false;
-        }
+        }*/
     }
 
     void OnDrawGizmosSelected()
