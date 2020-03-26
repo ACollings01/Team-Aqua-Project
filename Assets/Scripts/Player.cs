@@ -45,59 +45,49 @@ public class Player : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-
-            if (Input.GetTouch(0).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+            foreach (Touch touch in Input.touches)
             {
-                characterMoving = false;
-                playerAnimator.SetBool("IsMoving", false);
-                audioSource.Stop();
-            }
-            else if (Input.GetTouch(1).phase == TouchPhase.Ended)
-            {
-                characterMoving = false;
-                playerAnimator.SetBool("IsMoving", false);
-                audioSource.Stop();
-            }
-
-        
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
-            {
-                if (Input.GetTouch(0).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
                 {
-                    characterMoving = true;
-                    playerAnimator.SetBool("IsMoving", true);
-                    audioSource.Play();
-                }
-                else if (Input.GetTouch(1).phase == TouchPhase.Began)
-                {
-                    characterMoving = true;
-                    playerAnimator.SetBool("IsMoving", true);
-                    audioSource.Play();
+                    characterMoving = false;
+                    playerAnimator.SetBool("IsMoving", false);
+                    audioSource.Stop();
                 }
 
-                if (characterMoving)
-                {
-                    //Joystick movement
-                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
-                    if (stickMovement != Vector3.zero)
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                {
+                    if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                     {
-                        transform.rotation = Quaternion.LookRotation(stickMovement);
-                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                        characterMoving = true;
+                        playerAnimator.SetBool("IsMoving", true);
+                        audioSource.Play();
+                    }
+
+                    if (characterMoving)
+                    {
+                        //Joystick movement
+                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                        if (stickMovement != Vector3.zero)
+                        {
+                            transform.rotation = Quaternion.LookRotation(stickMovement);
+                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                        }
                     }
                 }
-            }
-            else
-            {
-                if (characterMoving)
+                else
                 {
-                    //Joystick movement
-                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                    if (stickMovement != Vector3.zero)
+                    if (characterMoving)
                     {
-                        transform.rotation = Quaternion.LookRotation(stickMovement);
-                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                        //Joystick movement
+                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                        if (stickMovement != Vector3.zero)
+                        {
+                            transform.rotation = Quaternion.LookRotation(stickMovement);
+                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                        }
                     }
                 }
             }
