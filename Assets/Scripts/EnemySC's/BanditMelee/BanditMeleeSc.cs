@@ -22,7 +22,7 @@ public class BanditMeleeSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        SoundManager.Instance.PlayClip(audioSource);
+        //SoundManager.Instance.PlayClip(audioSource);
 
         if (this.health <= 0)
         {
