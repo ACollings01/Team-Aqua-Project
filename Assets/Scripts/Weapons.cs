@@ -52,12 +52,12 @@ public class Weapons : MonoBehaviour
 
             if (Input.GetMouseButtonUp(0))
             {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
+                if (Time.time > startTime + 0.5f && startTime != 0.0f)
                 {
                     longTap = true;
                     quickTap = false;
                 }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
+                else if (Time.time < startTime + 0.5f && startTime != 0.0f)
                 {
                     quickTap = true;
                     longTap = false;

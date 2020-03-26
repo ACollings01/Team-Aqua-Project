@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ZombieSc : EnemyAI
 {
+    bool spawned = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,8 @@ public class ZombieSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -45,6 +47,7 @@ public class ZombieSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            spawned = true;
         }
     }
 }

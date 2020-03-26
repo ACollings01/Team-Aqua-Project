@@ -22,8 +22,8 @@ public class FireBallProjectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
             other.gameObject.GetComponent<Player>().health -= Necromancer.GetComponent<NecromancerSc>().dealFireballDamage(Necromancer.GetComponent<NecromancerSc>().minDamage, Necromancer.GetComponent<NecromancerSc>().maxDamage);
+            Destroy(gameObject);
         }
     }
 }
