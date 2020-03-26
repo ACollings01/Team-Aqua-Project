@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         if (Input.touchCount > 0)
         {
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+            if (Input.GetTouch(0).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
             {
                 characterMoving = false;
                 playerAnimator.SetBool("IsMoving", false);
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                if (Input.GetTouch(0).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                 {
                     characterMoving = true;
                     playerAnimator.SetBool("IsMoving", true);
