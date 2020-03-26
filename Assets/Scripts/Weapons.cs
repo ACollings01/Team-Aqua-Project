@@ -39,7 +39,7 @@ public class Weapons : MonoBehaviour
 
     protected void lengthOfTap()
     {
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1))
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
         {
             //Debug.Log("Tooch");
         }
