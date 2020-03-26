@@ -30,9 +30,9 @@ public class WolfSc : EnemyAI
 
     public void attackWolf(GameObject player)
     {
-        GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+        GameObject wolfHead = GameObject.Find("Wolf/Head");
 
-        SoundManager.Instance.PlayClip(audioSource);
+        //SoundManager.Instance.PlayClip(audioSource);
 
         Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
 
