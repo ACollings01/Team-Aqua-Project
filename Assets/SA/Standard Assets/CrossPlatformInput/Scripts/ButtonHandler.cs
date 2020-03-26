@@ -11,7 +11,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void OnEnable()
         {
-            audioSource = GetComponent<AudioSource>();
+          //  audioSource = GetComponent<AudioSource>();
         }
 
         public void SetDownState()

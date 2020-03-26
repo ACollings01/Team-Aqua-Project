@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class WolfSc : EnemyAI
 {
+
+    public AudioSource howl;
+    public AudioSource attack;
+    public AudioSource damagetaken;
+    public AudioSource death;
+    
     private AudioSource audioSource;
     bool spawned = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +39,11 @@ public class WolfSc : EnemyAI
     {
         GameObject wolfHead = GameObject.Find("Wolf/Head");
 
+
+        SoundManager.Instance.PlayClip(howl);
+
         //SoundManager.Instance.PlayClip(audioSource);
+
 
         Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
 
@@ -42,7 +53,11 @@ public class WolfSc : EnemyAI
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             //Attack twice
             //SoundManager.Instance.PlayClip(audioSource);
+
         }
+
+        SoundManager.Instance.PlayClip(attack);
+
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
 
