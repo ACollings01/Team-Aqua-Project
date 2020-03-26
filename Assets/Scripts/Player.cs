@@ -43,48 +43,53 @@ public class Player : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
-            if (Input.GetMouseButtonUp(0))
+        if (Input.touchCount > 0)
+        {
+
+            if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
             {
                 characterMoving = false;
                 playerAnimator.SetBool("IsMoving", false);
                 audioSource.Stop();
             }
 
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
-        {
-            if (Input.GetMouseButtonDown(0))
+        
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
             {
-                characterMoving = true;
-                playerAnimator.SetBool("IsMoving", true);
-                audioSource.Play();
-            }
-
-            if (characterMoving)
-            {
-                //Joystick movement
-                rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                if (stickMovement != Vector3.zero)
+                if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                 {
-                    transform.rotation = Quaternion.LookRotation(stickMovement);
-                    transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                    characterMoving = true;
+                    playerAnimator.SetBool("IsMoving", true);
+                    audioSource.Play();
+                }
+
+                if (characterMoving)
+                {
+                    //Joystick movement
+                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                    if (stickMovement != Vector3.zero)
+                    {
+                        transform.rotation = Quaternion.LookRotation(stickMovement);
+                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                    }
                 }
             }
-        }
-        else
-        {
-            if (characterMoving)
+            else
             {
-                //Joystick movement
-                rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                if (stickMovement != Vector3.zero)
+                if (characterMoving)
                 {
-                    transform.rotation = Quaternion.LookRotation(stickMovement);
-                    transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
-                }            
+                    //Joystick movement
+                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                    if (stickMovement != Vector3.zero)
+                    {
+                        transform.rotation = Quaternion.LookRotation(stickMovement);
+                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                    }
+                }
             }
-        }
+        }       
 
         //movement for PC
         if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) /*&& movement != Vector3.zero*/)
