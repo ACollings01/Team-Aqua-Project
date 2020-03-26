@@ -45,25 +45,31 @@ public class Weapons : MonoBehaviour
         }
         else
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began /*|| Input.GetTouch(1).phase == TouchPhase.Began || Input.GetMouseButtonDown(0)*/)
+            if (Input.touchCount > 0)
             {
-                startTime = Time.time;
+                if (Input.GetTouch(0).phase == TouchPhase.Began /*|| Input.GetTouch(1).phase == TouchPhase.Began || Input.GetMouseButtonDown(0)*/)
+                {
+                    startTime = Time.time;
+                }
             }
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended /*|| Input.GetTouch(1).phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)*/)
+            if (Input.touchCount > 0)
             {
-                if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                if (Input.GetTouch(0).phase == TouchPhase.Ended /*|| Input.GetTouch(1).phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)*/)
                 {
-                    longTap = true;
-                    quickTap = false;
-                }
-                else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                {
-                    quickTap = true;
-                    longTap = false;
-                }
+                    if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                    {
+                        longTap = true;
+                        quickTap = false;
+                    }
+                    else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                    {
+                        quickTap = true;
+                        longTap = false;
+                    }
 
-                startTime = 0;
+                    startTime = 0;
+                }
             }
         }
     }

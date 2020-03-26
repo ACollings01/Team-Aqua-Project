@@ -43,21 +43,26 @@ public class Player : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
-        if (Input.GetTouch(0).phase == TouchPhase.Ended /*|| Input.GetMouseButtonUp(0)*/)
+        if (Input.touchCount > 0)
         {
-            characterMoving = false;
-            playerAnimator.SetBool("IsMoving", false);
-            audioSource.Stop();
+            if (Input.GetTouch(0).phase == TouchPhase.Ended /*|| Input.GetMouseButtonUp(0)*/)
+            {
+                characterMoving = false;
+                playerAnimator.SetBool("IsMoving", false);
+                audioSource.Stop();
+            }
         }
-
 
         if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began /*|| Input.GetMouseButtonDown(0)*/)
+            if (Input.touchCount > 0)
             {
-                characterMoving = true;
-                playerAnimator.SetBool("IsMoving", true);
-                audioSource.Play();
+                if (Input.GetTouch(0).phase == TouchPhase.Began /*|| Input.GetMouseButtonDown(0)*/)
+                {
+                    characterMoving = true;
+                    playerAnimator.SetBool("IsMoving", true);
+                    audioSource.Play();
+                }
             }
 
             if (characterMoving)
