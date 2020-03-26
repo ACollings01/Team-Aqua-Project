@@ -8,7 +8,7 @@ public class WolfSc : EnemyAI
     public AudioSource howl;
     public AudioSource attack;
     public AudioSource damagetaken;
-    public AudioSource death
+    public AudioSource death;
     
     private AudioSource audioSource;
     bool spawned = false;
