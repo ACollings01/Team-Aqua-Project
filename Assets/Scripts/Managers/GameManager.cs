@@ -21,6 +21,11 @@ public class GameManager : Singleton<GameManager>
     // Script will be filled later, will activate when player steps on a magic circle
     public void ActivateMCircle()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MagicCircleUI");
+    }
+
+    public void ActivateShop()
+    {
+        SceneManager.LoadScene("ShopUI");
     }
 }

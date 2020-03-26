@@ -9,6 +9,8 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject Sword;
     public GameObject Bow;
     public GameObject Staff;
+    public GameObject Spear;
+    public GameObject Shield;
 
     GameObject activeWeapon;
 
@@ -40,6 +42,16 @@ public class WeaponSwitcher : MonoBehaviour
             loadWeapon(Staff);
             activeWeaponType = "Staff";
         }
+        else if (Input.GetKeyDown("4"))
+        {
+            loadWeapon(Spear);
+            activeWeaponType = "Spear";
+        }
+        else if (Input.GetKeyDown("5"))
+        {
+            loadWeapon(Shield);
+            activeWeaponType = "Shield";
+        }
     }
 
     private void loadWeapon(GameObject weapon)
@@ -47,6 +59,8 @@ public class WeaponSwitcher : MonoBehaviour
         Sword.SetActive(false);
         Bow.SetActive(false);
         Staff.SetActive(false);
+        Spear.SetActive(false);
+        Shield.SetActive(false);
         weapon.SetActive(true);
         activeWeapon = weapon;
     }

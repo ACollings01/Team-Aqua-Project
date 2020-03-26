@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 4498638244771817955}
   - component: {fileID: 933403395635628283}
   - component: {fileID: 1210914527752939407}
-  m_Layer: 8
+  - component: {fileID: 1424290061583784164}
+  - component: {fileID: 3367738153655915396}
+  m_Layer: 0
   m_Name: Magic Ball
   m_TagString: Magic
   m_Icon: {fileID: 0}
@@ -108,3 +110,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1424290061583784164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855304083809344935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4326c0f021c8e6c4396701aea3d1ac98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3367738153655915396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855304083809344935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679a0f078da8a044ba6acfc80733220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 1
+  boomBoomRadius: {fileID: 8986589425642023189, guid: 3a8af525ac771544a83734ec24d7d9fa,
+    type: 3}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 256
