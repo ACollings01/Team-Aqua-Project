@@ -7,7 +7,7 @@ public class WolfAttackBehaviour : StateMachineBehaviour
     private GameObject Player;
     private GameObject NPC;
 
-    float timeBtwBatAtt = 2f;
+    float timeBtwBatAtt = 1.334f;
     float timeTillNextAttack = 4f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -24,7 +24,7 @@ public class WolfAttackBehaviour : StateMachineBehaviour
 
         if (timeBtwBatAtt <= 0)
         {
-            timeBtwBatAtt = 2;
+            timeBtwBatAtt = 1.334f;
             NPC.GetComponent<WolfSc>().attackWolf(Player);
         }
         else

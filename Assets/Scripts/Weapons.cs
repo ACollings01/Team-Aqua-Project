@@ -81,7 +81,6 @@ public class Weapons : MonoBehaviour
        {
             enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
             attackOnce = true;
-            enemyHit[i].GetComponent<EnemyAI>().
        }
     }
 

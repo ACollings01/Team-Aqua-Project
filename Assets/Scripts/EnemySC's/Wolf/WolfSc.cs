@@ -41,7 +41,7 @@ public class WolfSc : EnemyAI
             Debug.Log("The player has been hit by the Wolf!");
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             //Attack twice
-            SoundManager.Instance.PlayClip(audioSource);
+            //SoundManager.Instance.PlayClip(audioSource);
         }
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
