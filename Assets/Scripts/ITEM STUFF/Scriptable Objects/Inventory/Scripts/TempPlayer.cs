@@ -16,6 +16,19 @@ public class TempPlayer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            inventory.Save();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            inventory.Load();
+        }
+    }
+
     private void OnApplicationQuit()
     {
         inventory.Container.Clear();
