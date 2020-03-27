@@ -47,14 +47,6 @@ public class Player : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (touch.phase == TouchPhase.Ended && Input.touchCount < 1/*Input.GetMouseButtonUp(0)*/)
-                {
-                    characterMoving = false;
-                    playerAnimator.SetBool("IsMoving", false);
-                    audioSource.Stop();
-                }
-
-
                 if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                 {
                     if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
