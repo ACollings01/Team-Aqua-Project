@@ -44,7 +44,7 @@ public class Weapons : Player
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount <= 1 && !characterMoving)
+                if (Input.touchCount <= 1 && characterMoving)
                 {               
                     // do nothing
                 }
