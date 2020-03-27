@@ -50,7 +50,7 @@ public class Weapons : Player
                 }
                 else
                 {
-                    if (!characterMoving)
+                    if (!characterMoving && Input.touchCount >= 1)
                     {
                         if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                         {
