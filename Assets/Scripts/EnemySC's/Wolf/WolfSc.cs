@@ -17,6 +17,7 @@ public class WolfSc : EnemyAI
     // Start is called before the first frame update
     void Start()
     {
+        this.name = "Wolf";
         anim = GetComponent<Animator>();
         wolfAudioSource = GetComponent<AudioSource>();
     }
