@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Joystick joystick;
     protected bool characterMoving = false;
     private Animator playerAnimator;
-    private AudioSource audioSource;
+    private AudioSource playerAudioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         GameObject player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
 
-        audioSource = GetComponent<AudioSource>();
+        playerAudioSource = GetComponent<AudioSource>();
         joystick = FindObjectOfType<Joystick>();
     }
 
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
                 {
                     characterMoving = false;
                     playerAnimator.SetBool("IsMoving", false);
-                    audioSource.Stop();
+                    playerAudioSource.Stop();
                 }
 
                 if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
                     {
                         characterMoving = true;
                         playerAnimator.SetBool("IsMoving", true);
-                        audioSource.Play();
+                        playerAudioSource.Play();
                     }
 
                     if (characterMoving)
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         {
             if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
             {
-                audioSource.Play();
+                playerAudioSource.Play();
             }
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         else if (!characterMoving)
         {
             playerAnimator.SetBool("IsMoving", false);
-            audioSource.Stop();
+            playerAudioSource.Stop();
         }
 
         CheckHealth();

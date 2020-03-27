@@ -5,12 +5,12 @@ using UnityEngine;
 public class WolfSc : EnemyAI
 {
 
-    public AudioSource howl;
-    public AudioSource attack;
-    public AudioSource damagetaken;
-    public AudioSource death;
+    //public AudioSource howl;
+    public AudioClip attack;
+    //public AudioSource damagetaken;
+    public AudioClip death;
     
-    private AudioSource audioSource;
+    private AudioSource wolfAudioSource;
     bool spawned = false;
 
 
@@ -18,6 +18,7 @@ public class WolfSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
+        wolfAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +31,8 @@ public class WolfSc : EnemyAI
 
         if (this.health <= 0)
         {
+            wolfAudioSource.PlayOneShot(death);
+
             Destroy(this.gameObject);
         }
     }
@@ -56,7 +59,8 @@ public class WolfSc : EnemyAI
 
         }
 
-        SoundManager.Instance.PlayClip(attack);
+        //SoundManager.Instance.PlayClip(attack);
+        wolfAudioSource.PlayOneShot(attack);
 
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
