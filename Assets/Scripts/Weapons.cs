@@ -44,7 +44,7 @@ public class Weapons : Player
         {
             foreach (Touch touch in Input.touches)
             {
-                if (characterMoving)
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && characterMoving)
                 {               
                     // do nothing
                 }
