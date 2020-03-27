@@ -40,7 +40,7 @@ public class WolfSc : EnemyAI
         GameObject wolfHead = GameObject.Find("Wolf/Head");
 
 
-        SoundManager.Instance.PlayClip(howl);
+        //SoundManager.Instance.PlayClip(howl);
 
         //SoundManager.Instance.PlayClip(audioSource);
 
