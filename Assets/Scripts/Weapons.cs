@@ -42,11 +42,7 @@ public class Weapons : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
-            {
-                //Debug.Log("Tooch");
-            }
-            else
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) == false)
             {
                 foreach (Touch touch in Input.touches)
                 {
@@ -70,7 +66,7 @@ public class Weapons : MonoBehaviour
 
                         startTime = 0;
                     }
-               
+
                 }
             }
         }
