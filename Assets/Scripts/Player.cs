@@ -44,9 +44,16 @@ public class Player : MonoBehaviour
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         if (Input.touchCount > 0)
-        {
+        {           
             foreach (Touch touch in Input.touches)
             {
+                if (Input.touchCount < 1 && touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                {
+                    characterMoving = false;
+                    playerAnimator.SetBool("IsMoving", false);
+                    audioSource.Stop();
+                }
+
                 if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                 {
                     if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
@@ -54,19 +61,12 @@ public class Player : MonoBehaviour
                         characterMoving = true;
                         playerAnimator.SetBool("IsMoving", true);
                         audioSource.Play();
-                    }                   
+                    }
 
                     if (characterMoving)
                     {
                         //Joystick movement
                         rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                        if (touch.phase == TouchPhase.Ended)
-                        {
-                            characterMoving = false;
-                            playerAnimator.SetBool("IsMoving", false);
-                            audioSource.Stop();
-                        }
 
                         if (stickMovement != Vector3.zero)
                         {
@@ -81,13 +81,6 @@ public class Player : MonoBehaviour
                     {
                         //Joystick movement
                         rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                        if (touch.phase == TouchPhase.Ended)
-                        {
-                            characterMoving = false;
-                            playerAnimator.SetBool("IsMoving", false);
-                            audioSource.Stop();
-                        }
 
                         if (stickMovement != Vector3.zero)
                         {
