@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         {           
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount < 1 && touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
                 {
                     characterMoving = false;
                     playerAnimator.SetBool("IsMoving", false);
