@@ -44,7 +44,7 @@ public class Weapons : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                if (Input.touchCount > 1)
                 {               
                     // do nothing
                 }
