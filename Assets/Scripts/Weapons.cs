@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Weapons : MonoBehaviour
+public class Weapons : Player
 {
     protected bool quickTap = false;
     protected bool longTap = false;
@@ -29,7 +29,7 @@ public class Weapons : MonoBehaviour
 
     public void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class Weapons : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount < 1)
+                if (Input.touchCount <= 1 && !characterMoving)
                 {               
                     // do nothing
                 }

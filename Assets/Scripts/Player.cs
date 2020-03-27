@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public int armour;
     public float speed;
     public Joystick joystick;
-    bool characterMoving = false;
+    protected bool characterMoving = false;
     private Animator playerAnimator;
     private AudioSource audioSource;
 
