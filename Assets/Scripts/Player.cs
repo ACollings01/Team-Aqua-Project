@@ -54,41 +54,44 @@ public class Player : MonoBehaviour
                     audioSource.Stop();
                 }
 
-                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                if (Input.touchCount <= 1)
                 {
-                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                    if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                     {
-                        characterMoving = true;
-                        playerAnimator.SetBool("IsMoving", true);
-                        audioSource.Play();
-                    }
-
-                    if (characterMoving)
-                    {
-                        //Joystick movement
-                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                        if (stickMovement != Vector3.zero)
+                        if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                         {
-                            transform.rotation = Quaternion.LookRotation(stickMovement);
-                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            characterMoving = true;
+                            playerAnimator.SetBool("IsMoving", true);
+                            audioSource.Play();
+                        }
+
+                        if (characterMoving)
+                        {
+                            //Joystick movement
+                            rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                            if (stickMovement != Vector3.zero)
+                            {
+                                transform.rotation = Quaternion.LookRotation(stickMovement);
+                                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    if (characterMoving)
+                    else
                     {
-                        //Joystick movement
-                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                        if (stickMovement != Vector3.zero)
+                        if (characterMoving)
                         {
-                            transform.rotation = Quaternion.LookRotation(stickMovement);
-                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            //Joystick movement
+                            rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                            if (stickMovement != Vector3.zero)
+                            {
+                                transform.rotation = Quaternion.LookRotation(stickMovement);
+                                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            }
                         }
                     }
-                }
+                }               
             }
         }       
 
