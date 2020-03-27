@@ -50,25 +50,28 @@ public class Weapons : Player
                 }
                 else
                 {
-                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                    if (characterMoving)
                     {
-                        startTime = Time.time;
-                    }
-
-                    if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
-                    {
-                        if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                        if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                         {
-                            longTap = true;
-                            quickTap = false;
-                        }
-                        else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                        {
-                            quickTap = true;
-                            longTap = false;
+                            startTime = Time.time;
                         }
 
-                        startTime = 0;
+                        if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                        {
+                            if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                            {
+                                longTap = true;
+                                quickTap = false;
+                            }
+                            else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                            {
+                                quickTap = true;
+                                longTap = false;
+                            }
+
+                            startTime = 0;
+                        }                   
                     }
                 }
             }
