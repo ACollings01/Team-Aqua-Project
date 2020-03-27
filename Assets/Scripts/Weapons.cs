@@ -44,14 +44,14 @@ public class Weapons : MonoBehaviour
         {
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) == false)
             {
-                foreach (Touch touch in Input.touches)
-                {
-                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                //foreach (Touch touch in Input.touches)
+                //{
+                    if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                     {
                         startTime = Time.time;
                     }
 
-                    if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                    if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
                     {
                         if (Time.time > startTime + 0.5f && startTime != 0.0f)
                         {
@@ -67,7 +67,7 @@ public class Weapons : MonoBehaviour
                         startTime = 0;
                     }
 
-                }
+                //}
             }
         }
     }
