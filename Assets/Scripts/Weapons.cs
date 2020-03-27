@@ -42,33 +42,35 @@ public class Weapons : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
-            {               
-                //do nothing
-            }
-            else
+            foreach (Touch touch in Input.touches)
             {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    startTime = Time.time;
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                {               
+                    // do nothing
                 }
-
-                if (Input.GetMouseButtonUp(0))
+                else
                 {
-                    if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                     {
-                        longTap = true;
-                        quickTap = false;
-                    }
-                    else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                    {
-                        quickTap = true;
-                        longTap = false;
+                        startTime = Time.time;
                     }
 
-                    startTime = 0;
-                }
+                    if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                    {
+                        if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                        {
+                            longTap = true;
+                            quickTap = false;
+                        }
+                        else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                        {
+                            quickTap = true;
+                            longTap = false;
+                        }
 
+                        startTime = 0;
+                    }
+                }
             }
         }
     }
