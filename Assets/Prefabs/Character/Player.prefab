@@ -10413,6 +10413,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866153d0176272448aa0510b4c6cada4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  health: 0
+  armour: 0
+  speed: 0
+  joystick: {fileID: 0}
   SwordBlade: {fileID: 5281557748944318424}
 --- !u!82 &158848375
 AudioSource:

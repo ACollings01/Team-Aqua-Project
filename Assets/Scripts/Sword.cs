@@ -27,24 +27,24 @@ public class Sword : Weapons
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
 
-        layerMask = ~layerMask;
+        //layerMask = ~layerMask;
 
         lengthOfTap();
 
-        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
-        {
-            lookAtClick = lookAtClick;
-        }
-        else if (quickTap == false)
-        {
-            if (Physics.Raycast(ray, out hit, 1000, layerMask))
-            {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-            }
-        }
+        //if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        //{
+        //    lookAtClick = lookAtClick;
+        //}
+        //else if (quickTap == false)
+        //{
+        //    if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        //    {
+        //        lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+        //    }
+        //}
 
         if (quickTap /*&& AnimatorIsPlaying()*/)
         {
