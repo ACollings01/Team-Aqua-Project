@@ -42,8 +42,12 @@ public class Weapons : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) == false)
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
             {               
+                //do nothing
+            }
+            else
+            {
                 if (Input.GetMouseButtonDown(0))
                 {
                     startTime = Time.time;
