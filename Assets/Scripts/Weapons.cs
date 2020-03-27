@@ -50,12 +50,12 @@ public class Weapons : MonoBehaviour
             {
                 foreach (Touch touch in Input.touches)
                 {
-                    if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                     {
                         startTime = Time.time;
                     }
 
-                    if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                    if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
                     {
                         if (Time.time > startTime + 0.5f && startTime != 0.0f)
                         {
