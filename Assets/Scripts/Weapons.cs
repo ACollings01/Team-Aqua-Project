@@ -44,13 +44,13 @@ public class Weapons : Player
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount <= 1 && characterMoving)
+                if (characterMoving)
                 {               
                     // do nothing
                 }
                 else
                 {
-                    if (!characterMoving && Input.touchCount >= 1)
+                    if (!characterMoving)
                     {
                         if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
                         {
