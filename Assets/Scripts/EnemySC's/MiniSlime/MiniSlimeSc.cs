@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MiniSlimeSc : EnemyAI
 {
+    public AudioClip slime;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,6 +37,8 @@ public class MiniSlimeSc : EnemyAI
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             //Attack twice
         }
+        audioSource.PlayOneShot(slime);
+
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);   
     }
 

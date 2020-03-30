@@ -6,7 +6,6 @@ public class BanditMeleeAttackBehaviour : StateMachineBehaviour
 {
     private GameObject Player;
     private GameObject NPC;
-    private AudioSource audioSource;
 
     float timeBtwBatAtt = 2f;
     float timeTillNextAttack = 4f;
@@ -16,7 +15,6 @@ public class BanditMeleeAttackBehaviour : StateMachineBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         NPC = animator.gameObject;
-        //SoundManager.Instance.PlayClip(audioSource);
 
     }
 
