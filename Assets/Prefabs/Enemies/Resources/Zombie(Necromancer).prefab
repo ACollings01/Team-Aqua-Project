@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1470900720821523788, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
       propertyPath: m_Name
-      value: Zombie(Necromancer)
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 1744896524488111762, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
@@ -25,7 +25,7 @@ PrefabInstance:
     - target: {fileID: 1744896524488111762, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.892849
+      value: 44.41
       objectReference: {fileID: 0}
     - target: {fileID: 1744896524488111762, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
         type: 3}
@@ -67,5 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5843987380772829060, guid: 35eee0ac7af247a4fb22be8407fb2ef2,
+        type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35eee0ac7af247a4fb22be8407fb2ef2, type: 3}

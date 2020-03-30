@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
 
     public int minDamage;
     public int maxDamage;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public LayerMask whatIsPlayer;
     public float attackRadius;

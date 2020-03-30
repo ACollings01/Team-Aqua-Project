@@ -10,7 +10,6 @@ public class WolfSc : EnemyAI
     //public AudioSource damagetaken;
     public AudioClip death;
     
-    private AudioSource wolfAudioSource;
     bool spawned = false;
     bool playSound = false;
 
@@ -19,7 +18,7 @@ public class WolfSc : EnemyAI
     {
         this.name = "Wolf";
         anim = GetComponent<Animator>();
-        wolfAudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,7 +42,7 @@ public class WolfSc : EnemyAI
             if (playSound == false)
             {
                 playSound = true;
-                wolfAudioSource.PlayOneShot(death);
+                audioSource.PlayOneShot(death);
             }
 
             Destroy(this.gameObject, 3f);
@@ -73,7 +72,7 @@ public class WolfSc : EnemyAI
         }
 
         //SoundManager.Instance.PlayClip(attack);
-        wolfAudioSource.PlayOneShot(attack);
+        audioSource.PlayOneShot(attack);
 
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
