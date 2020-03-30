@@ -41,7 +41,7 @@ public class Sound
 public class SoundManager : Singleton<SoundManager>
 {
     public new static SoundManager Instance = null;
-    public AudioSource soundEffectAudio;
+    private AudioSource soundEffectAudio;
 
     float masterVolume = 1.0f;
 
@@ -72,6 +72,14 @@ public class SoundManager : Singleton<SoundManager>
     public Sound Wolf_Bite_2;
     public Sound Wolf_Damage_2;
     public Sound Wolf_Death_3;
+    public Sound ES_Slime_Pour_Horror;
+    public Sound ES_Impact_Mud_Drop;
+    public Sound Sword_Swoosh_4;
+    public Sound ES_Bandit;
+    public Sound ES_Button_Switch_10;
+    public Sound ES_Bow_Release_Arrow;
+    public Sound ES_Bow_Staff_hit;
+    public Sound ES_Shield_Scrape_Metal_1;
 
     // Start is called before the first frame update
     void Start()

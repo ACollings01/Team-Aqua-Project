@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Weapons : MonoBehaviour
+public class Weapons : Player
 {
     protected bool quickTap = false;
     protected bool longTap = false;
@@ -27,9 +27,9 @@ public class Weapons : MonoBehaviour
 
    
 
-    void Start()
+    public void Start()
     {
-
+        //Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -39,31 +39,41 @@ public class Weapons : MonoBehaviour
 
     protected void lengthOfTap()
     {
-        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
-        {
-            //Debug.Log("Tooch");
-        }
-        else
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                startTime = Time.time;
-            }
 
-            if (Input.GetMouseButtonUp(0))
+        if (Input.touchCount > 0)
+        {
+            foreach (Touch touch in Input.touches)
             {
-                if (Time.time > startTime + 1.0f && startTime != 0.0f)
-                {
-                    longTap = true;
-                    quickTap = false;
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && characterMoving)
+                {               
+                    // do nothing
                 }
-                else if (Time.time < startTime + 1.0f && startTime != 0.0f)
+                else
                 {
-                    quickTap = true;
-                    longTap = false;
-                }
+                    if (!characterMoving)
+                    {
+                        if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                        {
+                            startTime = Time.time;
+                        }
 
-                startTime = 0;
+                        if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                        {
+                            if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                            {
+                                longTap = true;
+                                quickTap = false;
+                            }
+                            else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                            {
+                                quickTap = true;
+                                longTap = false;
+                            }
+
+                            startTime = 0;
+                        }                   
+                    }
+                }
             }
         }
     }

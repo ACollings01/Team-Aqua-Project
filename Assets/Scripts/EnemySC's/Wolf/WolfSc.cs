@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class WolfSc : EnemyAI
 {
-    private AudioSource audioSource;
+
+    //public AudioSource howl;
+    public AudioClip attack;
+    //public AudioSource damagetaken;
+    public AudioClip death;
+    
+    private AudioSource wolfAudioSource;
+    bool spawned = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        this.name = "Wolf";
         anim = GetComponent<Animator>();
+        wolfAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         if (this.health <= 0)
         {
+            wolfAudioSource.PlayOneShot(death);
+
             Destroy(this.gameObject);
         }
     }
@@ -28,9 +41,13 @@ public class WolfSc : EnemyAI
 
     public void attackWolf(GameObject player)
     {
-        GameObject wolfHead = GameObject.Find("Wolf/WolfBody/Head");
+        GameObject wolfHead = GameObject.Find("Wolf/Head");
 
-        SoundManager.Instance.PlayClip(audioSource);
+
+        //SoundManager.Instance.PlayClip(howl);
+
+        //SoundManager.Instance.PlayClip(audioSource);
+
 
         Collider[] playerHit = Physics.OverlapSphere(wolfHead.transform.position, attackRadius, whatIsPlayer);
 
@@ -39,8 +56,13 @@ public class WolfSc : EnemyAI
             Debug.Log("The player has been hit by the Wolf!");
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             //Attack twice
-            SoundManager.Instance.PlayClip(audioSource);
+            //SoundManager.Instance.PlayClip(audioSource);
+
         }
+
+        //SoundManager.Instance.PlayClip(attack);
+        wolfAudioSource.PlayOneShot(attack);
+
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
 
@@ -55,6 +77,7 @@ public class WolfSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            spawned = true;
         }
     }
 }

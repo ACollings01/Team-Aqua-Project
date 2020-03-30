@@ -9,7 +9,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Prototype Level");
+        SceneManager.LoadScene("Level 1");
     }
     
     public void TownScene()
