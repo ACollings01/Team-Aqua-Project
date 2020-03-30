@@ -19,7 +19,7 @@ TagManager:
   - HomingFireball
   - HomingProjectile
   - Staff
-
+  - Trees_Town
   layers:
   - Default
   - TransparentFX
