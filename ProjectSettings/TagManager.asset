@@ -19,7 +19,9 @@ TagManager:
   - HomingFireball
   - HomingProjectile
   - Staff
+
   - Trees_Town
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -33,7 +35,7 @@ TagManager:
   - Player
   - Fireball
   - Ignore Tap
-  - 
+  - Joystick
   - 
   - 
   - 

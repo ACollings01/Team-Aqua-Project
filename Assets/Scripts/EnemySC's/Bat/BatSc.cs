@@ -24,7 +24,7 @@ public class BatSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        SoundManager.Instance.PlayClip(bats);
+        //SoundManager.Instance.PlayClip(bats);
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
@@ -37,7 +37,7 @@ public class BatSc : EnemyAI
             {
                 Destroy(spitProjectile);
             }
-            SoundManager.Instance.PlayClip(projectile);
+            //SoundManager.Instance.PlayClip(projectile);
         }
 
         if (this.health <= 0)
