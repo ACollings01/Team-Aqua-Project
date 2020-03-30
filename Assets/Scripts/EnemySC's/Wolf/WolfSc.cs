@@ -12,7 +12,7 @@ public class WolfSc : EnemyAI
     
     private AudioSource wolfAudioSource;
     bool spawned = false;
-
+    bool playSound = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +30,23 @@ public class WolfSc : EnemyAI
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
+
+        if (health != lasthp)
+        {
+            lasthp = health;
+            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(bloodSystem.gameObject, 1f);
+        }
+
         if (this.health <= 0)
         {
-            wolfAudioSource.PlayOneShot(death);
+            if (playSound == false)
+            {
+                playSound = true;
+                wolfAudioSource.PlayOneShot(death);
+            }
 
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 3f);
         }
     }
 

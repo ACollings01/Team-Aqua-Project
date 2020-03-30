@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
 
     public float speed;
     public int health;
+    public int lasthp;
 
     public int minDamage;
     public int maxDamage;
@@ -16,6 +17,8 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsPlayer;
     public float attackRadius;
+
+    public ParticleSystem blood;
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        lasthp = health;
     }
 
        //////////////////////////////////////////////////////////////////////////////////////////////////////

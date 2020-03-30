@@ -402,11 +402,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1627594074047982750, guid: e14c97738ee3196469f191110d1aa7e4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1650278100, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
       propertyPath: speed
       value: 10
@@ -416,6 +411,11 @@ PrefabInstance:
       propertyPath: SwordBlade
       value: 
       objectReference: {fileID: 2014630616}
+    - target: {fileID: 1627594074047982750, guid: e14c97738ee3196469f191110d1aa7e4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e14c97738ee3196469f191110d1aa7e4, type: 3}
 --- !u!1 &569984486 stripped
@@ -1514,6 +1514,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227438896493447405, guid: 89b2ccd1a4e2b97498f952a0cdf708d9,
+        type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89b2ccd1a4e2b97498f952a0cdf708d9, type: 3}
 --- !u!1001 &8039683088311393248
