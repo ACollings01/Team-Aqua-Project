@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("Player Died");
+            Destroy(this.gameObject, 5f);
         }
     }
 }
