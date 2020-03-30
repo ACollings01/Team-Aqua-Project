@@ -16,7 +16,7 @@ public class BanditMeleeAttackBehaviour : StateMachineBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         NPC = animator.gameObject;
-        SoundManager.Instance.PlayClip(audioSource);
+        //SoundManager.Instance.PlayClip(audioSource);
 
     }
 

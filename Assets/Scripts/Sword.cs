@@ -63,6 +63,23 @@ public class Sword : Weapons
             quickTap = false;
         }
 
+        if (Input.GetKeyDown("space"))
+        {
+            //swordAnimator.SetBool("Quick Tap Sword", true);
+            swordAnimator.SetTrigger("Quick Tap Sword");
+
+            audioSource.Play();
+
+            //Player.transform.LookAt(lookAtClick);
+
+            if (attackOnce == false)
+            {
+                swordAttack();
+
+            }
+            quickTap = false;
+        }
+
         if (longTap)
         {
             swordAnimator.SetTrigger("Long Tap Sword");
