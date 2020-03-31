@@ -12,8 +12,9 @@ public class SpawnerSc : MonoBehaviour
 
     bool enemiesSpawned = false;
 
+    [SerializeField]
     [Range(0, 50)]
-    public float radius = 5;
+    float radius = 5;
 
     LineRenderer line;
 
@@ -35,10 +36,13 @@ public class SpawnerSc : MonoBehaviour
         //Check for distance between object and player
         if (distance <= radius)
         {
+            Debug.Log("Enemies Spawned");
             //Once the player is within distance, spawn enemies
             if(enemiesSpawned == false)
                 spawnEnemies();
         }
+
+        Debug.Log(distance);
 
         //If that bool is true, destroy this object
         if(enemiesSpawned)
