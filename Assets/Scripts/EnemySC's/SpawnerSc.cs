@@ -42,7 +42,6 @@ public class SpawnerSc : MonoBehaviour
                 spawnEnemies();
         }
 
-        Debug.Log(distance);
 
         //If that bool is true, destroy this object
         if(enemiesSpawned)
