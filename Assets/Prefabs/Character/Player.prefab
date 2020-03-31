@@ -7077,6 +7077,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!136 &899278611
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10418,6 +10419,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  blood: {fileID: 0}
   SwordBlade: {fileID: 5281557748944318424}
 --- !u!82 &158848375
 AudioSource:

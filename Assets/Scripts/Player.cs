@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Game game;
     public int health;
+    int lastHP;
     public int armour;
     public float speed;
     public Joystick joystick;
@@ -13,9 +14,13 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
 
+    public ParticleSystem blood;
+
     // Start is called before the first frame update
     void Start()
     {
+        lastHP = health; //So blood doesn't randomly come out of the player on Spawn
+
         GameObject player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
 
@@ -122,6 +127,13 @@ public class Player : MonoBehaviour
 
     private void CheckHealth()
     {
+        if(health != lastHP)
+        {
+            lastHP = health;
+            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(bloodSystem.gameObject, 1f);
+        }
+
         if (health <= 0)
         {
             Destroy(this.gameObject, 5f);

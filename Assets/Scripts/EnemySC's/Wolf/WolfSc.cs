@@ -16,6 +16,7 @@ public class WolfSc : EnemyAI
     // Start is called before the first frame update
     void Start()
     {
+        lasthp = health;
         this.name = "Wolf";
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -28,7 +29,6 @@ public class WolfSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-
 
         if (health != lasthp)
         {
