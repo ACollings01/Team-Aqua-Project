@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
         if(health != lastHP)
         {
             lastHP = health;
-            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity);
+            var bloodSystem = Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
             Destroy(bloodSystem.gameObject, 1f);
         }
 
