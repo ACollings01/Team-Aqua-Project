@@ -29,7 +29,7 @@ public class Weapons : Player
 
     public void Start()
     {
-        //Player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     void Update()
@@ -52,12 +52,12 @@ public class Weapons : Player
                 {
                     if (!characterMoving)
                     {
-                        if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                        if (touch.phase == TouchPhase.Began)
                         {
                             startTime = Time.time;
                         }
 
-                        if (touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                        if (touch.phase == TouchPhase.Ended)
                         {
                             if (Time.time > startTime + 0.5f && startTime != 0.0f)
                             {
@@ -85,8 +85,6 @@ public class Weapons : Player
 
        Collider[] enemyHit = Physics.OverlapSphere(SwordBlade.transform.position, swordAttackRadius, whatIsEnemy);
 
-        //Debug.Log(enemyHit.Length);
-
        for (int i = 0; i < enemyHit.Length; i++)
        {
             enemyHit[i].GetComponent<EnemyAI>().health -= swordDamageDone();
@@ -103,8 +101,6 @@ public class Weapons : Player
 
         Collider[] enemyHit = Physics.OverlapSphere(playerSpear.transform.position, spearAttackRadius, whatIsEnemy);
 
-        //Debug.Log(enemyHit.Length);
-
         for (int i = 0; i < enemyHit.Length; i++)
         {
             enemyHit[i].GetComponent<EnemyAI>().health -= spearDamageDone();
@@ -120,8 +116,6 @@ public class Weapons : Player
         GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
 
         Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
-
-        //Debug.Log(enemyHit.Length);
 
         for (int i = 0; i < enemyHit.Length; i++)
         {

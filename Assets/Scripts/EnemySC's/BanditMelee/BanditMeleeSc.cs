@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BanditMeleeSc : EnemyAI
 {
-
-    private AudioSource audioSource;
-
     bool spawned = false;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

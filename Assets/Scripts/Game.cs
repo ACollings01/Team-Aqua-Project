@@ -16,8 +16,6 @@ public class Game : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-
-        Debug.Log("I died");
         // disable player movement and control prefab here
     }
 }

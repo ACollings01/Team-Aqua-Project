@@ -80,7 +80,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -176,12 +176,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   health: 30
+  lasthp: 0
   minDamage: 7
   maxDamage: 9
+  audioSource: {fileID: 1345544472}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
   attackRadius: 1
+  blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!82 &1345544472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -189,10 +192,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605873424066916892}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e762240d17b2ac2459c3a0b7a7a5660f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
