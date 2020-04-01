@@ -64,11 +64,9 @@ public class Player : MonoBehaviour
 #endif
 
 #if UNITY_ANDROID
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
-        var flat = GetComponent<Transform>();
 
         if (Input.touchCount > 0)
         {

@@ -29877,7 +29877,7 @@ PrefabInstance:
     - target: {fileID: 5281557748944614692, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 5281557748944614692, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
@@ -33335,6 +33335,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!136 &2071021296
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071021291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.10907707
+  m_Height: 0
+  m_Direction: 1
+  m_Center: {x: -0.007866434, y: -0.016330957, z: 0.09907707}
 --- !u!54 &2075175603
 Rigidbody:
   m_ObjectHideFlags: 0
