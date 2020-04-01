@@ -114,7 +114,6 @@ public class Sword : Weapons
         {
             attackOnce = false;
         }
-    }
-#endif       
+#endif 
     }
 }
