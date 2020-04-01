@@ -25,8 +25,6 @@ public class BatSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        //audioSource.PlayOneShot(bats);
-
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
@@ -45,6 +43,8 @@ public class BatSc : EnemyAI
         {
             Destroy(this.gameObject);
         }
+
+       
     }
 
     public void moveAroundPlayer(GameObject Player)
@@ -85,5 +85,6 @@ public class BatSc : EnemyAI
             this.GetComponent<Collider>().enabled = true;
             spawned = true;
         }
+        audioSource.PlayOneShot(bats);
     }
 }
