@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         joystickObject.SetActive(false);
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         joystickObject.SetActive(true);
         joystick = FindObjectOfType<Joystick>();
 #endif
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         }
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
