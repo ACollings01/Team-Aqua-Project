@@ -36,7 +36,6 @@ public class BatSc : EnemyAI
             {
                 Destroy(spitProjectile);
             }
-            audioSource.PlayOneShot(projectile);
         }
 
         if (this.health <= 0)
@@ -71,6 +70,8 @@ public class BatSc : EnemyAI
 
         spit.transform.LookAt(player.transform.position);
         rb.AddForce(spit.transform.forward * 500.0f);
+
+        audioSource.PlayOneShot(projectile, 0.5f);
     }
 
     void crawlToSurface()
@@ -84,7 +85,7 @@ public class BatSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             spawned = true;
+            audioSource.PlayOneShot(bats, 0.5f);
         }
-        audioSource.PlayOneShot(bats);
     }
 }
