@@ -22,14 +22,13 @@ public class Player : MonoBehaviour
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
+        GameObject joystickObject = GameObject.Find("Fixed Joystick");
 
         playerAnimator = player.GetComponent<Animator>();
 
         playerAudioSource = GetComponent<AudioSource>();
 
-#if UNITY_EDITOR
-        GameObject joystickObject = GameObject.Find("Fixed Joystick");
-        
+#if UNITY_EDITOR      
         joystickObject.SetActive(false);
 #endif
 
