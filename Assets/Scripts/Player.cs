@@ -23,10 +23,15 @@ public class Player : MonoBehaviour
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
+        GameObject joystickObject = GameObject.Find("Fixed Joystick");
         playerAnimator = player.GetComponent<Animator>();
 
         playerAudioSource = GetComponent<AudioSource>();
-#else
+
+        joystickObject.SetActive(false);
+#endif
+
+#if UNITY_ANDROID
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
