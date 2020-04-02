@@ -9,24 +9,15 @@ public class Sword : Weapons
 
     void Start()
     {
-#if UNITY_EDITOR
         GameObject sword = GameObject.Find("Player");
         swordAnimator = sword.GetComponent<Animator>();
         startTime = 0.0f;
 
+        audioSource = GetComponent<AudioSource>();
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
-
-        audioSource = GetComponent<AudioSource>();
-#else
-        GameObject sword = GameObject.Find("Player");
-        swordAnimator = sword.GetComponent<Animator>();
-        startTime = 0.0f;
-
-        layerMask = LayerMask.GetMask("Player", "Enemy");
-        ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
-
-        audioSource = GetComponent<AudioSource>();
 #endif
     }
 
@@ -63,7 +54,9 @@ public class Sword : Weapons
         {
             attackOnce = false;
         }
-#else
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //RaycastHit hit;
 
