@@ -82,12 +82,11 @@ public class Sword : Weapons
 
             audioSource.Play();
 
-            Player.transform.LookAt(lookAtClick);
+            //Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
                 swordAttack();
-
             }
             quickTap = false;
         }
