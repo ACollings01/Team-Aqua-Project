@@ -19,26 +19,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
-        GameObject joystickObject = GameObject.Find("Fixed Joystick");
+
         playerAnimator = player.GetComponent<Animator>();
 
         playerAudioSource = GetComponent<AudioSource>();
 
+#if UNITY_EDITOR
+        GameObject joystickObject = GameObject.Find("Fixed Joystick");
+        
         joystickObject.SetActive(false);
 #endif
 
 #if UNITY_ANDROID
-        lastHP = health; //So blood doesn't randomly come out of the player on Spawn
-
-        GameObject player = GameObject.Find("Player");
-        playerAnimator = player.GetComponent<Animator>();
-
-        playerAudioSource = GetComponent<AudioSource>();
-
         joystickObject.SetActive(true);
         joystick = FindObjectOfType<Joystick>();
 #endif
@@ -65,8 +60,6 @@ public class Player : MonoBehaviour
             playerAnimator.SetBool("IsMoving", false);
             playerAudioSource.Stop();
         }
-
-        CheckHealth();
 #endif
 
 #if UNITY_ANDROID
@@ -122,9 +115,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-        CheckHealth();
 #endif
+        CheckHealth();
     }
 
     void OnCollisionEnter(Collision other)
