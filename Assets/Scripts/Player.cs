@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
         playerAudioSource = GetComponent<AudioSource>();
 
+        joystickObject.SetActive(true);
         joystick = FindObjectOfType<Joystick>();
 #endif
     }
