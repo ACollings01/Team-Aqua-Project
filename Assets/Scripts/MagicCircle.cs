@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicCircle : MonoBehaviour
 {
+    public AudioClip portal;
+    private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
 
     void Start()
@@ -17,5 +19,7 @@ public class MagicCircle : MonoBehaviour
         {
             _gameManager.ActivateMCircle();
         }
+        magicCircleAudioSource.PlayOneShot(portal);
     }
+   
 }
