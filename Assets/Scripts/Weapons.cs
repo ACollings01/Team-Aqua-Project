@@ -48,7 +48,8 @@ public class Weapons : Player
                 {               
                     // do nothing
                 }
-                else if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) || (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount > 1))
+
+                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) || (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount > 1))
                 {
                     if (touch.phase == TouchPhase.Began)
                     {
