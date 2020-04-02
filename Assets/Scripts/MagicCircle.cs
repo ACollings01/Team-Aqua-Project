@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MagicCircle : MonoBehaviour
 {
-    public AudioClip portal;
     private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
 
     void Start()
     {
         _gameManager = GameManager.Instance;
+        magicCircleAudioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -19,7 +19,7 @@ public class MagicCircle : MonoBehaviour
         {
             _gameManager.ActivateMCircle();
         }
-        magicCircleAudioSource.PlayOneShot(portal);
+        magicCircleAudioSource.Play();
     }
    
 }

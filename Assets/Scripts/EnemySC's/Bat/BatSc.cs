@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BatSc : EnemyAI
 {
-    public AudioClip bats;
-    public AudioClip projectile;
+    [SerializeField] public AudioClip bat;
+    [SerializeField] public AudioClip projectile;
+    private AudioSource batsAudioSource;
+
     int rand;
     GameObject[] spitProjectiles;
 
@@ -16,16 +18,19 @@ public class BatSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
-        audioSource = GetComponent<AudioSource>();
+        batsAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if(!spawned)
-            crawlToSurface();
+            audioSource.PlayOneShot(bat);
+        crawlToSurface();
+        
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        audioSource = GetComponent<AudioSource>();
 
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject spitProjectile in spitProjectiles)
@@ -85,6 +90,7 @@ public class BatSc : EnemyAI
             this.GetComponent<Collider>().enabled = true;
             spawned = true;
         }
-        audioSource.PlayOneShot(bats);
+        
     }
+    
 }
