@@ -18,7 +18,7 @@ public class RangedWeapons : Weapons
     private GameObject magic;
     private GameObject spear;
 
-    public int speed;
+    public int projectileSpeed;
     public float fireRate;
 
     protected float lastFireTime;
@@ -49,7 +49,7 @@ public class RangedWeapons : Weapons
         arrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
         //arrow.transform.rotation = Quaternion.LookRotation(rotation);
 
-        arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
+        arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * projectileSpeed;
 
     }
 
@@ -63,7 +63,7 @@ public class RangedWeapons : Weapons
         magic.transform.position = new Vector3(magicLaunchPosition.position.x - 0.1f, magicLaunchPosition.position.y, magicLaunchPosition.position.z);
         //magic.transform.rotation = Quaternion.LookRotation(rotation);
 
-        magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
+        magic.GetComponent<Rigidbody>().velocity = transform.parent.forward * projectileSpeed;
 
     }
 
@@ -77,7 +77,7 @@ public class RangedWeapons : Weapons
         //spear.transform.position = new Vector3(spearLaunchPosition.position.x, spearLaunchPosition.position.y, spearLaunchPosition.position.z);
         //spear.transform.rotation = Quaternion.LookRotation(rotation);
 
-        spear.GetComponent<Rigidbody>().velocity = transform.parent.forward * speed;
+        spear.GetComponent<Rigidbody>().velocity = transform.parent.forward * projectileSpeed;
 
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class Weapons : MonoBehaviour
+public class Weapons : Player
 {
     protected bool quickTap = false;
     protected bool longTap = false;
@@ -29,7 +29,7 @@ public class Weapons : MonoBehaviour
 
     public void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     void Update()
@@ -42,31 +42,35 @@ public class Weapons : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+            foreach (Touch touch in Input.touches)
             {
-                //Debug.Log("Tooch");
-            }
-            else
-            {
-                if (Input.GetTouch(0).phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
-                {
-                    startTime = Time.time;
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                {               
+                    // do nothing
                 }
 
-                if (Input.GetTouch(0).phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) || (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount > 1))
                 {
-                    if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        longTap = true;
-                        quickTap = false;
-                    }
-                    else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                    {
-                        quickTap = true;
-                        longTap = false;
+                        startTime = Time.time;
                     }
 
-                    startTime = 0;
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (Time.time > startTime + 0.5f && startTime != 0.0f)
+                        {
+                            longTap = true;
+                            quickTap = false;
+                        }
+                        else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                        {
+                            quickTap = true;
+                            longTap = false;
+                        }
+
+                        startTime = 0;
+                    }
                 }
             }
         }
@@ -78,8 +82,6 @@ public class Weapons : MonoBehaviour
         swordAttackRadius = 1;
 
        Collider[] enemyHit = Physics.OverlapSphere(SwordBlade.transform.position, swordAttackRadius, whatIsEnemy);
-
-        //Debug.Log(enemyHit.Length);
 
        for (int i = 0; i < enemyHit.Length; i++)
        {
@@ -97,8 +99,6 @@ public class Weapons : MonoBehaviour
 
         Collider[] enemyHit = Physics.OverlapSphere(playerSpear.transform.position, spearAttackRadius, whatIsEnemy);
 
-        //Debug.Log(enemyHit.Length);
-
         for (int i = 0; i < enemyHit.Length; i++)
         {
             enemyHit[i].GetComponent<EnemyAI>().health -= spearDamageDone();
@@ -114,8 +114,6 @@ public class Weapons : MonoBehaviour
         GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
 
         Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
-
-        //Debug.Log(enemyHit.Length);
 
         for (int i = 0; i < enemyHit.Length; i++)
         {

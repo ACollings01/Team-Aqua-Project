@@ -5,19 +5,21 @@ using UnityEngine;
 public class WolfSc : EnemyAI
 {
 
-    public AudioSource howl;
-    public AudioSource attack;
-    public AudioSource damagetaken;
-    public AudioSource death;
+    //public AudioSource howl;
+    public AudioClip attack;
+    //public AudioSource damagetaken;
+    public AudioClip death;
     
-    private AudioSource audioSource;
     bool spawned = false;
-
+    bool playSound = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        lasthp = health;
+        this.name = "Wolf";
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,9 +30,22 @@ public class WolfSc : EnemyAI
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
+        if (health != lasthp)
+        {
+            lasthp = health;
+            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity);
+            Destroy(bloodSystem.gameObject, 1f);
+        }
+
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            if (playSound == false)
+            {
+                playSound = true;
+                audioSource.PlayOneShot(death);
+            }
+
+            Destroy(this.gameObject, 3f);
         }
     }
 
@@ -40,7 +55,7 @@ public class WolfSc : EnemyAI
         GameObject wolfHead = GameObject.Find("Wolf/Head");
 
 
-        SoundManager.Instance.PlayClip(howl);
+        //SoundManager.Instance.PlayClip(howl);
 
         //SoundManager.Instance.PlayClip(audioSource);
 
@@ -56,7 +71,8 @@ public class WolfSc : EnemyAI
 
         }
 
-        SoundManager.Instance.PlayClip(attack);
+        //SoundManager.Instance.PlayClip(attack);
+        audioSource.PlayOneShot(attack);
 
         transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }

@@ -16,7 +16,6 @@ public class Game : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-
         // disable player movement and control prefab here
     }
 }

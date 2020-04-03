@@ -12,23 +12,44 @@ public class SpawnerSc : MonoBehaviour
 
     bool enemiesSpawned = false;
 
+    [SerializeField]
+    [Range(0, 50)]
+    float radius = 5;
+
+    LineRenderer line;
+
+    //https://gamedev.stackexchange.com/questions/126427/draw-circle-around-gameobject-to-indicate-radius <-- Example 1 code used for drawing a circle using Line Renderer
+
+    private void Start()
+    {
+        line = gameObject.GetComponent<LineRenderer>();
+
+        line.SetVertexCount(50 + 1);
+        line.useWorldSpace = false;
+        line.SetWidth(0.2f, 0.2f);
+    }
+
     // Update is called once per frame
     void Update()
     {
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
         //Check for distance between object and player
-        if (distance <= 20)
+        if (distance <= radius)
         {
+            Debug.Log("Enemies Spawned");
             //Once the player is within distance, spawn enemies
             if(enemiesSpawned == false)
                 spawnEnemies();
         }
+
 
         //If that bool is true, destroy this object
         if(enemiesSpawned)
         {
             Destroy(gameObject);
         }
+
+        DrawCircleRadius();
     }
 
     void spawnEnemies()
@@ -42,5 +63,29 @@ public class SpawnerSc : MonoBehaviour
         }
         //Once all enemies have been spawned, set a bool to true
         enemiesSpawned = true;
+    }
+
+    void DrawCircleRadius()
+    {
+        float x;
+        float z;
+
+        float angle = 20f;
+
+        for(int i = 0; i < (50 + 1); i++)
+        {
+            x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
+            z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
+
+            line.SetPosition(i, new Vector3(x, 0, z));
+
+            angle += (360 / 50 + 1);
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(transform.position, transform.localScale);
     }
 }
