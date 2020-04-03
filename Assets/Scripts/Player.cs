@@ -44,18 +44,20 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //movement for PC
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) /*&& movement != Vector3.zero*/)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movement != Vector3.zero)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !characterMoving)
             {
                 playerAudioSource.Play();
             }
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            characterMoving = true;
             playerAnimator.SetBool("IsMoving", true);
         }
-        else if (!characterMoving)
+        else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)))
         {
+            characterMoving = false;
             playerAnimator.SetBool("IsMoving", false);
             playerAudioSource.Stop();
         }
