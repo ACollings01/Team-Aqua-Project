@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Game game;
-    public int health;
-    int lastHP;
+    public float health = 50f;
+    float lastHP;
     public int armour;
     public float speed;
     public Joystick joystick;
