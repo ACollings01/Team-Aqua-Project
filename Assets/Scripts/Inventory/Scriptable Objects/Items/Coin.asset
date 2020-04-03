@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd005e2d01b0703498841efb32fd4163, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8616448849570138292, guid: a49aa9b34b8c60843a0effd78c0b802a, type: 3}
+  prefab: {fileID: 6081015731517716591, guid: bbc57aa4d679a1d4584fed88fcbf69fd, type: 3}
   type: 2
-  description: 1
+  description: A singular coin.
