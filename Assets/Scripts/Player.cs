@@ -19,21 +19,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
-        playerAnimator = player.GetComponent<Animator>();
+        GameObject joystickObject = GameObject.Find("Fixed Joystick");
 
-        playerAudioSource = GetComponent<AudioSource>();
-#else
-        lastHP = health; //So blood doesn't randomly come out of the player on Spawn
-
-        GameObject player = GameObject.Find("Player");
         playerAnimator = player.GetComponent<Animator>();
 
         playerAudioSource = GetComponent<AudioSource>();
 
+#if UNITY_EDITOR      
+        joystickObject.SetActive(false);
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        joystickObject.SetActive(true);
         joystick = FindObjectOfType<Joystick>();
 #endif
     }
@@ -59,11 +59,9 @@ public class Player : MonoBehaviour
             playerAnimator.SetBool("IsMoving", false);
             playerAudioSource.Stop();
         }
-
-        CheckHealth();
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
@@ -72,7 +70,7 @@ public class Player : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended)
                 {
                     characterMoving = false;
                     playerAnimator.SetBool("IsMoving", false);
@@ -81,7 +79,7 @@ public class Player : MonoBehaviour
 
                 if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                 {
-                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                    if (touch.phase == TouchPhase.Began)
                     {
                         characterMoving = true;
                         playerAnimator.SetBool("IsMoving", true);
@@ -116,9 +114,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-        CheckHealth();
 #endif
+        CheckHealth();
     }
 
     void OnCollisionEnter(Collision other)
