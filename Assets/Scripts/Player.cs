@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 5.0f);
         }
     }
 
