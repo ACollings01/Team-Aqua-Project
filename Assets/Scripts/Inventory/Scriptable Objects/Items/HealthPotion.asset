@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e393bf7c7ffb84c94c8c3aa47203bb, type: 3}
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1969415324582851545, guid: 81a5f5912dd92e24389494837cdf424d, type: 3}
+  prefab: {fileID: 8477867113549633063, guid: e3bd30091664fb24f95aef2a450c2b74, type: 3}
   type: 0
   description: 
-  restoreHealthValue: 0
+  restoreHealthValue: 50
   armorClassValue: 0
