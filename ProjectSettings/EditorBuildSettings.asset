@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MagicCircleUI.unity
     guid: e7b1c216dbe001747b72dc625ffc630e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Andrew's Playground.unity
     guid: f68ba6fb56d9ca6429347f119bc6fc9a
   m_configObjects: {}
