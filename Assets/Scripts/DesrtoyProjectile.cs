@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class DesrtoyProjectile : RangedWeapons
 {
-    // Start is called before the first frame update
+
     void Start()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+#endif
     }
 
-    // Update is called once per frame
     void Update()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -36,6 +38,7 @@ public class DesrtoyProjectile : RangedWeapons
             LookAtClickProjectile();
             checkOnce = true;
         }
+#endif
     }
 
     void LookAtClickProjectile()
@@ -43,6 +46,7 @@ public class DesrtoyProjectile : RangedWeapons
         transform.LookAt(lookAtClickProjectile);
         checkOnce = false;
     }
+
     void OnCollisionEnter(Collision enemy)
     {
         if (enemy.gameObject.tag == "Enemy")
