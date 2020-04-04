@@ -6,71 +6,101 @@ using UnityEngine;
 public class Bow : RangedWeapons
 {
     private Animator bowAnimator;
+    private AudioSource audioSource;
 
+    GameObject arrowDirection;
     GameObject[] arrowProjectiles;
-
-    bool AnimatorIsPlaying()
-    {
-        return bowAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
 
     void Start()
     {
-        GameObject bow = transform.gameObject;
+        GameObject bow = GameObject.Find("Player");
         bowAnimator = bow.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        arrowDirection = GameObject.FindGameObjectWithTag("Projectile Look At");
+
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
     }
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        
-        layerMask = ~layerMask;
-
-        lengthOfTap();
-
-        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+#if UNITY_EDITOR
+        if (Input.GetKeyDown("space"))
         {
-            lookAtClick = lookAtClick;
-        }
-        else if (quickTap == false)
-        {
-            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            bowAnimator.SetTrigger("Quick Tap Bow");
+
+            //audioSource.Play();
+
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+                lastFireTime = Time.time;
+
+                FireArrow();
             }
         }
 
-        if (quickTap && AnimatorIsPlaying())
+        if (Input.GetKeyDown("v"))
         {
-            bowAnimator.SetBool("Quick Tap Bow", true);
+            bowAnimator.SetTrigger("Long Tap Bow");
 
-            Player.transform.LookAt(lookAtClick);
+            //audioSource.Play();
 
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            bowAnimator.SetBool("Quick Tap Bow", false);
-
-            if (quickTap)
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                Player.transform.LookAt(lookAtClick);
-                if ((Time.time - lastFireTime) > fireRate)
-                {
-                    lastFireTime = Time.time;
+                lastFireTime = Time.time;
 
-                    FireArrow();
-                }
+                FireArrow();
             }
-
-            quickTap = false;
         }
+#endif
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+
+        //layerMask = ~layerMask;
+
+        //lengthOfTap();
+
+        //if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        //{
+        //    lookAtClick = lookAtClick;
+        //}
+        //else if (quickTap == false)
+        //{
+        //    if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        //    {
+        //        lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+        //    }
+        //}
+
+        //if (quickTap && AnimatorIsPlaying())
+        //{
+        //    bowAnimator.SetBool("Quick Tap Bow", true);
+
+        //    Player.transform.LookAt(lookAtClick);
+
+        //}
+        //else if (!AnimatorIsPlaying())
+        //{
+        //    bowAnimator.SetBool("Quick Tap Bow", false);
+
+        //    if (quickTap)
+        //    {
+        //        Player.transform.LookAt(lookAtClick);
+        //        if ((Time.time - lastFireTime) > fireRate)
+        //        {
+        //            lastFireTime = Time.time;
+
+        //            FireArrow();
+        //        }
+        //    }
+
+        //    quickTap = false;
+        //}
 
         arrowProjectiles = GameObject.FindGameObjectsWithTag("Arrow");
 
@@ -78,16 +108,18 @@ public class Bow : RangedWeapons
         {
             float distance = Vector3.Distance(arrowProjectile.transform.position, Player.transform.position);
 
+            Quaternion arrowRotation = arrowDirection.transform.rotation;
+
+            arrowProjectile.transform.rotation = arrowRotation;
+
             if (distance > 50)
             {
                 Destroy(arrowProjectile);
             }
-
-           /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
+            else
             {
-                Destroy(arrowProjectile);
-                Debug.Log("Time Destroyed");
-            }*/
+                Destroy(arrowProjectile, 5.0f);
+            }
         }
 
     }

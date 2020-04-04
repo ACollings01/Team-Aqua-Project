@@ -43,7 +43,7 @@ public class RangedWeapons : Weapons
     {
         //Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
 
-        arrow = Instantiate(arrowPrefab, transform.position ,Quaternion.identity);
+        arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.tag = "Arrow";
 
         arrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
