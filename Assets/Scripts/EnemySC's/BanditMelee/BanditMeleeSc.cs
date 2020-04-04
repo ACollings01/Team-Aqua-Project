@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BanditMeleeSc : EnemyAI
 {
-    private AudioSource banditAudioSource;
-
     bool spawned = false;
 
     // Start is called before the first frame update
@@ -22,7 +20,7 @@ public class BanditMeleeSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        banditAudioSource.Play();
+        audioSource.Play();
 
         if (this.health <= 0)
         {

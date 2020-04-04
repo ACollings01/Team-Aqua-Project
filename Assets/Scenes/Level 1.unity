@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13813,7 +13813,12 @@ PrefabInstance:
       propertyPath: dealDamageBow
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1345544472, guid: 2a72813161bcc2040900e23321a229df, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e762240d17b2ac2459c3a0b7a7a5660f, type: 3}
+    m_RemovedComponents:
+    - {fileID: 1345544472, guid: 2a72813161bcc2040900e23321a229df, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a72813161bcc2040900e23321a229df, type: 3}
 --- !u!1 &1009120159 stripped
 GameObject:
@@ -34130,6 +34135,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d7ad1adeb807d241826c71b3c357807, type: 3}
+    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
+      propertyPath: m_Pitch
+      value: 2.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
+      propertyPath: m_Volume
+      value: 0.668
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 912252147475262004, guid: 6f1add67f0c684848b3b463a55fa1809,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34195,26 +34220,6 @@ PrefabInstance:
       propertyPath: bat
       value: 
       objectReference: {fileID: 8300000, guid: 0d7ad1adeb807d241826c71b3c357807, type: 3}
-    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d7ad1adeb807d241826c71b3c357807, type: 3}
-    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
-      propertyPath: m_Pitch
-      value: 2.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
-      propertyPath: m_Volume
-      value: 0.668
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282157238, guid: 6f1add67f0c684848b3b463a55fa1809, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 912252147475262001, guid: 6f1add67f0c684848b3b463a55fa1809,
         type: 3}
       propertyPath: dealDamageSword
