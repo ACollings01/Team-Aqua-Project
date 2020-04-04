@@ -80,6 +80,10 @@ public class SoundManager : Singleton<SoundManager>
     public Sound ES_Bow_Release_Arrow;
     public Sound ES_Bow_Staff_hit;
     public Sound ES_Shield_Scrape_Metal_1;
+    public Sound LotsOfBats;
+    public Sound Portalsound;
+    public Sound town;
+    public Sound batspit;
 
     // Start is called before the first frame update
     void Start()
