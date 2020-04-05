@@ -32,15 +32,15 @@ public class Bow : RangedWeapons
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
-            bowAnimator.SetTrigger("Quick Tap Bow");
-
             //audioSource.Play();
 
             if ((Time.time - lastFireTime) > fireRate)
             {
                 lastFireTime = Time.time;
 
+                bowAnimator.SetTrigger("Quick Tap Bow");
                 FireArrow();
+                arrowDirectionOnce = false;
             }
         }
 
@@ -55,6 +55,7 @@ public class Bow : RangedWeapons
                 lastFireTime = Time.time;
 
                 FireArrow();
+                arrowDirectionOnce = false;
             }
         }
 #endif
@@ -110,9 +111,13 @@ public class Bow : RangedWeapons
 
             Quaternion arrowRotation = arrowDirection.transform.rotation;
 
-            arrowProjectile.transform.rotation = arrowRotation;
+            if (!arrowDirectionOnce)
+            {
+                arrowProjectile.transform.rotation = arrowRotation;
+                arrowDirectionOnce = true;
+            }
 
-            if (distance > 50)
+            if (distance > 30)
             {
                 Destroy(arrowProjectile);
             }

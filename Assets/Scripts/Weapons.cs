@@ -13,6 +13,7 @@ public class Weapons : Player
     protected int ignoreLayerMask;
     protected bool attackOnce = false;
     protected bool checkOnce = false;
+    protected bool arrowDirectionOnce = false;
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
     protected GameObject Player;
