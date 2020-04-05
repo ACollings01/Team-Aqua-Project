@@ -84,6 +84,7 @@ public class SoundManager : Singleton<SoundManager>
     public Sound Portalsound;
     public Sound town;
     public Sound batspit;
+    public Sound player_death;
 
     // Start is called before the first frame update
     void Start()
