@@ -1019,6 +1019,7 @@ MonoBehaviour:
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 0}
+  heavyArrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 0}
   spearPrefab: {fileID: 5356413758966625025, guid: a37bf268aeee1f14dbfa0731cf75e6fe,
     type: 3}
@@ -1763,6 +1764,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 420593818, guid: 2a72813161bcc2040900e23321a229df, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420593818, guid: 2a72813161bcc2040900e23321a229df, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a72813161bcc2040900e23321a229df, type: 3}
 --- !u!1 &1384289289 stripped
@@ -2007,6 +2016,7 @@ MonoBehaviour:
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 7501045273737921998, guid: e2c82b0376ced25468b4e5cea9750657,
     type: 3}
+  heavyArrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 0}
   spearPrefab: {fileID: 0}
   fireAtPrefab: {fileID: 0}
@@ -2015,6 +2025,7 @@ MonoBehaviour:
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 0
   fireRate: 0.5
+  arrowParticle: {fileID: 0}
 --- !u!95 &1459651937
 Animator:
   serializedVersion: 3
@@ -3844,6 +3855,7 @@ MonoBehaviour:
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 0}
+  heavyArrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 6855304083809344935, guid: 2d4fe224c08ac2e428d1d72cbfd7e558,
     type: 3}
   spearPrefab: {fileID: 0}
@@ -4243,6 +4255,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8037863740026464311, guid: f79060f87957a254c932feeb44dc8ade,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037863740026464311, guid: f79060f87957a254c932feeb44dc8ade,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565941074, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
+      propertyPath: heavyArrowPrefab
+      value: 
+      objectReference: {fileID: 7502502722706524275, guid: 542908dddd30f0a4c94bbf1e774d6534,
+        type: 3}
+    - target: {fileID: 1565941074, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
+      propertyPath: arrowParticle
+      value: 
+      objectReference: {fileID: 8012189697294709596, guid: 12839dc96ad4d4e4f9e9dc9c4df4cbb3,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
 --- !u!1001 &8333048900185645135
