@@ -6,6 +6,7 @@ public class MagicCircle : MonoBehaviour
 {
     private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
+    private bool canRunAudio = true;
 
     void Start()
     {
@@ -15,11 +16,18 @@ public class MagicCircle : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && canRunAudio)
         {
-            _gameManager.ActivateMCircle();
+            StartCoroutine(ExitMap());
+            canRunAudio = false;
+            magicCircleAudioSource.Play();
         }
-        magicCircleAudioSource.Play();
+    }
+
+    IEnumerator ExitMap()
+    {
+        yield return new WaitForSeconds(1.5f);
+        _gameManager.ActivateMCircle();
     }
    
 }
