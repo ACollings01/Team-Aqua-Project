@@ -12210,6 +12210,10 @@ PrefabInstance:
       propertyPath: dealDamageBow
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 596128041, guid: dedbe278adafe95439d32ac40d8fddb8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114781487, guid: dedbe278adafe95439d32ac40d8fddb8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dedbe278adafe95439d32ac40d8fddb8, type: 3}
@@ -14449,6 +14453,13 @@ MonoBehaviour:
   batspit:
     name: 
     clip: {fileID: 8300000, guid: 8d6070ad05e88a547882881c9bfea1a4, type: 3}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  player_death:
+    name: 
+    clip: {fileID: 0}
     volume: 5
     pitch: 1
     randvolume: 0.1
@@ -30454,6 +30465,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5281557748944314628, guid: c07cd8811029bdb409bb512ad16f0e76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5281557748944614692, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
