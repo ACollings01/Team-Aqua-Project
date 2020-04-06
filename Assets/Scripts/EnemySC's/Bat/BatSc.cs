@@ -50,7 +50,7 @@ public class BatSc : EnemyAI
         {
             Destroy(this.gameObject);
         }
-
+        
        
     }
 
