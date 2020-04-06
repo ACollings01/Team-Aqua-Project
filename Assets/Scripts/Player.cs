@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Game game;
-    public int health;
-    int lastHP;
+    public float health = 50f;
+    float lastHP;
     public int armour;
     public float speed;
     public Joystick joystick;
@@ -14,31 +14,26 @@ public class Player : MonoBehaviour
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
 
+
     public ParticleSystem blood;
 
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
         GameObject player = GameObject.Find("Player");
         GameObject joystickObject = GameObject.Find("Fixed Joystick");
+
         playerAnimator = player.GetComponent<Animator>();
 
         playerAudioSource = GetComponent<AudioSource>();
 
+#if UNITY_EDITOR      
         joystickObject.SetActive(false);
 #endif
 
-#if UNITY_ANDROID
-        lastHP = health; //So blood doesn't randomly come out of the player on Spawn
-
-        GameObject player = GameObject.Find("Player");
-        playerAnimator = player.GetComponent<Animator>();
-
-        playerAudioSource = GetComponent<AudioSource>();
-
+#if UNITY_ANDROID && !UNITY_EDITOR
         joystickObject.SetActive(true);
         joystick = FindObjectOfType<Joystick>();
 #endif
@@ -50,26 +45,26 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //movement for PC
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) /*&& movement != Vector3.zero*/)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movement != Vector3.zero)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)))
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !characterMoving)
             {
                 playerAudioSource.Play();
             }
             transform.rotation = Quaternion.LookRotation(movement);
             transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            characterMoving = true;
             playerAnimator.SetBool("IsMoving", true);
         }
-        else if (!characterMoving)
+        else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)))
         {
+            characterMoving = false;
             playerAnimator.SetBool("IsMoving", false);
             playerAudioSource.Stop();
         }
-
-        CheckHealth();
 #endif
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID && !UNITY_EDITOR
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
@@ -78,7 +73,7 @@ public class Player : MonoBehaviour
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended/*Input.GetMouseButtonUp(0)*/)
+                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended)
                 {
                     characterMoving = false;
                     playerAnimator.SetBool("IsMoving", false);
@@ -87,7 +82,7 @@ public class Player : MonoBehaviour
 
                 if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                 {
-                    if (touch.phase == TouchPhase.Began/*Input.GetMouseButtonDown(0)*/)
+                    if (touch.phase == TouchPhase.Began)
                     {
                         characterMoving = true;
                         playerAnimator.SetBool("IsMoving", true);
@@ -122,9 +117,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
-
-        CheckHealth();
 #endif
+        CheckHealth();
     }
 
     void OnCollisionEnter(Collision other)
@@ -146,7 +140,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(this.gameObject, 5f);
+            Destroy(this.gameObject, 5.0f);
         }
     }
 

@@ -19,9 +19,10 @@ TagManager:
   - HomingFireball
   - HomingProjectile
   - Staff
-
   - Trees_Town
   - Fire
+  - Projectile Look At
+  - Heavy Arrow
   layers:
   - Default
   - TransparentFX

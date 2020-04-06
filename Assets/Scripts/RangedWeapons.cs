@@ -7,6 +7,7 @@ using UnityEngine;
 public class RangedWeapons : Weapons
 {
     public GameObject arrowPrefab;
+    public GameObject heavyArrowPrefab;
     public GameObject magicPrefab;
     public GameObject spearPrefab;
     public GameObject fireAtPrefab;
@@ -15,6 +16,7 @@ public class RangedWeapons : Weapons
     public Transform spearLaunchPosition;
 
     private GameObject arrow;
+    private GameObject heavyArrow;
     private GameObject magic;
     private GameObject spear;
 
@@ -43,13 +45,27 @@ public class RangedWeapons : Weapons
     {
         //Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
 
-        arrow = Instantiate(arrowPrefab, transform.position ,Quaternion.identity);
+        arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
         arrow.tag = "Arrow";
 
         arrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
         //arrow.transform.rotation = Quaternion.LookRotation(rotation);
 
         arrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * projectileSpeed;
+
+    }
+
+    protected void FireHeavyArrow()
+    {
+        //Vector3 rotation = new Vector3(arrowLaunchPosition.position.x, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+
+        heavyArrow = Instantiate(heavyArrowPrefab, transform.position, Quaternion.identity);
+        heavyArrow.tag = "Heavy Arrow";
+
+        heavyArrow.transform.position = new Vector3(arrowLaunchPosition.position.x - 0.1f, arrowLaunchPosition.position.y, arrowLaunchPosition.position.z);
+        //arrow.transform.rotation = Quaternion.LookRotation(rotation);
+
+        heavyArrow.GetComponent<Rigidbody>().velocity = transform.parent.forward * projectileSpeed;
 
     }
 

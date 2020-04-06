@@ -10,7 +10,7 @@ public class BanditMeleeSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class BanditMeleeSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        //SoundManager.Instance.PlayClip(audioSource);
+        audioSource.Play();
 
         if (this.health <= 0)
         {
@@ -54,5 +54,6 @@ public class BanditMeleeSc : EnemyAI
             this.GetComponent<Rigidbody>().useGravity = true;
             spawned = true;
         }
+      
     }
 }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BatSc : EnemyAI
 {
-    public AudioClip bats;
-    public AudioClip projectile;
+    [SerializeField] public AudioClip bat;
+    [SerializeField] public AudioClip projectile;
+
     int rand;
     GameObject[] spitProjectiles;
 
@@ -16,16 +17,23 @@ public class BatSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!spawned)
-            crawlToSurface();
+        crawlToSurface();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
+        audioSource = GetComponent<AudioSource>();
+
+        // only play bat sounds when they are within 10 ft
+        if (!audioSource.isPlaying && DistToPlayer < 10)
+        {
+            audioSource.PlayOneShot(bat, 0.5f);
+        }
+
 
         spitProjectiles = GameObject.FindGameObjectsWithTag("Projectile");
         foreach (GameObject spitProjectile in spitProjectiles)
@@ -36,14 +44,13 @@ public class BatSc : EnemyAI
             {
                 Destroy(spitProjectile);
             }
-            audioSource.PlayOneShot(projectile);
         }
 
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
         }
-
+        
        
     }
 
@@ -71,6 +78,8 @@ public class BatSc : EnemyAI
 
         spit.transform.LookAt(player.transform.position);
         rb.AddForce(spit.transform.forward * 500.0f);
+
+        audioSource.PlayOneShot(projectile, 0.5f);
     }
 
     void crawlToSurface()
@@ -85,6 +94,5 @@ public class BatSc : EnemyAI
             this.GetComponent<Collider>().enabled = true;
             spawned = true;
         }
-        audioSource.PlayOneShot(bats);
-    }
+    }    
 }

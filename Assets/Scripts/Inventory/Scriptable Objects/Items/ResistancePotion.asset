@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e393bf7c7ffb84c94c8c3aa47203bb, type: 3}
   m_Name: ResistancePotion
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1454802409691685801, guid: 61e3b352f4bd596429e2d942ecb09407, type: 3}
   type: 0
-  description: 
+  description: Grants a temporary 50% boost to armor class.
   restoreHealthValue: 0
-  armorClassValue: 0
+  armorClassValue: 0.5

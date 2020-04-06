@@ -13,6 +13,7 @@ public class Weapons : Player
     protected int ignoreLayerMask;
     protected bool attackOnce = false;
     protected bool checkOnce = false;
+    protected bool arrowDirectionOnce = false;
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
     protected GameObject Player;
@@ -44,34 +45,32 @@ public class Weapons : Player
         {
             foreach (Touch touch in Input.touches)
             {
-                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && characterMoving)
+                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                 {               
                     // do nothing
                 }
-                else
+
+                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) || (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0) && Input.touchCount > 1))
                 {
-                    if (!characterMoving)
+                    if (touch.phase == TouchPhase.Began)
                     {
-                        if (touch.phase == TouchPhase.Began)
+                        startTime = Time.time;
+                    }
+
+                    if (touch.phase == TouchPhase.Ended)
+                    {
+                        if (Time.time > startTime + 0.5f && startTime != 0.0f)
                         {
-                            startTime = Time.time;
+                            longTap = true;
+                            quickTap = false;
+                        }
+                        else if (Time.time < startTime + 0.5f && startTime != 0.0f)
+                        {
+                            quickTap = true;
+                            longTap = false;
                         }
 
-                        if (touch.phase == TouchPhase.Ended)
-                        {
-                            if (Time.time > startTime + 0.5f && startTime != 0.0f)
-                            {
-                                longTap = true;
-                                quickTap = false;
-                            }
-                            else if (Time.time < startTime + 0.5f && startTime != 0.0f)
-                            {
-                                quickTap = true;
-                                longTap = false;
-                            }
-
-                            startTime = 0;
-                        }                   
+                        startTime = 0;
                     }
                 }
             }
