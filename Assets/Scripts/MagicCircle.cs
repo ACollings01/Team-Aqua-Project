@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MagicCircle : MonoBehaviour
 {
@@ -8,15 +9,27 @@ public class MagicCircle : MonoBehaviour
     private GameManager _gameManager;
     private bool canRunAudio = true;
 
+    public GameObject mMenu;
+
     void Start()
     {
         _gameManager = GameManager.Instance;
         magicCircleAudioSource = GetComponent<AudioSource>();
+        mMenu.SetActive(false);
     }
 
-    void OnTriggerEnter(Collider other)
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        _gameManager.ActivateMCircle();
+    //    }
+    //    magicCircleAudioSource.Play();
+    //}
+
+    void OnTriggerEnter(Collider player)
     {
-        if (other.gameObject.CompareTag("Player") && canRunAudio)
+        if (other.gameObject.tag == "Player" && canRunAudio)
         {
             StartCoroutine(ExitMap());
             canRunAudio = false;
@@ -27,7 +40,6 @@ public class MagicCircle : MonoBehaviour
     IEnumerator ExitMap()
     {
         yield return new WaitForSeconds(1.5f);
-        _gameManager.ActivateMCircle();
+        mMenu.SetActive(true);
     }
-   
 }
