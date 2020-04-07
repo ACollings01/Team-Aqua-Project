@@ -29,7 +29,7 @@ public class MagicCircle : MonoBehaviour
 
     void OnTriggerEnter(Collider player)
     {
-        if (other.gameObject.tag == "Player" && canRunAudio)
+        if (player.gameObject.tag == "Player" && canRunAudio)
         {
             StartCoroutine(ExitMap());
             canRunAudio = false;
@@ -40,6 +40,8 @@ public class MagicCircle : MonoBehaviour
     IEnumerator ExitMap()
     {
         yield return new WaitForSeconds(1.5f);
-        mMenu.SetActive(true);
+        // mMenu.SetActive(true);
+        // this new one is missing a reference so I'm putting it back to how it was working before
+        _gameManager.ActivateMCircle();
     }
 }
