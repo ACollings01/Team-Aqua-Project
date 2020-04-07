@@ -1844,7 +1844,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Bow|Bow - Shoot
       takeName: Bow|Bow - Shoot
-      firstFrame: 0
+      firstFrame: 15
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
@@ -1852,7 +1852,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1868,7 +1868,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 19
     - serializedVersion: 16
       name: Bow|Bow - Walk
       takeName: Bow|Bow - Walk
