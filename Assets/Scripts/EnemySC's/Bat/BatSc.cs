@@ -22,7 +22,8 @@ public class BatSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        crawlToSurface();
+        if(!spawned)
+            crawlToSurface();
 
         float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
         anim.SetFloat("Distance", DistToPlayer);

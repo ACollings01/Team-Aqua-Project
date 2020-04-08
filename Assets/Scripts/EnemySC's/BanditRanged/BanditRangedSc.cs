@@ -10,6 +10,8 @@ public class BanditRangedSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        gameObject.name = "RangedBandit";
     }
 
     // Update is called once per frame
@@ -33,7 +35,9 @@ public class BanditRangedSc : EnemyAI
         GameObject arrow;
         Rigidbody rb;
 
-        arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        GameObject arrowShot = GameObject.Find("RangedBandit/Fire");
+
+        arrow = Instantiate(arrowPrefab, new Vector3(arrowShot.transform.position.x, arrowShot.transform.position.y, arrowShot.transform.position.z), Quaternion.identity);
         //spit.transform.parent = gameObject.transform;
         rb = arrow.GetComponent<Rigidbody>();
 
