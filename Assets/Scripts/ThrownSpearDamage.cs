@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrownSpearDamage : MonoBehaviour
+public class ThrownSpearDamage : RangedWeapons
 {
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,12 @@ public class ThrownSpearDamage : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter(Collision enemy)
+    void OnTriggerEnter(Collider enemy)
     {
         if (enemy.gameObject.tag == "Enemy")
         {
             enemy.gameObject.GetComponent<EnemyAI>().health -= spearDamageDone();
+            Destroy(this.gameObject);
         }
     }
 

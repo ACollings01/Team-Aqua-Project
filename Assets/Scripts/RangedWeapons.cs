@@ -21,10 +21,7 @@ public class RangedWeapons : Weapons
     private GameObject spear;
 
     public int projectileSpeed;
-    public float fireRate;
 
-    protected float lastFireTime;
-    protected float lastFireTimeHeavy;
     protected GameObject fireAt;
 
 

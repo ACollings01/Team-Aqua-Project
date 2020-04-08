@@ -7004,7 +7004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5281557748944614692
 Transform:
   m_ObjectHideFlags: 0
@@ -7056,9 +7056,9 @@ Rigidbody:
   m_Drag: 5
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &5281557748944218490
 MonoBehaviour:
@@ -7077,6 +7077,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!136 &899278611
 CapsuleCollider:
@@ -10419,8 +10420,11 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0
   SwordBlade: {fileID: 5281557748944318424}
+  playerSpear: {fileID: 0}
 --- !u!82 &158848375
 AudioSource:
   m_ObjectHideFlags: 0
