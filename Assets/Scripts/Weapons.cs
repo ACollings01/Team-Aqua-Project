@@ -30,6 +30,9 @@ public class Weapons : Player
     [SerializeField]
     protected GameObject playerSpear;
 
+    [SerializeField]
+    protected GameObject playerShield;
+
     protected LayerMask whatIsEnemy;
     float swordAttackRadius;
     float spearAttackRadius;
@@ -118,8 +121,6 @@ public class Weapons : Player
     {
         whatIsEnemy = LayerMask.GetMask("Enemy");
         shieldAttackRadius = 1;
-
-        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
 
         Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 974030895}
   - component: {fileID: 974030894}
   - component: {fileID: 974030893}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ignore Touch Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
