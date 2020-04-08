@@ -110,7 +110,7 @@ public class Bow : RangedWeapons
 
         if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            lookAtClick = new Vector3(hit.point.x - 10f, hit.point.y + 1.1f, hit.point.z - 10f);
+            
         }
         else if (quickTap == false)
         {
