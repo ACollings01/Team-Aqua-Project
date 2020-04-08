@@ -130,6 +130,7 @@ public class Bow : RangedWeapons
                 bowAnimator.SetTrigger("Quick Tap Bow");
 
                 Player.transform.LookAt(lookAtClick);
+                arrowRotation = arrowDirection.transform.rotation;
 
                 audioSource.PlayOneShot(lightAttackSound);
                 FireArrow();
@@ -230,6 +231,7 @@ public class Bow : RangedWeapons
     IEnumerator WaitToFireArrow()
     {
         yield return new WaitForSeconds(1);
+        Player.transform.LookAt(lookAtClick);
         lastHeavyArrowRotation = arrowDirection.transform.rotation;
         audioSource.PlayOneShot(heavyAttackSound);
         FireHeavyArrow();
