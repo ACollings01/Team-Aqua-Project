@@ -100,7 +100,7 @@ public class Bow : RangedWeapons
         }
 #endif
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+//#if UNITY_ANDROID && !UNITY_EDITOR
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -117,12 +117,7 @@ public class Bow : RangedWeapons
             if (enemyDistance < 30)
             {
                 Player.transform.LookAt(Enemy.transform.position);
-            }
-            else
-            {
-                quickTap = false;
-                longTap = false;
-            }           
+            }      
         }
         else if (quickTap == false)
         {
@@ -171,7 +166,7 @@ public class Bow : RangedWeapons
             }
             longTap = false;
         }
-#endif
+//#endif
 
         //if (quickTap)
         //{
