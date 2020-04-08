@@ -1496,7 +1496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f97f36e9c15c7504dab7ca02298c0b40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.7185324e-17
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f97f36e9c15c7504dab7ca02298c0b40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1558,7 +1558,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &1819753138
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1573,7 +1573,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1819753139
 MonoBehaviour:
@@ -1587,19 +1587,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8cc29dc295e0e8418565c3daa89dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  health: 0
+  speed: 3
+  health: 10
   lasthp: 0
-  minDamage: 0
-  maxDamage: 0
-  audioSource: {fileID: 0}
+  minDamage: 3
+  maxDamage: 4
+  audioSource: {fileID: 1819753140}
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
-  attackRadius: 0
-  blood: {fileID: 0}
-  slime: {fileID: 0}
-  split: {fileID: 0}
+    m_Bits: 512
+  attackRadius: 1
+  blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  slime: {fileID: 8300000, guid: d42994fa81fd4e943b5688c4f4ded0ba, type: 3}
+  split: {fileID: 8300000, guid: 16fa0aa043316c94b9abff729c740cee, type: 3}
 --- !u!82 &1819753140
 AudioSource:
   m_ObjectHideFlags: 0
