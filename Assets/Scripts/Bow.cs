@@ -25,7 +25,7 @@ public class Bow : RangedWeapons
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");       
+        Player = GameObject.FindGameObjectWithTag("Player");
         bowAnimator = Player.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
@@ -100,24 +100,17 @@ public class Bow : RangedWeapons
         }
 #endif
 
-//#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         layerMask = ~layerMask;
 
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
-
-        float enemyDistance = Vector3.Distance(Enemy.transform.position, Player.transform.position);
-
         lengthOfTap();
 
         if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            if (enemyDistance < 30)
-            {
-                Player.transform.LookAt(Enemy.transform.position);
-            }      
+            lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z + 10f);
         }
         else if (quickTap == false)
         {
@@ -166,7 +159,7 @@ public class Bow : RangedWeapons
             }
             longTap = false;
         }
-//#endif
+#endif
 
         //if (quickTap)
         //{
