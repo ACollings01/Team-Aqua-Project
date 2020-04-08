@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Joystick joystick;
     protected bool characterMoving = false;
+    protected bool checkJoystickOnce = false;
     public bool stopMoving = false;
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
@@ -30,13 +31,19 @@ public class Player : MonoBehaviour
 
         playerAudioSource = GetComponent<AudioSource>();
 
-#if UNITY_EDITOR      
-        joystickObject.SetActive(false);
+#if UNITY_EDITOR
+        if (joystickObject != null)
+        {
+            joystickObject.SetActive(false);
+        }
 #endif
 
 #if UNITY_ANDROID && !UNITY_EDITOR
-        joystickObject.SetActive(true);
-        joystick = FindObjectOfType<Joystick>();
+        if (joystickObject != null)
+        {
+            joystickObject.SetActive(true);
+            joystick = FindObjectOfType<Joystick>();
+        }
 #endif
     }
 

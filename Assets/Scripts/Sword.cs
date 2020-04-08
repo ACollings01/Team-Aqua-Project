@@ -90,12 +90,11 @@ public class Sword : Weapons
         {
             swordAnimator.SetTrigger("Quick Tap Sword");
 
-            audioSource.Play();
-
             //Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
+                audioSource.Play();
                 swordAttack();
             }
             quickTap = false;
@@ -111,10 +110,9 @@ public class Sword : Weapons
 
                 swordAnimator.SetTrigger("Long Tap Sword");
 
-                audioSource.Play();
-
                 if (attackOnce == false)
                 {
+                    audioSource.Play();
                     swordAttack();
                 }
             }
