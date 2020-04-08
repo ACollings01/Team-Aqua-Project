@@ -19,6 +19,8 @@ public class Bow : RangedWeapons
     GameObject[] arrowProjectiles;
     GameObject[] heavyArrowProjectiles;
 
+    private Quaternion arrowRotation;
+
     public ParticleSystem arrowParticle;
 
     void Start()
