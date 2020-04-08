@@ -208,13 +208,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848027823}
-  m_LocalRotation: {x: -0.9998389, y: -0.0013119662, z: 0.003576637, w: 0.017542947}
-  m_LocalPosition: {x: -0.029529512, y: 1.4313314, z: 1.2941971}
+  m_LocalRotation: {x: 0.010784426, y: 0.003567688, z: 0.0013361113, w: 0.9999346}
+  m_LocalPosition: {x: -0.029529452, y: 1.4313314, z: 1.2941971}
   m_LocalScale: {x: 0.15558715, y: 0.15558718, z: 0.15558717}
   m_Children: []
   m_Father: {fileID: 8037863739609199444}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 182.01, y: 360.413, z: -0.1579895}
+  m_LocalEulerAnglesHint: {x: 361.235, y: 360.411, z: 0.158}
 --- !u!33 &1848027827
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15836,9 +15836,9 @@ MonoBehaviour:
   SwordBlade: {fileID: 0}
   playerSpear: {fileID: 0}
   playerShield: {fileID: 0}
-  arrowPrefab: {fileID: 7502502722706524275, guid: 23382772083c24e43a47ad4bf13d2bd5,
+  arrowPrefab: {fileID: 6090791098830809550, guid: 0a5cd1fffe1cc704a84d8a41ec2db3c0,
     type: 3}
-  heavyArrowPrefab: {fileID: 7502502722706524275, guid: 542908dddd30f0a4c94bbf1e774d6534,
+  heavyArrowPrefab: {fileID: 8678544241395238975, guid: 0a53f4242d7e79d4ea0e76b96d89a89b,
     type: 3}
   magicPrefab: {fileID: 0}
   spearPrefab: {fileID: 0}
