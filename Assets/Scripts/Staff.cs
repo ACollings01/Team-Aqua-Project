@@ -10,97 +10,120 @@ public class Staff : RangedWeapons
     private AudioSource audioSource;
     GameObject[] staffProjectiles;
 
-    bool AnimatorIsPlaying()
-    {
-        return staffAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
-
     void Start()
     {
-        GameObject bow = transform.gameObject;
-        staffAnimator = bow.GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        staffAnimator = Player.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 
-        Player = GameObject.FindGameObjectWithTag("Player");
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+#endif
     }
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        layerMask = ~layerMask;
-
-        lengthOfTap();
-
-        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+#if UNITY_EDITOR
+        if (Input.GetKeyDown("space"))
         {
-            lookAtClick = lookAtClick;
-        }
-        else if (quickTap == false)
-        {
-            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            if (!heavyAttack && !lightAttack)
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-            }
-        }
+                lightAttack = true;
+                //audioSource.Play();
+                fireRate = 3f;
+                projectileSpeed = 10;
 
-        if (quickTap && AnimatorIsPlaying())
-        {
-            staffAnimator.SetBool("Quick Tap Staff", true);
-
-            Player.transform.LookAt(lookAtClick);
-
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            staffAnimator.SetBool("Quick Tap Staff", false);
-
-            if (quickTap)
-            {
-                Player.transform.LookAt(lookAtClick);
                 if ((Time.time - lastFireTime) > fireRate)
                 {
                     lastFireTime = Time.time;
 
+                    staffAnimator.SetTrigger("Quick Tap Staff");
+
                     FireMagic();
+                    arrowDirectionOnce = false;
+                    lightAttack = false;
+                }
+                else
+                {
+                    lightAttack = false;
                 }
             }
-
-            quickTap = false;
         }
+#endif
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
 
-        staffProjectiles = GameObject.FindGameObjectsWithTag("Staff");
+        //layerMask = ~layerMask;
 
-        foreach (GameObject staffProjectile in staffProjectiles)
-        {
-            float distance = Vector3.Distance(staffProjectile.transform.position, Player.transform.position);
+        //lengthOfTap();
 
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
-            }
+        //if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        //{
+        //    lookAtClick = lookAtClick;
+        //}
+        //else if (quickTap == false)
+        //{
+        //    if (Physics.Raycast(ray, out hit, 1000, layerMask))
+        //    {
+        //        lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+        //    }
+        //}
 
-            if (!AnimatorIsPlaying())
-            {
-                staffProjectile.transform.LookAt(lookAtClickProjectile);
-            }
+        //if (quickTap && AnimatorIsPlaying())
+        //{
+        //    staffAnimator.SetBool("Quick Tap Staff", true);
 
-            if (distance > 50)
-            {
-                Destroy(staffProjectile);
-            }
+        //    Player.transform.LookAt(lookAtClick);
 
-            /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
-            {
-                Destroy(staffProjectile);
-            }*/
-        }
+        //}
+        //else if (!AnimatorIsPlaying())
+        //{
+        //    staffAnimator.SetBool("Quick Tap Staff", false);
+
+        //    if (quickTap)
+        //    {
+        //        Player.transform.LookAt(lookAtClick);
+        //        if ((Time.time - lastFireTime) > fireRate)
+        //        {
+        //            lastFireTime = Time.time;
+
+        //            FireMagic();
+        //        }
+        //    }
+
+        //    quickTap = false;
+        //}
+
+        //staffProjectiles = GameObject.FindGameObjectsWithTag("Staff");
+
+        //foreach (GameObject staffProjectile in staffProjectiles)
+        //{
+        //    float distance = Vector3.Distance(staffProjectile.transform.position, Player.transform.position);
+
+        //    if (Physics.Raycast(ray, out hit, 1000))
+        //    {
+        //        lookAtClickProjectile = new Vector3(hit.point.x, hit.point.y + 1, hit.point.z);
+        //    }
+
+        //    if (!AnimatorIsPlaying())
+        //    {
+        //        staffProjectile.transform.LookAt(lookAtClickProjectile);
+        //    }
+
+        //    if (distance > 50)
+        //    {
+        //        Destroy(staffProjectile);
+        //    }
+
+        //    /*if (Time.time > startTime + 5.0f && startTime != 0.0f)
+        //    {
+        //        Destroy(staffProjectile);
+        //    }*/
+        //}
 
     }
 }
