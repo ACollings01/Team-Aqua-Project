@@ -17,7 +17,7 @@ public class Bow : RangedWeapons
 
     void Start()
     {
-        GameObject bow = GameObject.Find("Player");
+        GameObject bow = GameObject.FindGameObjectWithTag("Player");
         bowAnimator = bow.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
@@ -29,10 +29,13 @@ public class Bow : RangedWeapons
 
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+
+        lastFireTimeHeavy = Time.time - 10;
     }
 
     void Update()
     {
+        //Debug.Log(stopMoving);
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
@@ -45,7 +48,6 @@ public class Bow : RangedWeapons
                 lastFireTime = Time.time;
 
                 bowAnimator.SetTrigger("Quick Tap Bow");
-                lastHeavyArrowRotation = arrowDirection.transform.rotation;
 
                 FireArrow();
                 arrowDirectionOnce = false;
@@ -55,17 +57,19 @@ public class Bow : RangedWeapons
         if (Input.GetKeyDown("v"))
         {
             //audioSource.Play();
-            fireRate = 1.05f;
-            projectileSpeed = 40;
+            fireRate = 2f;
+            projectileSpeed = 35;
 
-            if ((Time.time - lastFireTime) > fireRate)
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
             {
-                lastFireTime = Time.time;
+                lastFireTimeHeavy = Time.time;
 
                 bowAnimator.SetTrigger("Long Tap Bow");
                 lastHeavyArrowRotation = arrowDirection.transform.rotation;
+                Player.GetComponent<Player>().stopMoving = true;
 
-                FireHeavyArrow();
+                StartCoroutine(WaitToFireArrow());
+
                 arrowDirectionOnce = false;
             }
         }
@@ -165,5 +169,13 @@ public class Bow : RangedWeapons
             }
         }
 
+    }
+
+    IEnumerator WaitToFireArrow()
+    {
+        yield return new WaitForSeconds(1);
+        lastHeavyArrowRotation = arrowDirection.transform.rotation;
+        FireHeavyArrow();
+        Player.GetComponent<Player>().stopMoving = false;
     }
 }

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float speed;
     public Joystick joystick;
     protected bool characterMoving = false;
+    public bool stopMoving = false;
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
 
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
     {
         lastHP = health; //So blood doesn't randomly come out of the player on Spawn
 
-        GameObject player = GameObject.Find("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         GameObject joystickObject = GameObject.Find("Fixed Joystick");
 
         playerAnimator = player.GetComponent<Animator>();
@@ -43,18 +44,28 @@ public class Player : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //movement for PC
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movement != Vector3.zero)
+        //Debug.Log(stopMoving);
+        if (!stopMoving)
         {
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !characterMoving)
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //movement for PC
+            if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movement != Vector3.zero)
             {
-                playerAudioSource.Play();
+                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D)) && !characterMoving)
+                {
+                    playerAudioSource.Play();
+                }
+                transform.rotation = Quaternion.LookRotation(movement);
+                transform.Translate(movement * speed * Time.deltaTime, Space.World);
+                characterMoving = true;
+                playerAnimator.SetBool("IsMoving", true);
             }
-            transform.rotation = Quaternion.LookRotation(movement);
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
-            characterMoving = true;
-            playerAnimator.SetBool("IsMoving", true);
+            else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)))
+            {
+                characterMoving = false;
+                playerAnimator.SetBool("IsMoving", false);
+                playerAudioSource.Stop();
+            }
         }
         else if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D)))
         {

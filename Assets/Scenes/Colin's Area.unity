@@ -251,6 +251,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
 --- !u!136 &232849174
 CapsuleCollider:
@@ -1016,6 +1017,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 0}
@@ -1392,6 +1394,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 1715937165}
 --- !u!95 &896335258
@@ -1577,6 +1580,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
 --- !u!54 &1032916672
@@ -1810,6 +1814,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 1017184717}
 --- !u!54 &1384289293
@@ -1958,6 +1963,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 388596445}
+  stopMoving: 0
   blood: {fileID: 0}
 --- !u!65 &1418588913
 BoxCollider:
@@ -2012,6 +2018,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 7501045273737921998, guid: e2c82b0376ced25468b4e5cea9750657,
@@ -3852,6 +3859,7 @@ MonoBehaviour:
   armour: 0
   speed: 5
   joystick: {fileID: 0}
+  stopMoving: 0
   blood: {fileID: 0}
   SwordBlade: {fileID: 0}
   arrowPrefab: {fileID: 0}
@@ -4124,7 +4132,7 @@ PrefabInstance:
     - target: {fileID: 5281557748944314628, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player_Sword
       objectReference: {fileID: 0}
     - target: {fileID: 5281557748944314628, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
@@ -4198,7 +4206,7 @@ PrefabInstance:
     - target: {fileID: 8037863739608901556, guid: f79060f87957a254c932feeb44dc8ade,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player_Bow
       objectReference: {fileID: 0}
     - target: {fileID: 8037863739609199444, guid: f79060f87957a254c932feeb44dc8ade,
         type: 3}
@@ -4255,26 +4263,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8037863740026464311, guid: f79060f87957a254c932feeb44dc8ade,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037863740026464311, guid: f79060f87957a254c932feeb44dc8ade,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1565941074, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
-      propertyPath: heavyArrowPrefab
-      value: 
-      objectReference: {fileID: 7502502722706524275, guid: 542908dddd30f0a4c94bbf1e774d6534,
-        type: 3}
-    - target: {fileID: 1565941074, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
-      propertyPath: arrowParticle
-      value: 
-      objectReference: {fileID: 8012189697294709596, guid: 12839dc96ad4d4e4f9e9dc9c4df4cbb3,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79060f87957a254c932feeb44dc8ade, type: 3}
 --- !u!1001 &8333048900185645135
