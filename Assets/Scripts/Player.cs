@@ -82,60 +82,61 @@ public class Player : MonoBehaviour
         }
 #endif
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+//#if UNITY_ANDROID && !UNITY_EDITOR
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
+
 
         if (Input.touchCount > 0)
         {
             foreach (Touch touch in Input.touches)
             {
-                if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended)
+                if (!stopMoving)
                 {
-                    characterMoving = false;
-                    playerAnimator.SetBool("IsMoving", false);
-                    playerAudioSource.Stop();
-                }
-
-                if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
-                {
-                    if (touch.phase == TouchPhase.Began)
+                    if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended)
                     {
-                        characterMoving = true;
-                        playerAnimator.SetBool("IsMoving", true);
-                        playerAudioSource.Play();
+                        characterMoving = false;
+                        playerAnimator.SetBool("IsMoving", false);
+                        playerAudioSource.Stop();
                     }
 
-                    if (characterMoving)
+                    if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
                     {
-                        //Joystick movement
-                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                        if (stickMovement != Vector3.zero)
+                        if (touch.phase == TouchPhase.Began)
                         {
-                            transform.rotation = Quaternion.LookRotation(stickMovement);
-                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            characterMoving = true;
+                            playerAnimator.SetBool("IsMoving", true);
+                            playerAudioSource.Play();
+                        }
+
+                        if (characterMoving)
+                        {
+                            //Joystick movement
+                            rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                            if (stickMovement != Vector3.zero)
+                            {
+                                transform.rotation = Quaternion.LookRotation(stickMovement);
+                                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            }
                         }
                     }
                 }
-                else
+                else if (characterMoving)
                 {
-                    if (characterMoving)
-                    {
-                        //Joystick movement
-                        rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+                    //Joystick movement
+                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
 
-                        if (stickMovement != Vector3.zero)
-                        {
-                            transform.rotation = Quaternion.LookRotation(stickMovement);
-                            transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
-                        }
+                    if (stickMovement != Vector3.zero)
+                    {
+                        transform.rotation = Quaternion.LookRotation(stickMovement);
+                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
                     }
                 }
             }
         }
-#endif
+//#endif
         CheckHealth();
     }
 
