@@ -46,8 +46,6 @@ public class Shield : Weapons
                 lastFireTime = Time.time;
                 shieldAnimator.SetTrigger("Quick Tap Shield");
 
-                //audioSource.Play();
-
                 if (attackOnce == false)
                 {
                     audioSource.PlayOneShot(lightAttackSound);
@@ -68,7 +66,79 @@ public class Shield : Weapons
 
                 shieldAnimator.SetTrigger("Long Tap Shield");
 
-                //audioSource.Play();
+                playerBody.velocity = transform.parent.forward * 40;
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(heavyAttackSound);
+                    shieldAttack();
+                }
+            }
+
+            longTap = false;
+        }
+
+        if (!quickTap && !longTap)
+        {
+            attackOnce = false;
+        }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        layerMask = ~layerMask;
+
+        lengthOfTap();
+
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        {
+            lookAtClick = lookAtClick;
+        }
+        else if (quickTap == false)
+        {
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+        }
+
+        if (quickTap)
+        {
+            fireRate = 0.75f;
+
+            if ((Time.time - lastFireTime) > fireRate)
+            {
+                lastFireTime = Time.time;
+                shieldAnimator.SetTrigger("Quick Tap Shield");
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(lightAttackSound);
+                    shieldAttack();
+                }
+            }
+
+            quickTap = false;
+        }
+
+        if (longTap)
+        {
+            fireRate = 5f;
+
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
+            {
+                lastFireTimeHeavy = Time.time;
+
+                shieldAnimator.SetTrigger("Long Tap Shield");
+
+                if (Physics.Raycast(ray, out hit, 1000))
+                {
+                    lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+                }
+
+                Player.transform.LookAt(lookAtClick);
 
                 playerBody.velocity = transform.parent.forward * 40;
 
@@ -87,71 +157,6 @@ public class Shield : Weapons
             attackOnce = false;
         }
 #endif
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
 
-        //    layerMask = ~layerMask;
-
-        //    lengthOfTap();
-
-        //    if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
-        //    {
-        //        lookAtClick = lookAtClick;
-        //    }
-        //    else if (quickTap == false)
-        //    {
-        //        if (Physics.Raycast(ray, out hit, 1000, layerMask))
-        //        {
-        //            lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-        //        }
-        //    }
-
-        //    if (quickTap && AnimatorIsPlaying())
-        //    {
-        //        shieldAnimator.SetBool("Quick Tap Shield", true);
-
-        //        Player.transform.LookAt(lookAtClick);
-
-        //        if (attackOnce == false)
-        //        {
-        //            shieldAttack();
-        //        }
-        //    }
-        //    else if (!AnimatorIsPlaying())
-        //    {
-        //        shieldAnimator.SetBool("Quick Tap Shield", false);
-        //        attackOnce = false;
-        //        quickTap = false;
-        //    }
-
-        //    SoundManager.Instance.PlayClip(audioSource);
-
-        //    if (longTap && AnimatorIsPlaying())
-        //    {
-        //        shieldAnimator.SetBool("Long Tap Shield", true);
-
-        //        if (Physics.Raycast(ray, out hit, 1000))
-        //        {
-        //            lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-        //        }
-
-        //        Player.transform.LookAt(lookAtClick);
-
-        //        playerBody.isKinematic = false;
-
-        //        playerBody.velocity = transform.parent.forward * 10;
-
-        //        if (attackOnce == false)
-        //        {
-        //            shieldAttack();
-        //        }
-        //    }
-        //    else if (!AnimatorIsPlaying())
-        //    {
-        //        shieldAnimator.SetBool("Long Tap Shield", false);
-        //        playerBody.isKinematic = true;
-        //        attackOnce = false;
-        //        longTap = false;
-        //    }
     }
 }

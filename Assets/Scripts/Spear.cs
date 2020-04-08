@@ -80,68 +80,70 @@ public class Spear : RangedWeapons
             attackOnce = false;
         }
 #endif
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hit;
 
-        //layerMask = ~layerMask;
+#if UNITY_ANDROID && !UNITY_EDITOR
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
-        //lengthOfTap();
+        layerMask = ~layerMask;
 
-        //if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
-        //{
-        //    lookAtClick = lookAtClick;
-        //}
-        //else if (quickTap == false)
-        //{
-        //    if (Physics.Raycast(ray, out hit, 1000, layerMask))
-        //    {
-        //        lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-        //    }
-        //}
+        lengthOfTap();
 
-        //if (quickTap && AnimatorIsPlaying())
-        //{
-        //    spearAnimator.SetBool("Quick Tap Spear", true);
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        {
+            lookAtClick = lookAtClick;
+        }
+        else if (quickTap == false)
+        {
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+        }
 
-        //    Player.transform.LookAt(lookAtClick);
+        if (quickTap)
+        {
+            fireRate = 0.4f;
+            if ((Time.time - lastFireTime) > fireRate)
+            {
+                lastFireTime = Time.time;
+                spearAnimator.SetTrigger("Quick Tap Spear");
 
-        //    if (attackOnce == false)
-        //    {
-        //        spearAttack();
-        //    }
-        //}
-        //else if (!AnimatorIsPlaying())
-        //{
-        //    spearAnimator.SetBool("Quick Tap Spear", false);
-        //    attackOnce = false;
-        //    quickTap = false;
-        //}
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(lightAttackSound);
+                    spearAttack();
+                }
+            }
+            quickTap = false;
+        }
 
-        //if (longTap && AnimatorIsPlaying())
-        //{
-        //    spearAnimator.SetBool("Long Tap Spear", true);
+        if (longTap)
+        {
+            fireRate = 5f;
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
+            {
+                lastFireTimeHeavy = Time.time;
 
-        //    Player.transform.LookAt(lookAtClick);
+                spearAnimator.SetTrigger("Long Tap Spear");
+                Player.GetComponent<Player>().stopMoving = true;
 
-        //}
-        //else if (!AnimatorIsPlaying())
-        //{
-        //    spearAnimator.SetBool("Long Tap Spear", false);
+                Player.transform.LookAt(lookAtClick);
+                spearRotation = spearDirection.transform.rotation;
 
-        //    if (longTap)
-        //    {
-        //        Player.transform.LookAt(lookAtClick);
+                StartCoroutine(WaitToFireSpear());
 
-        //        if ((Time.time - lastFireTime) > fireRate)
-        //        {
-        //            lastFireTime = Time.time;
+                spearDirectionOnce = false;
+            }
 
-        //            ThrowSpear();
-        //        }
-        //    }
+            longTap = false;
+        }
 
-        //    longTap = false;
-        //}
+        if (!quickTap)
+        {
+            attackOnce = false;
+        }
+#endif
 
         spearProjectiles = GameObject.FindGameObjectsWithTag("Thrown Spear");
 
