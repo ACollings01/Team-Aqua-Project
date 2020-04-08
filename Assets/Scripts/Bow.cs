@@ -110,7 +110,8 @@ public class Bow : RangedWeapons
 
         if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            
+            Player.transform.LookAt(lookAtClick);
+            arrowRotation = arrowDirection.transform.rotation;
         }
         else if (quickTap == false)
         {
