@@ -1490,6 +1490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player - Fire Staff
       objectReference: {fileID: 0}
+    - target: {fileID: 3977916871157090079, guid: 5b0b1b8b9ed43c24bb08972b763df215,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3977916871157322559, guid: 5b0b1b8b9ed43c24bb08972b763df215,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4329,6 +4334,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 3872420281869847413, guid: aff2365d7315ba64d9b3aca90d4160d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3872420281869492053, guid: aff2365d7315ba64d9b3aca90d4160d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4471,6 +4481,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818090344, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
         type: 3}
