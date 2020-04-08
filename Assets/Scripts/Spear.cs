@@ -5,9 +5,17 @@ using UnityEngine;
 public class Spear : RangedWeapons
 {
     private Animator spearAnimator;
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip lightAttackSound;
+
+    [SerializeField]
+    private AudioClip heavyAttackSound;
 
     GameObject spearDirection;
     GameObject[] spearProjectiles;
+
     private Quaternion spearRotation;
 
     void Start()
@@ -15,11 +23,14 @@ public class Spear : RangedWeapons
         Player = GameObject.FindGameObjectWithTag("Player");
         spearAnimator = Player.GetComponent<Animator>();
 
+        audioSource = GetComponent<AudioSource>();
+
         startTime = 0.0f;
 
         spearDirection = GameObject.FindGameObjectWithTag("Projectile Look At");
 
         lastFireTime = Time.time - 10;
+        lastFireTimeHeavy = Time.time - 10;
 
 #if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
@@ -32,24 +43,27 @@ public class Spear : RangedWeapons
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
-            spearAnimator.SetTrigger("Quick Tap Spear");
-
-            //audioSource.Play();
-
-            if (attackOnce == false)
+            fireRate = 0.4f;
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                spearAttack();
+                lastFireTime = Time.time;
+                spearAnimator.SetTrigger("Quick Tap Spear");
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(lightAttackSound);
+                    spearAttack();
+                }
+                quickTap = false;
             }
-            quickTap = false;
         }
 
         if (Input.GetKeyDown("v"))
         {
-            //audioSource.Play();
-
-            if ((Time.time - lastFireTime) > fireRate)
+            fireRate = 5f;
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
             {
-                lastFireTime = Time.time;
+                lastFireTimeHeavy = Time.time;
 
                 spearAnimator.SetTrigger("Long Tap Spear");
                 Player.GetComponent<Player>().stopMoving = true;
@@ -158,6 +172,7 @@ public class Spear : RangedWeapons
     IEnumerator WaitToFireSpear()
     {
         yield return new WaitForSeconds(.1f);
+        audioSource.PlayOneShot(heavyAttackSound);
         ThrowSpear();
         Player.GetComponent<Player>().stopMoving = false;
     }

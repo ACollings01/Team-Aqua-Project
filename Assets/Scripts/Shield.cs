@@ -5,15 +5,22 @@ using UnityEngine;
 public class Shield : Weapons
 {
     private Animator shieldAnimator;
-    Rigidbody playerBody;
     private AudioSource audioSource;
 
+    [SerializeField]
+    private AudioClip lightAttackSound;
+
+    [SerializeField]
+    private AudioClip heavyAttackSound;
+    Rigidbody playerBody;
 
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         shieldAnimator = Player.GetComponent<Animator>();
-      
+
+        audioSource = GetComponent<AudioSource>();
+
         startTime = 0.0f;
 
         playerBody = Player.GetComponent<Rigidbody>();
@@ -43,6 +50,7 @@ public class Shield : Weapons
 
                 if (attackOnce == false)
                 {
+                    audioSource.PlayOneShot(lightAttackSound);
                     shieldAttack();
                 }
             }
@@ -66,6 +74,7 @@ public class Shield : Weapons
 
                 if (attackOnce == false)
                 {
+                    audioSource.PlayOneShot(heavyAttackSound);
                     shieldAttack();
                 }
             }
@@ -144,12 +153,5 @@ public class Shield : Weapons
         //        attackOnce = false;
         //        longTap = false;
         //    }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        GameObject playerShield = GameObject.Find("Player_Shield/Shield/Shield Body");
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerShield.transform.position, 1);
     }
 }

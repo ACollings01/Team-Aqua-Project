@@ -1057,6 +1057,8 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 1627594072918497187}
   projectileSpeed: 0
+  lightAttackSound: {fileID: 0}
+  heavyAttackSound: {fileID: 0}
 --- !u!95 &541371271
 Animator:
   serializedVersion: 3
@@ -1696,6 +1698,8 @@ MonoBehaviour:
   SwordBlade: {fileID: 0}
   playerSpear: {fileID: 0}
   playerShield: {fileID: 0}
+  lightAttackSound: {fileID: 0}
+  heavyAttackSound: {fileID: 0}
 --- !u!54 &1032916672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2150,6 +2154,8 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 0
+  lightAttackSound: {fileID: 0}
+  heavyAttackSound: {fileID: 0}
   arrowParticle: {fileID: 0}
 --- !u!95 &1459651937
 Animator:

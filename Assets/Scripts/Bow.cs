@@ -9,6 +9,12 @@ public class Bow : RangedWeapons
     private AudioSource audioSource;
     private Quaternion lastHeavyArrowRotation;
 
+    [SerializeField]
+    private AudioClip lightAttackSound;
+
+    [SerializeField]
+    private AudioClip heavyAttackSound;
+
     GameObject arrowDirection;
     GameObject[] arrowProjectiles;
     GameObject[] heavyArrowProjectiles;
@@ -42,7 +48,7 @@ public class Bow : RangedWeapons
             if (!heavyAttack && !lightAttack)
             {
                 lightAttack = true;
-                //audioSource.Play();
+
                 fireRate = 0.4f;
                 projectileSpeed = 80;
 
@@ -52,6 +58,7 @@ public class Bow : RangedWeapons
 
                     bowAnimator.SetTrigger("Quick Tap Bow");
 
+                    audioSource.PlayOneShot(lightAttackSound);
                     FireArrow();
                     arrowDirectionOnce = false;
                     lightAttack = false;
@@ -191,6 +198,7 @@ public class Bow : RangedWeapons
     {
         yield return new WaitForSeconds(1);
         lastHeavyArrowRotation = arrowDirection.transform.rotation;
+        audioSource.PlayOneShot(heavyAttackSound);
         FireHeavyArrow();
         Player.GetComponent<Player>().stopMoving = false;
         heavyAttack = false;
