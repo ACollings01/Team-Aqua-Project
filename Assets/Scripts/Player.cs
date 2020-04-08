@@ -82,17 +82,15 @@ public class Player : MonoBehaviour
         }
 #endif
 
-//#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID && !UNITY_EDITOR
         Vector3 stickMovement = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
 
         var rigidbody = GetComponent<Rigidbody>();
-
-
-        if (Input.touchCount > 0)
+        if (!stopMoving)
         {
-            foreach (Touch touch in Input.touches)
+            if (Input.touchCount > 0)
             {
-                if (!stopMoving)
+                foreach (Touch touch in Input.touches)
                 {
                     if (Input.touchCount < 2 && touch.phase == TouchPhase.Ended)
                     {
@@ -122,21 +120,25 @@ public class Player : MonoBehaviour
                             }
                         }
                     }
-                }
-                else if (characterMoving)
-                {
-                    //Joystick movement
-                    rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
-
-                    if (stickMovement != Vector3.zero)
+                    else
                     {
-                        transform.rotation = Quaternion.LookRotation(stickMovement);
-                        transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                        if (characterMoving)
+                        {
+                            //Joystick movement
+                            rigidbody.velocity = new Vector3(joystick.Horizontal * speed, rigidbody.velocity.y, joystick.Vertical * speed);
+
+                            if (stickMovement != Vector3.zero)
+                            {
+                                transform.rotation = Quaternion.LookRotation(stickMovement);
+                                transform.Translate(stickMovement * speed * Time.deltaTime, Space.World);
+                            }
+                        }
                     }
                 }
             }
         }
-//#endif
+        
+#endif
         CheckHealth();
     }
 
