@@ -20,6 +20,7 @@ public class Weapons : Player
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
     protected GameObject Player;
+    protected GameObject Enemy;
     public float fireRate;
     protected float lastFireTime;
     protected float lastFireTimeHeavy;

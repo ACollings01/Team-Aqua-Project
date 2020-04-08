@@ -25,7 +25,7 @@ public class Bow : RangedWeapons
 
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");       
         bowAnimator = Player.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
@@ -106,12 +106,23 @@ public class Bow : RangedWeapons
 
         layerMask = ~layerMask;
 
+        Enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        float enemyDistance = Vector3.Distance(Enemy.transform.position, Player.transform.position);
+
         lengthOfTap();
 
         if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
         {
-            quickTap = false;
-            longTap = false;
+            if (enemyDistance < 30)
+            {
+                Player.transform.LookAt(Enemy.transform.position);
+            }
+            else
+            {
+                quickTap = false;
+                longTap = false;
+            }           
         }
         else if (quickTap == false)
         {
