@@ -1019,7 +1019,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0.5
   SwordBlade: {fileID: 0}
+  playerSpear: {fileID: 0}
   arrowPrefab: {fileID: 0}
   heavyArrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 0}
@@ -1030,7 +1032,6 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 1627594072918497187}
   projectileSpeed: 0
-  fireRate: 0.5
 --- !u!95 &541371271
 Animator:
   serializedVersion: 3
@@ -1396,7 +1397,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0
   SwordBlade: {fileID: 1715937165}
+  playerSpear: {fileID: 0}
 --- !u!95 &896335258
 Animator:
   serializedVersion: 3
@@ -1582,7 +1585,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0
   SwordBlade: {fileID: 0}
+  playerSpear: {fileID: 0}
 --- !u!54 &1032916672
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1816,7 +1821,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0
   SwordBlade: {fileID: 1017184717}
+  playerSpear: {fileID: 0}
 --- !u!54 &1384289293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2020,7 +2027,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0.5
   SwordBlade: {fileID: 0}
+  playerSpear: {fileID: 0}
   arrowPrefab: {fileID: 7501045273737921998, guid: e2c82b0376ced25468b4e5cea9750657,
     type: 3}
   heavyArrowPrefab: {fileID: 0}
@@ -2031,7 +2040,6 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 0
-  fireRate: 0.5
   arrowParticle: {fileID: 0}
 --- !u!95 &1459651937
 Animator:
@@ -3861,7 +3869,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0.5
   SwordBlade: {fileID: 0}
+  playerSpear: {fileID: 0}
   arrowPrefab: {fileID: 0}
   heavyArrowPrefab: {fileID: 0}
   magicPrefab: {fileID: 6855304083809344935, guid: 2d4fe224c08ac2e428d1d72cbfd7e558,
@@ -3872,7 +3882,6 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 1627594073245111599}
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 0
-  fireRate: 0.5
 --- !u!95 &1627594074047982748
 Animator:
   serializedVersion: 3
@@ -4134,11 +4143,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Sword
       objectReference: {fileID: 0}
-    - target: {fileID: 5281557748944314628, guid: c07cd8811029bdb409bb512ad16f0e76,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5281557748944614692, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4196,6 +4200,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07cd8811029bdb409bb512ad16f0e76, type: 3}
+--- !u!1001 &6420504972241139808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6420504971818090344, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_Name
+      value: Player - Spear
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420504971818511176, guid: 06d0c49c89e2fde4ca04f891e36e2a22,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 06d0c49c89e2fde4ca04f891e36e2a22, type: 3}
 --- !u!1001 &8037863740361143517
 PrefabInstance:
   m_ObjectHideFlags: 0

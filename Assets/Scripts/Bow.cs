@@ -17,20 +17,21 @@ public class Bow : RangedWeapons
 
     void Start()
     {
-        GameObject bow = GameObject.FindGameObjectWithTag("Player");
-        bowAnimator = bow.GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        bowAnimator = Player.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 
-        Player = GameObject.FindGameObjectWithTag("Player");
         arrowDirection = GameObject.FindGameObjectWithTag("Projectile Look At");
 
+        lastFireTimeHeavy = Time.time - 10;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
-
-        lastFireTimeHeavy = Time.time - 10;
+#endif
     }
 
     void Update()
@@ -39,39 +40,55 @@ public class Bow : RangedWeapons
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
-            //audioSource.Play();
-            fireRate = 0.4f;
-            projectileSpeed = 75;
-
-            if ((Time.time - lastFireTime) > fireRate)
+            if (!heavyAttack && !lightAttack)
             {
-                lastFireTime = Time.time;
+                lightAttack = true;
+                //audioSource.Play();
+                fireRate = 0.4f;
+                projectileSpeed = 80;
 
-                bowAnimator.SetTrigger("Quick Tap Bow");
+                if ((Time.time - lastFireTime) > fireRate)
+                {
+                    lastFireTime = Time.time;
 
-                FireArrow();
-                arrowDirectionOnce = false;
-            }
+                    bowAnimator.SetTrigger("Quick Tap Bow");
+
+                    FireArrow();
+                    arrowDirectionOnce = false;
+                    lightAttack = false;
+                }
+                else
+                {
+                    lightAttack = false;
+                }
+            }           
         }
 
         if (Input.GetKeyDown("v"))
         {
-            //audioSource.Play();
-            fireRate = 2f;
-            projectileSpeed = 35;
-
-            if ((Time.time - lastFireTimeHeavy) > fireRate)
+            if (!heavyAttack && !lightAttack)
             {
-                lastFireTimeHeavy = Time.time;
+                heavyAttack = true;
+                //audioSource.Play();
+                fireRate = 5f;
+                projectileSpeed = 35;
 
-                bowAnimator.SetTrigger("Long Tap Bow");
-                lastHeavyArrowRotation = arrowDirection.transform.rotation;
-                Player.GetComponent<Player>().stopMoving = true;
+                if ((Time.time - lastFireTimeHeavy) > fireRate)
+                {
+                    lastFireTimeHeavy = Time.time;
 
-                StartCoroutine(WaitToFireArrow());
+                    bowAnimator.SetTrigger("Long Tap Bow");
+                    Player.GetComponent<Player>().stopMoving = true;
 
-                arrowDirectionOnce = false;
-            }
+                    StartCoroutine(WaitToFireArrow());
+
+                    arrowDirectionOnce = false;
+                }
+                else
+                {
+                    heavyAttack = false;
+                }
+            }  
         }
 #endif
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -177,5 +194,6 @@ public class Bow : RangedWeapons
         lastHeavyArrowRotation = arrowDirection.transform.rotation;
         FireHeavyArrow();
         Player.GetComponent<Player>().stopMoving = false;
+        heavyAttack = false;
     }
 }

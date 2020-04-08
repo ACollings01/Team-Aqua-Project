@@ -208,13 +208,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848027823}
-  m_LocalRotation: {x: -0.99921405, y: -0.0006249962, z: -0.035521936, w: 0.017580828}
-  m_LocalPosition: {x: -0.029529536, y: 1.4313314, z: 1.294197}
+  m_LocalRotation: {x: -0.9998389, y: -0.0013119662, z: 0.003576637, w: 0.017542947}
+  m_LocalPosition: {x: -0.029529512, y: 1.4313314, z: 1.2941971}
   m_LocalScale: {x: 0.15558715, y: 0.15558718, z: 0.15558717}
   m_Children: []
   m_Father: {fileID: 8037863739609199444}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 182.016, y: 355.928, z: 0}
+  m_LocalEulerAnglesHint: {x: 182.01, y: 360.413, z: -0.1579895}
 --- !u!33 &1848027827
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10212,12 +10212,12 @@ GameObject:
   - component: {fileID: 8037863740026464304}
   - component: {fileID: 8037863740026464308}
   m_Layer: 9
-  m_Name: Player_Bow (Rename to Player)
+  m_Name: Player_Bow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8037863739609199444
 Transform:
   m_ObjectHideFlags: 0
@@ -10275,7 +10275,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!82 &8037863740026464310
 AudioSource:
@@ -15830,7 +15830,9 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
+  fireRate: 0.4
   SwordBlade: {fileID: 0}
+  playerSpear: {fileID: 0}
   arrowPrefab: {fileID: 7502502722706524275, guid: 23382772083c24e43a47ad4bf13d2bd5,
     type: 3}
   heavyArrowPrefab: {fileID: 7502502722706524275, guid: 542908dddd30f0a4c94bbf1e774d6534,
@@ -15842,7 +15844,6 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 100
-  fireRate: 0.4
   arrowParticle: {fileID: 8012189697294709596, guid: 12839dc96ad4d4e4f9e9dc9c4df4cbb3,
     type: 3}
 --- !u!1 &8037863739608902030
