@@ -36,7 +36,6 @@ public class Bow : RangedWeapons
 
     void Update()
     {
-        //Debug.Log(stopMoving);
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {

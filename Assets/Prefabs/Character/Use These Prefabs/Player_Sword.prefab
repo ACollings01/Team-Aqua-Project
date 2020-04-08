@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5281557748740700440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.000000014901, z: 0.424}
-  m_LocalScale: {x: 1.7022, y: -0.01, z: 1.6688315}
+  m_LocalScale: {x: 1.7022, y: 0.01, z: 1.6688315}
   m_Children: []
   m_Father: {fileID: 5281557748944614692}
   m_RootOrder: 5
@@ -10425,6 +10425,7 @@ MonoBehaviour:
   fireRate: 0
   SwordBlade: {fileID: 5281557748944318424}
   playerSpear: {fileID: 0}
+  playerShield: {fileID: 0}
 --- !u!82 &158848375
 AudioSource:
   m_ObjectHideFlags: 0
