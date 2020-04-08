@@ -233,7 +233,9 @@ public class Bow : RangedWeapons
     IEnumerator WaitToFireArrow()
     {
         yield return new WaitForSeconds(1);
+#if UNITY_ANDROID && !UNITY_EDITOR
         Player.transform.LookAt(lookAtClick);
+#endif
         lastHeavyArrowRotation = arrowDirection.transform.rotation;
         audioSource.PlayOneShot(heavyAttackSound);
         FireHeavyArrow();
