@@ -2016,7 +2016,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: numberOfEnemies
@@ -4122,7 +4122,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 912290521}
 --- !u!1 &394313872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100414, guid: d532a53a6b502464da2110a3bc93b010,
@@ -13196,7 +13196,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: enemyToSpawn
@@ -13907,7 +13907,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: enemyToSpawn
@@ -19328,7 +19328,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: numberOfEnemies
@@ -20669,7 +20669,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: enemyToSpawn
@@ -22442,7 +22442,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 912290521}
     - target: {fileID: 8039683087931905974, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: numberOfEnemies
