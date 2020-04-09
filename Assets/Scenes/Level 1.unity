@@ -23922,13 +23922,13 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 2723f2fadb451fc4b8c51abe8b5306da, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
 --- !u!222 &1320450207
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25181,7 +25181,7 @@ RectTransform:
   m_GameObject: {fileID: 1411610750}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2188454, y: 0.31103063, z: 0.2161436}
+  m_LocalScale: {x: 0.30988508, y: 0.31103063, z: 0.2161436}
   m_Children:
   - {fileID: 383165298}
   - {fileID: 1438536403}
@@ -25229,13 +25229,13 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
 --- !u!222 &1411610754
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25677,13 +25677,13 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 4d7aea3ec9e78b94685a554cb90f77d0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
 --- !u!222 &1438536405
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33400,13 +33400,13 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ec49dd6f9f6f71149a9badc9b6e04cb6, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
 --- !u!222 &2009620207
 CanvasRenderer:
   m_ObjectHideFlags: 0
