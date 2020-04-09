@@ -30,12 +30,7 @@ public class WolfSc : EnemyAI
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position)); //Determines the distance between the player and the wolf
 
-        if (health != lasthp) //Checks to see if the wolf has recently taken damage
-        {
-            lasthp = health; //If so, reset it
-            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity); //Spawn the blood particle system
-            Destroy(bloodSystem.gameObject, 1f); //Destroy that system after 1 second
-        }
+        damageCheck();
 
         if (this.health <= 0) //If the wolf's health is less than 0 (dead)
         {
