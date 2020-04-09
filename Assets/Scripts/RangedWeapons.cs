@@ -21,16 +21,14 @@ public class RangedWeapons : Weapons
     private GameObject spear;
 
     public int projectileSpeed;
-    public float fireRate;
 
-    protected float lastFireTime;
     protected GameObject fireAt;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        lastFireTime = Time.time - 1;
+
     }
 
     // Update is called once per frame

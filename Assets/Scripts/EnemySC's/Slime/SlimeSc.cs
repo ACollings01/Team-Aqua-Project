@@ -60,7 +60,7 @@ public class SlimeSc : EnemyAI
         {
             int splitRand = Random.Range(2, 4);
 
-            audioSource.PlayOneShot(split);
+            audioSource.PlayOneShot(split, 0.5f);
 
             for (int i = 0; i < splitRand; i++)
             {

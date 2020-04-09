@@ -9,11 +9,13 @@ public class Sword : Weapons
 
     void Start()
     {
-        GameObject sword = GameObject.Find("Player");
+        GameObject sword = GameObject.FindGameObjectWithTag("Player");
         swordAnimator = sword.GetComponent<Animator>();
         startTime = 0.0f;
 
         audioSource = GetComponent<AudioSource>();
+
+        lastFireTime = Time.time - 10;
 
 #if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
@@ -36,18 +38,26 @@ public class Sword : Weapons
             }
             quickTap = false;
         }
-
+      
         if (Input.GetKeyDown("v"))
         {
-            swordAnimator.SetTrigger("Long Tap Sword");
-
-            audioSource.Play();
-
-            if (attackOnce == false)
+            fireRate = 5f;
+            
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                swordAttack();
+                lastFireTime = Time.time;
+
+                swordAnimator.SetTrigger("Long Tap Sword");
+
+                audioSource.Play();
+
+                if (attackOnce == false)
+                {
+                    swordAttack();
+                }
             }
-            quickTap = false;
+           
+            longTap = false;
         }
 
         if (!quickTap && !longTap)
@@ -80,12 +90,11 @@ public class Sword : Weapons
         {
             swordAnimator.SetTrigger("Quick Tap Sword");
 
-            audioSource.Play();
-
             //Player.transform.LookAt(lookAtClick);
 
             if (attackOnce == false)
             {
+                audioSource.Play();
                 swordAttack();
             }
             quickTap = false;
@@ -93,12 +102,21 @@ public class Sword : Weapons
 
          if (longTap)
         {
-            swordAnimator.SetTrigger("Long Tap Sword");
-
-            if (attackOnce == false)
+            fireRate = 5f;
+            
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                swordAttack();
+                lastFireTime = Time.time;
+
+                swordAnimator.SetTrigger("Long Tap Sword");
+
+                if (attackOnce == false)
+                {
+                    audioSource.Play();
+                    swordAttack();
+                }
             }
+           
             longTap = false;
         }
 
