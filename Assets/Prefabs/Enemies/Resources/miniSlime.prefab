@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6066843869911136408}
   - component: {fileID: 6066843869911136413}
   - component: {fileID: 7750424926088719681}
+  - component: {fileID: 7750424926697947455}
   m_Layer: 8
   m_Name: MiniSlime
   m_TagString: Enemy
@@ -114,7 +115,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.25, y: 1, z: 1.25}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!82 &6066843869911136413
 AudioSource:
@@ -236,6 +237,28 @@ MonoBehaviour:
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
   slime: {fileID: 8300000, guid: 16fa0aa043316c94b9abff729c740cee, type: 3}
+--- !u!195 &7750424926697947455
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066843869911105056}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6066843869911105058
 GameObject:
   m_ObjectHideFlags: 0
