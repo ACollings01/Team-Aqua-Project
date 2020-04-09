@@ -7,6 +7,8 @@ public class Weapons : Player
 {
     protected bool quickTap = false;
     protected bool longTap = false;
+    protected bool lightAttack = false;
+    protected bool heavyAttack = false;
     protected float startTime;
     protected int damage;
     protected int layerMask;
@@ -14,12 +16,23 @@ public class Weapons : Player
     protected bool attackOnce = false;
     protected bool checkOnce = false;
     protected bool arrowDirectionOnce = false;
+    protected bool spearDirectionOnce = false;
     protected Vector3 lookAtClick;
     protected Vector3 lookAtClickProjectile;
     protected GameObject Player;
+    protected GameObject Enemy;
+    public float fireRate;
+    protected float lastFireTime;
+    protected float lastFireTimeHeavy;
 
     [SerializeField]
     protected GameObject SwordBlade;
+
+    [SerializeField]
+    protected GameObject playerSpear;
+
+    [SerializeField]
+    protected GameObject playerShield;
 
     protected LayerMask whatIsEnemy;
     float swordAttackRadius;
@@ -94,9 +107,7 @@ public class Weapons : Player
     protected void spearAttack()
     {
         whatIsEnemy = LayerMask.GetMask("Enemy");
-        spearAttackRadius = .5f;
-
-        GameObject playerSpear = GameObject.Find("Player/Player_Model/Spear");
+        spearAttackRadius = 1;
 
         Collider[] enemyHit = Physics.OverlapSphere(playerSpear.transform.position, spearAttackRadius, whatIsEnemy);
 
@@ -111,8 +122,6 @@ public class Weapons : Player
     {
         whatIsEnemy = LayerMask.GetMask("Enemy");
         shieldAttackRadius = 1;
-
-        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
 
         Collider[] enemyHit = Physics.OverlapSphere(playerShield.transform.position, shieldAttackRadius, whatIsEnemy);
 

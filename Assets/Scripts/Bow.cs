@@ -9,26 +9,37 @@ public class Bow : RangedWeapons
     private AudioSource audioSource;
     private Quaternion lastHeavyArrowRotation;
 
+    [SerializeField]
+    private AudioClip lightAttackSound;
+
+    [SerializeField]
+    private AudioClip heavyAttackSound;
+
     GameObject arrowDirection;
     GameObject[] arrowProjectiles;
     GameObject[] heavyArrowProjectiles;
+
+    private Quaternion arrowRotation;
 
     public ParticleSystem arrowParticle;
 
     void Start()
     {
-        GameObject bow = GameObject.Find("Player");
-        bowAnimator = bow.GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        bowAnimator = Player.GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
 
         startTime = 0.0f;
 
-        Player = GameObject.FindGameObjectWithTag("Player");
         arrowDirection = GameObject.FindGameObjectWithTag("Projectile Look At");
 
+        lastFireTimeHeavy = Time.time - 10;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
+#endif
     }
 
     void Update()
@@ -36,83 +47,136 @@ public class Bow : RangedWeapons
 #if UNITY_EDITOR
         if (Input.GetKeyDown("space"))
         {
-            //audioSource.Play();
+            if (!heavyAttack && !lightAttack)
+            {
+                lightAttack = true;
+
+                fireRate = 0.4f;
+                projectileSpeed = 80;
+
+                if ((Time.time - lastFireTime) > fireRate)
+                {
+                    lastFireTime = Time.time;
+
+                    bowAnimator.SetTrigger("Quick Tap Bow");
+
+                    audioSource.PlayOneShot(lightAttackSound);
+                    FireArrow();
+                    arrowDirectionOnce = false;
+                    lightAttack = false;
+                }
+                else
+                {
+                    lightAttack = false;
+                }
+            }           
+        }
+
+        if (Input.GetKeyDown("v"))
+        {
+            if (!heavyAttack && !lightAttack)
+            {
+                heavyAttack = true;
+                //audioSource.Play();
+                fireRate = 5f;
+                projectileSpeed = 35;
+
+                if ((Time.time - lastFireTimeHeavy) > fireRate)
+                {
+                    lastFireTimeHeavy = Time.time;
+
+                    bowAnimator.SetTrigger("Long Tap Bow");
+                    Player.GetComponent<Player>().stopMoving = true;
+
+                    StartCoroutine(WaitToFireArrow());
+
+                    arrowDirectionOnce = false;
+                }
+                else
+                {
+                    heavyAttack = false;
+                }
+            }  
+        }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        layerMask = ~layerMask;
+
+        lengthOfTap();
+
+        if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        {
+            lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z + 10f);
+        }
+        else if (quickTap == false)
+        {
+            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            {
+                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+            }
+        }
+
+        if (quickTap)
+        {
             fireRate = 0.4f;
-            projectileSpeed = 75;
+            projectileSpeed = 80;
 
             if ((Time.time - lastFireTime) > fireRate)
             {
                 lastFireTime = Time.time;
 
                 bowAnimator.SetTrigger("Quick Tap Bow");
-                lastHeavyArrowRotation = arrowDirection.transform.rotation;
 
+                Player.transform.LookAt(lookAtClick);
+                arrowRotation = arrowDirection.transform.rotation;
+
+                audioSource.PlayOneShot(lightAttackSound);
                 FireArrow();
                 arrowDirectionOnce = false;
             }
+            quickTap = false;
         }
 
-        if (Input.GetKeyDown("v"))
+        if (longTap)
         {
-            //audioSource.Play();
-            fireRate = 1.05f;
-            projectileSpeed = 40;
+            fireRate = 5f;
+            projectileSpeed = 35;
 
-            if ((Time.time - lastFireTime) > fireRate)
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
             {
-                lastFireTime = Time.time;
+                lastFireTimeHeavy = Time.time;
 
                 bowAnimator.SetTrigger("Long Tap Bow");
-                lastHeavyArrowRotation = arrowDirection.transform.rotation;
+                Player.GetComponent<Player>().stopMoving = true;
+                Player.transform.LookAt(lookAtClick);
 
-                FireHeavyArrow();
+                StartCoroutine(WaitToFireArrow());
+
                 arrowDirectionOnce = false;
             }
+            longTap = false;
         }
 #endif
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hit;
 
-        //layerMask = ~layerMask;
-
-        //lengthOfTap();
-
-        //if (Physics.Raycast(ray, out hit, 1000, ignoreLayerMask))
+        //if (quickTap)
         //{
-        //    lookAtClick = lookAtClick;
-        //}
-        //else if (quickTap == false)
-        //{
-        //    if (Physics.Raycast(ray, out hit, 1000, layerMask))
-        //    {
-        //        lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
-        //    }
-        //}
-
-        //if (quickTap && AnimatorIsPlaying())
-        //{
-        //    bowAnimator.SetBool("Quick Tap Bow", true);
-
+        //    bowAnimator.SetTrigger("Quick Tap Bow");
         //    Player.transform.LookAt(lookAtClick);
-
-        //}
-        //else if (!AnimatorIsPlaying())
-        //{
-
-        //    if (quickTap)
+        //    if ((Time.time - lastFireTime) > fireRate)
         //    {
-        //        Player.transform.LookAt(lookAtClick);
-        //        if ((Time.time - lastFireTime) > fireRate)
-        //        {
-        //            lastFireTime = Time.time;
+        //        lastFireTime = Time.time;
 
-        //            bowAnimator.SetBool("Quick Tap Bow", false);
-        //            FireArrow();
-        //        }
+        //        audioSource.PlayOneShot(lightAttackSound);
+        //        FireArrow();
         //    }
-
         //    quickTap = false;
         //}
+
+
 
         arrowProjectiles = GameObject.FindGameObjectsWithTag("Arrow");
 
@@ -165,5 +229,15 @@ public class Bow : RangedWeapons
             }
         }
 
+    }
+
+    IEnumerator WaitToFireArrow()
+    {
+        yield return new WaitForSeconds(1);
+        lastHeavyArrowRotation = arrowDirection.transform.rotation;
+        audioSource.PlayOneShot(heavyAttackSound);
+        FireHeavyArrow();
+        Player.GetComponent<Player>().stopMoving = false;
+        heavyAttack = false;
     }
 }
