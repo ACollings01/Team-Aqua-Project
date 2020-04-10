@@ -18,15 +18,6 @@ public class MagicCircle : MonoBehaviour
         mMenu.SetActive(false);
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        _gameManager.ActivateMCircle();
-    //    }
-    //    magicCircleAudioSource.Play();
-    //}
-
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player" && canRunAudio)
@@ -41,8 +32,5 @@ public class MagicCircle : MonoBehaviour
     IEnumerator ExitMap()
     {
         yield return new WaitForSeconds(1.5f);
-        // mMenu.SetActive(true);
-        // this new one is missing a reference so I'm putting it back to how it was working before
-        _gameManager.ActivateMCircle();
     }
 }

@@ -23,11 +23,12 @@ public class NecromancerSc : EnemyAI
         {
             Destroy(this.gameObject);
         }
+
     }
 
     public void shootFireball(GameObject player)
     {
-        anim.SetBool("shootFireball", true);  //Set animator to shootingFireball
+        anim.SetTrigger("shootFireball");  //Set animator to shootingFireball
 
         GameObject fireballPrefab = (GameObject)Resources.Load("Projectiles/Fireball");             //Find the Fireball projectile GameObject
         GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity); //Instantiate said GameObject
@@ -38,12 +39,12 @@ public class NecromancerSc : EnemyAI
         fireball.transform.LookAt(player.transform.position);
         rb.AddForce(fireball.transform.forward * 500.0f);
 
-        anim.SetBool("shootFireball", false);
+        
     }
 
     public void summonZombies(GameObject player)
     {
-        anim.SetBool("summonZombies", true);  //Set animator to summoningZombies
+        anim.SetTrigger("summonZombies");  //Set animator to summoningZombies
 
         int rand = Random.Range(2, 4); //Randomize the amount of zombies that will spawn
 
@@ -56,16 +57,15 @@ public class NecromancerSc : EnemyAI
             zombie.name = "Zombie";
         }
 
-        anim.SetBool("summonZombies", false);
+ 
     }
 
     public void shootHomingFireballs(GameObject player)
     {
-        anim.SetBool("shootHomingFireballs", true);  //Set animator to shootingHomingFireballs
+        anim.SetTrigger("shootHomingFireballs");  //Set animator to shootingHomingFireballs
 
         StartCoroutine(spawnHomingFireballs());
 
-        anim.SetBool("shootHomingFireballs", false);
     }
 
     IEnumerator spawnHomingFireballs()
