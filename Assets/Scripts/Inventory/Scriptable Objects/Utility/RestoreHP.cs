@@ -9,19 +9,22 @@ public class RestoreHP : MonoBehaviour
 
     public void RestoreHealth()
     {
-
-        player.GetComponent<Player>().health += 25;
-
-        if (player.GetComponent<Player>().health > 50)
+        if(inv.GetComponent<DisplayInventory>().inventory.Container[1].amount > 0)
         {
-            player.GetComponent<Player>().health = 50;
-            Debug.Log(player.GetComponent<Player>().health);
+            player.GetComponent<Player>().health += 25;
+
+            if (player.GetComponent<Player>().health > 50)
+            {
+                player.GetComponent<Player>().health = 50;
+                Debug.Log(player.GetComponent<Player>().health);
+            }
+
+            if (inv.GetComponent<DisplayInventory>().inventory.Container[1].amount > 0)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[1].AddAmount(-1);
+            }
         }
 
-        if (inv.GetComponent<DisplayInventory>().inventory.Container[1].amount > 0)
-        {
-            inv.GetComponent<DisplayInventory>().inventory.Container[1].AddAmount(-1);
-        }
     }
 
     public void Update()
