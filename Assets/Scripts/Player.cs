@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
 
     private void CheckHealth()
     {
-        if(health != lastHP)
+        if(health < lastHP)
         {
             lastHP = health;
             var bloodSystem = Instantiate(blood, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);

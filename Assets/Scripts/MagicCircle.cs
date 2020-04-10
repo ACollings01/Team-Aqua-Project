@@ -31,6 +31,7 @@ public class MagicCircle : MonoBehaviour
     {
         if (player.gameObject.tag == "Player" && canRunAudio)
         {
+            mMenu.SetActive(true);
             StartCoroutine(ExitMap());
             canRunAudio = false;
             magicCircleAudioSource.Play();

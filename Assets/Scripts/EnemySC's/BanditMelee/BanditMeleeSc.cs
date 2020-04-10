@@ -10,7 +10,8 @@ public class BanditMeleeSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+
+        gameObject.name = "MeleeBandit";
     }
 
     // Update is called once per frame
@@ -21,6 +22,8 @@ public class BanditMeleeSc : EnemyAI
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
         audioSource.Play();
+
+        damageCheck();
 
         if (this.health <= 0)
         {

@@ -17,6 +17,8 @@ public class BatSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
+
+        gameObject.name = "Bat";
     }
 
     // Update is called once per frame
@@ -46,6 +48,8 @@ public class BatSc : EnemyAI
                 Destroy(spitProjectile);
             }
         }
+
+        damageCheck();
 
         if (this.health <= 0)
         {

@@ -13,7 +13,7 @@ public class BatProjectile : BatSc
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(gameObject, 5f);
     }
 
     void OnCollisionEnter(Collision other)
