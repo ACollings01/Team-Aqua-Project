@@ -18,15 +18,6 @@ public class MagicCircle : MonoBehaviour
         mMenu.SetActive(false);
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("Player"))
-    //    {
-    //        _gameManager.ActivateMCircle();
-    //    }
-    //    magicCircleAudioSource.Play();
-    //}
-
     void OnTriggerEnter(Collider player)
     {
         if (player.gameObject.tag == "Player" && canRunAudio)
