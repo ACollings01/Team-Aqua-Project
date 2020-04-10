@@ -5136,7 +5136,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 739033231}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -8665,6 +8665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739033230}
+  - component: {fileID: 739033231}
   m_Layer: 5
   m_Name: PlayMenu
   m_TagString: Untagged
@@ -8697,6 +8698,18 @@ RectTransform:
   m_AnchoredPosition: {x: 32, y: 118.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &739033231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739033229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdde4ffdba4563148be6e9b5550197ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &745913200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100016, guid: d532a53a6b502464da2110a3bc93b010,
