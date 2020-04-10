@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class NecromancerAttackBehaviour : StateMachineBehaviour
 {
@@ -11,33 +10,16 @@ public class NecromancerAttackBehaviour : StateMachineBehaviour
     float timeBtwBatAtt = 2f;
     float timeTillNextAttack = 4f;
 
-    Vector3 goal;
-
-    NavMeshAgent agent;
-
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         NPC = animator.gameObject;
-
-        agent = NPC.GetComponent<NavMeshAgent>();
-        goal = new Vector3(Random.RandomRange(-15, 15) + NPC.transform.position.x, Random.RandomRange(-15, 15) + NPC.transform.position.y, Random.RandomRange(-15, 15) + NPC.transform.position.z);
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Vector3 direction = goal - NPC.transform.position;
-        if(direction.magnitude > 0.1)
-        {
-            agent.SetDestination(goal);
-        }
-        else
-        {
-            goal = new Vector3(Random.RandomRange(-15, 15) + NPC.transform.position.x, Random.RandomRange(-15, 15) + NPC.transform.position.y, Random.RandomRange(-15, 15) + NPC.transform.position.z);
-        }
-
         NPC.transform.LookAt(new Vector3(Player.transform.position.x, NPC.transform.position.y, Player.transform.position.z));
 
         if (timeTillNextAttack <= 0) //Check to see if the time has reached 0 or less than

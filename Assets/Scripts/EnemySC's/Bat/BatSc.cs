@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class BatSc : EnemyAI
 {
@@ -98,7 +97,6 @@ public class BatSc : EnemyAI
         {
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
-            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }    
