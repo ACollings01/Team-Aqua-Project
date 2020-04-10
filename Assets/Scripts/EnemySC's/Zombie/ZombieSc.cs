@@ -10,6 +10,8 @@ public class ZombieSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        gameObject.name = "Zombie";
     }
 
     // Update is called once per frame

@@ -25,27 +25,22 @@ public class WolfSc : EnemyAI
     // Update is called once per frame
     void Update()
     {
-        if(!spawned)
-            crawlToSurface();
+        if(!spawned) //Checks to see if the wolf has spawned or not
+            crawlToSurface(); //If it already hasn't, then run the spawning function
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position)); //Determines the distance between the player and the wolf
 
-        if (health != lasthp)
+        damageCheck();
+
+        if (this.health <= 0) //If the wolf's health is less than 0 (dead)
         {
-            lasthp = health;
-            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity);
-            Destroy(bloodSystem.gameObject, 1f);
-        }
-
-        if (this.health <= 0)
-        {
-            if (playSound == false)
+            if (playSound == false) //Have a check to make sure the death sound only plays once
             {
                 playSound = true;
-                audioSource.PlayOneShot(death);
+                audioSource.PlayOneShot(death); //Play the death sound
             }
 
-            Destroy(this.gameObject, 3f);
+            Destroy(this.gameObject, 3f); //Then destroy the object after 3 seconds
         }
     }
 

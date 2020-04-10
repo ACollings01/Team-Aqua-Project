@@ -5,30 +5,86 @@ using UnityEngine;
 public class Shield : Weapons
 {
     private Animator shieldAnimator;
-    Rigidbody playerBody;
     private AudioSource audioSource;
 
-    bool AnimatorIsPlaying()
-    {
-        return shieldAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
-    }
+    [SerializeField]
+    private AudioClip lightAttackSound;
+
+    [SerializeField]
+    private AudioClip heavyAttackSound;
+    Rigidbody playerBody;
 
     void Start()
     {
-        GameObject shield = transform.gameObject;
-        shieldAnimator = shield.GetComponent<Animator>();
-      
+        Player = GameObject.FindGameObjectWithTag("Player");
+        shieldAnimator = Player.GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
+
         startTime = 0.0f;
 
-        Player = GameObject.FindGameObjectWithTag("Player");
+        playerBody = Player.GetComponent<Rigidbody>();
+
+        lastFireTime = Time.time - 10;
+        lastFireTimeHeavy = Time.time - 10;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         layerMask = LayerMask.GetMask("Player", "Enemy");
         ignoreLayerMask = LayerMask.GetMask("Ignore Tap");
-
-        playerBody = Player.GetComponent<Rigidbody>();
+#endif
     }
 
     void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown("space"))
+        {
+            fireRate = 0.75f;
+
+            if ((Time.time - lastFireTime) > fireRate)
+            {
+                lastFireTime = Time.time;
+                shieldAnimator.SetTrigger("Quick Tap Shield");
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(lightAttackSound);
+                    shieldAttack();
+                }
+            }
+
+            quickTap = false;
+        }
+
+        if (Input.GetKeyDown("v"))
+        {
+            fireRate = 5f;
+
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
+            {
+                lastFireTimeHeavy = Time.time;
+
+                shieldAnimator.SetTrigger("Long Tap Shield");
+
+                playerBody.velocity = transform.parent.forward * 40;
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(heavyAttackSound);
+                    shieldAttack();
+                }
+            }
+
+            longTap = false;
+        }
+
+        if (!quickTap && !longTap)
+        {
+            attackOnce = false;
+        }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -48,59 +104,59 @@ public class Shield : Weapons
             }
         }
 
-        if (quickTap && AnimatorIsPlaying())
+        if (quickTap)
         {
-            shieldAnimator.SetBool("Quick Tap Shield", true);
+            fireRate = 0.75f;
 
-            Player.transform.LookAt(lookAtClick);
-
-            if (attackOnce == false)
+            if ((Time.time - lastFireTime) > fireRate)
             {
-                shieldAttack();
+                lastFireTime = Time.time;
+                shieldAnimator.SetTrigger("Quick Tap Shield");
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(lightAttackSound);
+                    shieldAttack();
+                }
             }
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            shieldAnimator.SetBool("Quick Tap Shield", false);
-            attackOnce = false;
+
             quickTap = false;
         }
 
-        SoundManager.Instance.PlayClip(audioSource);
-
-        if (longTap && AnimatorIsPlaying())
+        if (longTap)
         {
-            shieldAnimator.SetBool("Long Tap Shield", true);
+            fireRate = 5f;
 
-            if (Physics.Raycast(ray, out hit, 1000))
+            if ((Time.time - lastFireTimeHeavy) > fireRate)
             {
-                lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+                lastFireTimeHeavy = Time.time;
+
+                shieldAnimator.SetTrigger("Long Tap Shield");
+
+                if (Physics.Raycast(ray, out hit, 1000))
+                {
+                    lookAtClick = new Vector3(hit.point.x, hit.point.y + 1.1f, hit.point.z);
+                }
+
+                Player.transform.LookAt(lookAtClick);
+
+                playerBody.velocity = transform.parent.forward * 40;
+
+                if (attackOnce == false)
+                {
+                    audioSource.PlayOneShot(heavyAttackSound);
+                    shieldAttack();
+                }
             }
 
-            Player.transform.LookAt(lookAtClick);
-
-            playerBody.isKinematic = false;
-
-            playerBody.velocity = transform.parent.forward * 10;
-
-            if (attackOnce == false)
-            {
-                shieldAttack();
-            }
-        }
-        else if (!AnimatorIsPlaying())
-        {
-            shieldAnimator.SetBool("Long Tap Shield", false);
-            playerBody.isKinematic = true;
-            attackOnce = false;
             longTap = false;
         }
-    }
 
-    void OnDrawGizmosSelected()
-    {
-        GameObject playerShield = GameObject.Find("Player/Player_Model/Shield");
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(playerShield.transform.position, 1);
+        if (!quickTap && !longTap)
+        {
+            attackOnce = false;
+        }
+#endif
+
     }
 }
