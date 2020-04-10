@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public bool stopMoving = false;
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
+    private AudioSource deathAudioSource;
 
 
     public ParticleSystem blood;
@@ -173,6 +174,8 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             game.GameOver();
+            deathAudioSource = GetComponent<AudioSource>();
         }
+        
     }
 }

@@ -100,14 +100,14 @@ public class SoundManager : Singleton<SoundManager>
         else if (Instance != this)
         {
             Destroy(gameObject);
-            mMenu.SetActive(false);
+            //mMenu.SetActive(false);
 
             AudioSource[] sources = GetComponents<AudioSource>();
             foreach (AudioSource source in sources)
             {
                 if (source.clip == null)
                 {
-                    mMenu.SetActive(true);
+                   // mMenu.SetActive(true);
                     soundEffectAudio = source;
                 }
             }
