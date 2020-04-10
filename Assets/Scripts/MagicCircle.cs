@@ -41,8 +41,5 @@ public class MagicCircle : MonoBehaviour
     IEnumerator ExitMap()
     {
         yield return new WaitForSeconds(1.5f);
-        // mMenu.SetActive(true);
-        // this new one is missing a reference so I'm putting it back to how it was working before
-        _gameManager.ActivateMCircle();
     }
 }
