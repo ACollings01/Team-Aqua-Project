@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class SlimeSc : EnemyAI
 {
@@ -97,7 +96,6 @@ public class SlimeSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
-            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }
