@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class volumeChanger : MonoBehaviour
+public class volumeChanger : SoundManager
 {
 
     private AudioSource soundcontrol;
@@ -27,8 +27,8 @@ public class volumeChanger : MonoBehaviour
         SliderVolume = vol;
     }
 
-    public void SetEffectsVolume(float eff)
+    public void SetEffectsVolume(float gamesounds)
     {
-        SliderSFX = eff;
+        SliderSFX = gamesounds;
     }
 }

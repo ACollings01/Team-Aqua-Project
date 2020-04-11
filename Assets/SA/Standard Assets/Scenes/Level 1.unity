@@ -1796,7 +1796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -58.804, y: -151.9}
+  m_AnchoredPosition: {x: -58.803955, y: -151.9}
   m_SizeDelta: {x: 83.608, y: 87.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154959555
@@ -3317,7 +3317,7 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563794328}
+  m_GameObject: {fileID: 663271037}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -8316,6 +8316,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300638, guid: d532a53a6b502464da2110a3bc93b010, type: 3}
+--- !u!1 &663271037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663271038}
+  - component: {fileID: 253833932}
+  m_Layer: 0
+  m_Name: Recovery GameObject (253833932)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663271038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663271037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &670929908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12370,6 +12401,8 @@ GameObject:
   - component: {fileID: 1011511083}
   - component: {fileID: 61538228}
   - component: {fileID: 1584020086}
+  - component: {fileID: 1011511084}
+  - component: {fileID: 1011511079}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -12377,6 +12410,226 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1011511079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011511078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90ae22fef3700054baad15d9b389fa7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ES_Walk_Forest_Trail:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Volcanoe_Lava_Bubbles:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ambiances_Cave_Level:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Dungeon_Dream_Cave:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Fire_Staff_Fireball_hit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Fire_Staff_Woosh:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ice_Staff_Hit_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ice_Staff_Swoosh_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Lightning_Staff_Lightning_Strike:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Howl:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Bite_2:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Damage_2:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Death_3:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Slime_Pour_Horror:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Impact_Mud_Drop:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Sword_Swoosh_4:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bandit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Button_Switch_10:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bow_Release_Arrow:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bow_Staff_hit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Shield_Scrape_Metal_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  LotsOfBats:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Portalsound:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  town:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  batspit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  player_death:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
 --- !u!82 &1011511080
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12694,6 +12947,226 @@ MonoBehaviour:
   Wolf_Death_3:
     name: 
     clip: {fileID: 8300000, guid: cc67aa9f64fce8f43af493269d16fe06, type: 3}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Slime_Pour_Horror:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Impact_Mud_Drop:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Sword_Swoosh_4:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bandit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Button_Switch_10:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bow_Release_Arrow:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Bow_Staff_hit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Shield_Scrape_Metal_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  LotsOfBats:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Portalsound:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  town:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  batspit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  player_death:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+--- !u!114 &1011511084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011511078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1303c6b81aae3fc4ba7556919d680480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ES_Walk_Forest_Trail:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Volcanoe_Lava_Bubbles:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ambiances_Cave_Level:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  ES_Dungeon_Dream_Cave:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Fire_Staff_Fireball_hit:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Fire_Staff_Woosh:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ice_Staff_Hit_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Ice_Staff_Swoosh_1:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Lightning_Staff_Lightning_Strike:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Howl:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Bite_2:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Damage_2:
+    name: 
+    clip: {fileID: 0}
+    mMenu: {fileID: 0}
+    volume: 5
+    pitch: 1
+    randvolume: 0.1
+    randpitch: 0.1
+  Wolf_Death_3:
+    name: 
+    clip: {fileID: 0}
     mMenu: {fileID: 0}
     volume: 5
     pitch: 1
@@ -15281,7 +15754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219575644 stripped
 GameObject:
@@ -19749,7 +20222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -57.080017, y: -260.8}
+  m_AnchoredPosition: {x: -57.08008, y: -260.8}
   m_SizeDelta: {x: 86.151, y: 87.599976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1628936709
@@ -20883,7 +21356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1775718845 stripped
 GameObject:
