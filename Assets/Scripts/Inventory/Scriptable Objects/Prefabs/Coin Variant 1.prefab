@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
+    - target: {fileID: 6880774468416207729, guid: 9d270100344ec83469f65590573514db,
+        type: 3}
+      propertyPath: m_TagString
+      value: inventory
+      objectReference: {fileID: 0}
     - target: {fileID: 8315042856362686809, guid: 9d270100344ec83469f65590573514db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,6 +121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5756177347349105137, guid: 9d270100344ec83469f65590573514db,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d270100344ec83469f65590573514db, type: 3}
