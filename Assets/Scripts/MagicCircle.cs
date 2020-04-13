@@ -27,7 +27,7 @@ public class MagicCircle : MonoBehaviour
             StartCoroutine(ExitMap());
             canRunAudio = false;
             magicCircleAudioSource.Play();
-            SceneManager.LoadScene("Relevel2");
+           
         }
     }
 
