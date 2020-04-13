@@ -6,7 +6,7 @@ public class SpawnerSc : MonoBehaviour
 {
     //Hold a Gameobject
     public GameObject enemyToSpawn;
-    public GameObject player;
+    GameObject player;
     //Hold a number for the amount of enemies to spawn
     public int numberOfEnemies;
 
@@ -32,6 +32,8 @@ public class SpawnerSc : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
         //Check for distance between object and player
         if (distance <= radius)
@@ -85,7 +87,7 @@ public class SpawnerSc : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.red;
         Gizmos.DrawCube(transform.position, transform.localScale);
     }
 }

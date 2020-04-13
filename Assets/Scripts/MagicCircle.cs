@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MagicCircle : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class MagicCircle : MonoBehaviour
             StartCoroutine(ExitMap());
             canRunAudio = false;
             magicCircleAudioSource.Play();
+            SceneManager.LoadScene("Relevel2");
         }
     }
 

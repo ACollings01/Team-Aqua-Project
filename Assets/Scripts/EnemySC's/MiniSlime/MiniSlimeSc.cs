@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MiniSlimeSc : EnemyAI
 {
+    public GameObject inv;
     public AudioClip slime;
 
     private bool spawned = false;
@@ -14,8 +15,9 @@ public class MiniSlimeSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        anim.SetFloat("Health", health);
 
-        name = "MiniSlime";
+        this.name = "MiniSlime";
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class MiniSlimeSc : EnemyAI
 
         if (health <= 0)
         {
+            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
             Destroy(this.gameObject);
         }
     }
