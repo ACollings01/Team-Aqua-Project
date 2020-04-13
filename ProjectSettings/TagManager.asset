@@ -23,7 +23,6 @@ TagManager:
   - Fire
   - Projectile Look At
   - Heavy Arrow
-  - inventory
   layers:
   - Default
   - TransparentFX
