@@ -892,7 +892,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -917,8 +917,6 @@ RectTransform:
   - {fileID: 306230769}
   - {fileID: 4777433591946939469}
   - {fileID: 7085352125026677236}
-  - {fileID: 1487575582}
-  - {fileID: 373070906}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8781,6 +8779,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300684, guid: d532a53a6b502464da2110a3bc93b010, type: 3}
+--- !u!1 &700102435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 9188620121525240132}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9188620121525240133}
+  m_Layer: 0
+  m_Name: Health Potion (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &703334259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100820, guid: d532a53a6b502464da2110a3bc93b010,
@@ -18366,6 +18380,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300822, guid: d532a53a6b502464da2110a3bc93b010, type: 3}
+--- !u!1 &1520264752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 9188620121525240132}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899638877}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1520574705
 GameObject:
   m_ObjectHideFlags: 0
@@ -22553,12 +22583,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300820, guid: d532a53a6b502464da2110a3bc93b010, type: 3}
---- !u!4 &1899638877 stripped
+--- !u!4 &1899638877
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 9188620122317582617, guid: 806b331a011293345a9fceba301268a1,
     type: 3}
   m_PrefabInstance: {fileID: 9188620121525240132}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520264752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9188620121525240133}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900045118
 GameObject:
   m_ObjectHideFlags: 0
@@ -22586,13 +22625,7 @@ Transform:
   m_LocalPosition: {x: 33, y: 0.6, z: -71.08}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
-  - {fileID: 1899638877}
-  - {fileID: 700529606}
-  - {fileID: 1641298508}
-  - {fileID: 1422823904}
-  - {fileID: 809649030}
-  - {fileID: 180901809}
-  - {fileID: 249733936}
+  - {fileID: 9188620121525240133}
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25421,11 +25454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1900045119}
     m_Modifications:
-    - target: {fileID: 9188620122317582622, guid: 806b331a011293345a9fceba301268a1,
-        type: 3}
-      propertyPath: m_Name
-      value: Health Potion
-      objectReference: {fileID: 0}
     - target: {fileID: 9188620122317582617, guid: 806b331a011293345a9fceba301268a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25481,5 +25509,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9188620122317582622, guid: 806b331a011293345a9fceba301268a1,
+        type: 3}
+      propertyPath: m_Name
+      value: Health Potion
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806b331a011293345a9fceba301268a1, type: 3}
+--- !u!4 &9188620121525240133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 9188620121525240132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700102435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1899638877}
+  m_Father: {fileID: 1900045119}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
