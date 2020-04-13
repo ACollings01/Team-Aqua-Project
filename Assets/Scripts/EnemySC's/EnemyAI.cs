@@ -8,8 +8,8 @@ public class EnemyAI : MonoBehaviour
     protected GameObject player;
 
     public float speed;
-    public int health;
-    public int lasthp;
+    public float health;
+    public float lasthp;
 
     public int minDamage;
     public int maxDamage;
