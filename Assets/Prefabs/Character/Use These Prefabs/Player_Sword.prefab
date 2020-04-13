@@ -7004,7 +7004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5281557748944614692
 Transform:
   m_ObjectHideFlags: 0
@@ -7052,10 +7052,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5281557748944314628}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 5
+  m_Mass: 10
+  m_Drag: 1
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -7077,6 +7077,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 428963a34d54cce45a88d4a1818e6de8, type: 2}
   stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!136 &899278611
@@ -10420,6 +10421,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0

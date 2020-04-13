@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class BanditMeleeSc : EnemyAI
 {
+    public GameObject inv;
     bool spawned = false;
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class BanditMeleeSc : EnemyAI
 
         if (this.health <= 0)
         {
+            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(12);
             Destroy(this.gameObject);
         }
     }
