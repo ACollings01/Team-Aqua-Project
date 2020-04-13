@@ -11,7 +11,6 @@ public class ZombieSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
 
         gameObject.name = "Zombie";
     }
@@ -23,6 +22,7 @@ public class ZombieSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        audioSource = GetComponent<AudioSource>();
 
         if (this.health <= 0)
         {
