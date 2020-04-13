@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MiniSlimeSc : EnemyAI
 {
+    public GameObject inv;
     public AudioClip slime;
 
     private bool spawned = false;
@@ -32,6 +33,7 @@ public class MiniSlimeSc : EnemyAI
 
         if (health <= 0)
         {
+            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
             Destroy(this.gameObject);
         }
     }
