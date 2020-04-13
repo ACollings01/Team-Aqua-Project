@@ -7,6 +7,13 @@ public class GameManager : Singleton<GameManager>
 
     private static GameObject _player;
 
+    public GameObject weaponSelector;
+
+    private void Awake()
+    {
+        weaponSelector.SetActive(true);
+    }
+
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
