@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class WolfSc : EnemyAI
 {
-
+    public GameObject inv;
     //public AudioSource howl;
     public AudioClip attack;
     //public AudioSource damagetaken;
@@ -40,7 +40,7 @@ public class WolfSc : EnemyAI
                 playSound = true;
                 audioSource.PlayOneShot(death); //Play the death sound
             }
-
+            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(6);
             Destroy(this.gameObject, 3f); //Then destroy the object after 3 seconds
         }
     }

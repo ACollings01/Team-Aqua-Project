@@ -11,7 +11,6 @@ public class SlimeSc : EnemyAI
 
     bool spawned = false;
 
-    private Animation death;
     private bool isDead = false;
 
     // Start is called before the first frame update
@@ -19,8 +18,9 @@ public class SlimeSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        anim.SetFloat("Health", health);
 
-        name = "Slime";
+        this.name = "Slime";
     }
 
     // Update is called once per frame

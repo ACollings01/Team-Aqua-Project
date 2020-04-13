@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int armour;
     public float speed;
     public Joystick joystick;
+    public InventoryObject inventory;
     protected bool characterMoving = false;
     protected bool checkJoystickOnce = false;
     public bool stopMoving = false;
@@ -79,6 +80,16 @@ public class Player : MonoBehaviour
             characterMoving = false;
             playerAnimator.SetBool("IsMoving", false);
             playerAudioSource.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            inventory.Save();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            inventory.Load();
         }
 #endif
 
@@ -150,6 +161,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item)
+        {
+            inventory.AddItem(item.item, 1);
+            Destroy(other.gameObject);
+        }
+    }
+
     private void CheckHealth()
     {
         if(health < lastHP)
@@ -174,5 +195,10 @@ public class Player : MonoBehaviour
         {
             game.GameOver();
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
     }
 }
