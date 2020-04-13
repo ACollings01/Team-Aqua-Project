@@ -27,6 +27,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown("1"))
         {
             loadWeapon(Sword);
@@ -52,6 +53,35 @@ public class WeaponSwitcher : MonoBehaviour
             loadWeapon(Shield);
             activeWeaponType = "Player_Shield";
         }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (Input.GetKeyDown("1"))
+        {
+            loadWeapon(Sword);
+            activeWeaponType = "Player_Sword";
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            loadWeapon(Bow);
+            activeWeaponType = "Player_Bow";
+        }
+        //else if (Input.GetKeyDown("3"))
+        //{
+        //    loadWeapon(Staff);
+        //    activeWeaponType = "Player_Staff";
+        //}
+        else if (Input.GetKeyDown("4"))
+        {
+            loadWeapon(Spear);
+            activeWeaponType = "Player_Spear";
+        }
+        else if (Input.GetKeyDown("5"))
+        {
+            loadWeapon(Shield);
+            activeWeaponType = "Player_Shield";
+        }
+#endif
     }
 
     private void loadWeapon(GameObject weapon)

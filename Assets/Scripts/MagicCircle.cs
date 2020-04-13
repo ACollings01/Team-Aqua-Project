@@ -9,7 +9,7 @@ public class MagicCircle : MonoBehaviour
     private GameManager _gameManager;
     private bool canRunAudio = true;
 
-    public GameObject mMenu;
+    public GameObject mMenu; //Play menu in unity ..to trigger to pop up
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class MagicCircle : MonoBehaviour
     {
         if (player.gameObject.tag == "Player" && canRunAudio)
         {
-            mMenu.SetActive(true);
+            mMenu.SetActive(true); //main menu pop up when player enters magic circle
             StartCoroutine(ExitMap());
             canRunAudio = false;
             magicCircleAudioSource.Play();
