@@ -11,6 +11,11 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Level 1");
     }
+
+    public void LevelTwo()
+    {
+        SceneManager.LoadScene("Relevel2");
+    }
     
     public void TownScene()
     {
