@@ -510,7 +510,7 @@ MonoBehaviour:
   inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 1325018211}
 --- !u!114 &59019477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9124,7 +9124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1050898173
 MonoBehaviour:
   m_ObjectHideFlags: 0
