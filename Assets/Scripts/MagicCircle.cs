@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MagicCircle : MonoBehaviour
 {
     private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
     private bool canRunAudio = true;
+
 
     public GameObject mMenu; //Play menu in unity ..to trigger to pop up
 
@@ -27,7 +27,6 @@ public class MagicCircle : MonoBehaviour
             StartCoroutine(ExitMap());
             canRunAudio = false;
             magicCircleAudioSource.Play();
-            SceneManager.LoadScene("Relevel2");
         }
     }
 

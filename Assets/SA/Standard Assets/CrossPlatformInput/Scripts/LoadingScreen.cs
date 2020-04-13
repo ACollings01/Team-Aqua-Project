@@ -10,7 +10,7 @@ public class LoadingScreen : MonoBehaviour
 {
     public static LoadingScreen Instance;
 
-    private AsyncOperation currentLoadingOperation;
+    //private AsyncOperation currentLoadingOperation;
     private float timeElapsed;
     private bool isLoading;
 
@@ -21,7 +21,7 @@ public class LoadingScreen : MonoBehaviour
 
     [SerializeField]
     private Text percentLoadedText;
-    private const float MIN_TIME_TO_SHOW = 1f;
+    private const float MIN_TIME_TO_SHOW = 10f;
 
     [SerializeField]
     private bool hideProgressBar;
@@ -47,7 +47,7 @@ public class LoadingScreen : MonoBehaviour
 
         Configure();
 
-        Hide ();
+        Show();
     }
 
     private void Configure()
@@ -64,21 +64,13 @@ public class LoadingScreen : MonoBehaviour
     {
         if (isLoading)
         {
-            SetProgress(currentLoadingOperation.progress);
-
-            if (currentLoadingOperation.isDone && !didTriggerFadeOutAnimation)
+            timeElapsed += Time.deltaTime;
+            SetProgress(timeElapsed / MIN_TIME_TO_SHOW);
+            if (timeElapsed >= MIN_TIME_TO_SHOW)
             {
                 animator.SetTrigger("Hide");
                 didTriggerFadeOutAnimation = true;
-            }
-            else
-            {
-                timeElapsed += Time.deltaTime;
-                if (timeElapsed >= MIN_TIME_TO_SHOW)
-                {
-                    currentLoadingOperation.allowSceneActivation = true;
-                }
-
+                Hide();
             }
         }
     }
@@ -93,15 +85,11 @@ public class LoadingScreen : MonoBehaviour
         percentLoadedText.text = Mathf.CeilToInt(progress * 100).ToString() + "%";
     }
 
-    public void Show(AsyncOperation loadingOperation)
+    public void Show()
     {
         // Enable the loading screen:
         gameObject.SetActive(true);
-        // Store the reference:
-        currentLoadingOperation = loadingOperation;
-        // Stop the loading operation from finishing, even if it technically did:
-        currentLoadingOperation.allowSceneActivation = false;
-        // Reset the UI:
+           // Reset the UI:
         SetProgress(0f);
         // Reset the time elapsed:
         timeElapsed = 0f;
@@ -109,12 +97,12 @@ public class LoadingScreen : MonoBehaviour
         didTriggerFadeOutAnimation = false;
         isLoading = true;
     }
+
     // Call this to hide it:
     public void Hide()
     {
         // Disable the loading screen:
         gameObject.SetActive(false);
-        currentLoadingOperation = null;
         isLoading = false;
     }
 }
