@@ -8,7 +8,6 @@ public class BatSc : EnemyAI
     [SerializeField] public AudioClip bat;
     [SerializeField] public AudioClip projectile;
 
-    public GameObject inv;
     int rand;
     GameObject[] spitProjectiles;
 
@@ -55,7 +54,6 @@ public class BatSc : EnemyAI
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(3);
             Destroy(this.gameObject);
         }
         
