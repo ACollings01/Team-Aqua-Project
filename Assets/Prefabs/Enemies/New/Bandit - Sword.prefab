@@ -12751,6 +12751,11 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  bandit: {fileID: 8300000, guid: e762240d17b2ac2459c3a0b7a7a5660f, type: 3}
+  attack: {fileID: 8300000, guid: fabc45322c924e14792d92dddc31fc2f, type: 3}
+  damage: {fileID: 8300000, guid: 56b3ef57d7171184c919bcd2b253883b, type: 3}
+  death: {fileID: 8300000, guid: 9008bc95fa7aa584584288eff63b69bf, type: 3}
+  inv: {fileID: 0}
 --- !u!195 &6556441300769777997
 NavMeshAgent:
   m_ObjectHideFlags: 0

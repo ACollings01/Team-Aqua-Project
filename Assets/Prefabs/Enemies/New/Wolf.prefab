@@ -10508,6 +10508,8 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  inv: {fileID: 0}
+  howl: {fileID: 8300000, guid: dcef39e7cbc3b5a49a4244fec6b528eb, type: 3}
   attack: {fileID: 8300000, guid: 9263c16aa32e06d49be060ffaac91391, type: 3}
   death: {fileID: 8300000, guid: cc67aa9f64fce8f43af493269d16fe06, type: 3}
 --- !u!82 &1644898749204861770
@@ -10521,7 +10523,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

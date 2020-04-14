@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class ZombieSc : EnemyAI
 {
+    [SerializeField] public AudioClip zombie;
+    [SerializeField] public AudioClip death;
+
     public GameObject inv;
     bool spawned = false;
     // Start is called before the first frame update
@@ -21,8 +24,15 @@ public class ZombieSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
         audioSource = GetComponent<AudioSource>();
+
+        //only play zombie sounds when they are within 10ft
+        if (!audioSource.isPlaying && DistToPlayer < 10)
+        {
+            audioSource.PlayOneShot(zombie, 0.5f);
+        }
 
         if (this.health <= 0)
         {

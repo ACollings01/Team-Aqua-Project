@@ -17,7 +17,6 @@ public class SlimeSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
         anim.SetFloat("Health", health);
 
         this.name = "Slime";
@@ -32,8 +31,15 @@ public class SlimeSc : EnemyAI
 
         //audioSource.PlayOneShot(slime);
 
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
+        audioSource = GetComponent<AudioSource>();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        // only play slime sounds when they are within 5ft
+        if (!audioSource.isPlaying && DistToPlayer < 5)
+        {
+            audioSource.PlayOneShot(slime, 0.5f);
+        }
 
         damageCheck();
 

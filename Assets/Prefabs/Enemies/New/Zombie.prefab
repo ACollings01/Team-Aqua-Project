@@ -12358,8 +12358,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0d49ac8b8e0a624ebe2c8f601eca4ac, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -12489,6 +12489,8 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  zombie: {fileID: 8300000, guid: b0d49ac8b8e0a624ebe2c8f601eca4ac, type: 3}
+  death: {fileID: 8300000, guid: a2e2ee3c682f9f745ab577f0ed5e6c13, type: 3}
   inv: {fileID: 0}
 --- !u!1 &3044184476714015986
 GameObject:

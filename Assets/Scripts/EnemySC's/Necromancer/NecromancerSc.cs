@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class NecromancerSc : EnemyAI
 {
+    private AudioSource EpicFightAudioSource;
+    private bool canRunAudio = true;
+    public GameObject Necromancer;
+    public AudioClip EpicFight;
+
     public GameObject inv;
     bool spawned = false;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        EpicFightAudioSource = GetComponent<AudioSource>();
+        Necromancer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,6 +26,7 @@ public class NecromancerSc : EnemyAI
             crawlToSurface();
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        audioSource.PlayOneShot(EpicFight);
 
         if (this.health <= 0)
         {
@@ -26,6 +34,16 @@ public class NecromancerSc : EnemyAI
             Destroy(this.gameObject);
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Necromancer" && canRunAudio)
+        {
+            Necromancer.SetActive(true);
+            canRunAudio = false;
+            EpicFightAudioSource.Play();
+        }
     }
 
     public void shootFireball(GameObject player)
