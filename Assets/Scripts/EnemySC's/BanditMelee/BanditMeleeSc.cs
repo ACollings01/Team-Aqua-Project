@@ -12,6 +12,7 @@ public class BanditMeleeSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
+        inv = GameObject.Find("InventoryScreen");
 
         gameObject.name = "MeleeBandit";
     }

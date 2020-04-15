@@ -21,6 +21,7 @@ public class WolfSc : EnemyAI
         this.name = "Wolf";
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame

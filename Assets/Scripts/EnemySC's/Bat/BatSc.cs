@@ -19,6 +19,7 @@ public class BatSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
+        inv = GameObject.Find("InventoryScreen");
 
         gameObject.name = "Bat";
     }

@@ -11,6 +11,7 @@ public class NecromancerSc : EnemyAI
     void Start()
     {
         anim = GetComponent<Animator>();
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame
