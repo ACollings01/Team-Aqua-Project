@@ -12,6 +12,7 @@ public class ZombieSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        inv = GameObject.Find("InventoryScreen");
 
         gameObject.name = "Zombie";
     }

@@ -12,7 +12,7 @@ public class BanditRangedSc : EnemyAI
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-
+        inv = GameObject.Find("InventoryScreen");
         gameObject.name = "RangedBandit";
     }
 

@@ -380,6 +380,7 @@ GameObject:
   - component: {fileID: 2362363700711800023}
   - component: {fileID: 2362363700711800024}
   - component: {fileID: 2362363700085411232}
+  - component: {fileID: 1161490842}
   m_Layer: 8
   m_Name: Bat
   m_TagString: Enemy
@@ -449,7 +450,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 0
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &2362363700711800023
@@ -573,6 +574,7 @@ MonoBehaviour:
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
   bat: {fileID: 8300000, guid: 0d7ad1adeb807d241826c71b3c357807, type: 3}
   projectile: {fileID: 8300000, guid: 8d6070ad05e88a547882881c9bfea1a4, type: 3}
+  inv: {fileID: 0}
 --- !u!195 &2362363700085411232
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -595,6 +597,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1161490842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362363700711897720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2362363700711897722
 GameObject:
   m_ObjectHideFlags: 0
