@@ -8,6 +8,7 @@ public class volumeChanger : SoundManager
     private AudioSource soundcontrol;
     private float SliderVolume = 1f;
     private float SliderSFX = 1f;
+    public AudioClip stroll;
 
     // Start is called before the first frame update
     void Start()

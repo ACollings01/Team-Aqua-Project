@@ -5,6 +5,7 @@ using UnityEngine;
 public class FireBallProjectile : MonoBehaviour
 {
     GameObject Necromancer;
+    [SerializeField] public AudioClip fireball;
 
     // Start is called before the first frame update
     void Start()

@@ -509,6 +509,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   player: {fileID: 1325018211}
 --- !u!114 &59019477
@@ -1174,6 +1175,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5281557748944218490, guid: c07cd8811029bdb409bb512ad16f0e76,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: e1f17e7aeda3afe4c91b6cd8af089ebc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07cd8811029bdb409bb512ad16f0e76, type: 3}
 --- !u!1 &406369483
