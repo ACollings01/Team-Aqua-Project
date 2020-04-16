@@ -24,12 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MagicCircleUI.unity
     guid: e7b1c216dbe001747b72dc625ffc630e
   - enabled: 0
-    path: Assets/SA/Standard Assets/Scenes/Andrew's Playground.unity
+    path: Assets/Scenes/Andrew's Playground.unity
     guid: f68ba6fb56d9ca6429347f119bc6fc9a
   - enabled: 0
-    path: Assets/SA/Standard Assets/Scenes/Colin's Area.unity
+    path: Assets/Scenes/Colin's Area.unity
     guid: 9fe0970f15741f94bbc892e293e1274f
   - enabled: 0
-    path: Assets/SA/Standard Assets/Scenes/Brittany's Scene.unity
+    path: Assets/Scenes/Brittany's Scene.unity
     guid: 25f81edeb51666b4d80ba7458de56ab4
   m_configObjects: {}
