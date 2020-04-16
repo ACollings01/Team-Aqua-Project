@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 5281557748944218490, guid: c07cd8811029bdb409bb512ad16f0e76,
         type: 3}
       propertyPath: health
-      value: 20000000
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07cd8811029bdb409bb512ad16f0e76, type: 3}
@@ -1522,6 +1522,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 2362363700711897720, guid: 31669c9b157755d4f92d02b3a1a9d9b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2362363700711663192, guid: 31669c9b157755d4f92d02b3a1a9d9b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1590,6 +1595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Necromancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248844404566334078, guid: 368249aea5e62134f8771cc3b33b8af4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3248844404566691422, guid: 368249aea5e62134f8771cc3b33b8af4,
         type: 3}
@@ -1660,6 +1670,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bandit - Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 3682106638380804112, guid: cac124dd4c9bb5c4f84c669ee9eb8f89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3682106638380839984, guid: cac124dd4c9bb5c4f84c669ee9eb8f89,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1728,6 +1743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 4593328791536227175, guid: 1219770d2a94c9e458f9254ea32ff8bf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4593328791535800135, guid: 1219770d2a94c9e458f9254ea32ff8bf,
         type: 3}
@@ -1798,6 +1818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 6397267303615252554, guid: 1711259f38322794483b3a19506466c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6397267303615093802, guid: 1711259f38322794483b3a19506466c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1866,6 +1891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bandit - Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 6556441301197716727, guid: 2fd71037ede598044a64c029a7ee8d06,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6556441301197349079, guid: 2fd71037ede598044a64c029a7ee8d06,
         type: 3}
@@ -1936,6 +1966,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 7227438896493413011, guid: 89b2ccd1a4e2b97498f952a0cdf708d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7227438896493319859, guid: 89b2ccd1a4e2b97498f952a0cdf708d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2004,6 +2039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiniSlime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066843869911105056, guid: 123b90dd86188714b9ca831e53fcd4be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6066843869910737408, guid: 123b90dd86188714b9ca831e53fcd4be,
         type: 3}

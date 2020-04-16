@@ -8,7 +8,6 @@ public class NecromancerAttackBehaviour : StateMachineBehaviour
     private GameObject Player;
     private GameObject NPC;
 
-    float timeBtwBatAtt = 2f;
     float timeTillNextAttack = 4f;
 
     Vector3 goal;
@@ -40,22 +39,22 @@ public class NecromancerAttackBehaviour : StateMachineBehaviour
 
         if (timeTillNextAttack <= 0) //Check to see if the time has reached 0 or less than
         {
-            int rand = Random.Range(0, 3); //Pick a random attack
+            int rand = Random.Range(0, 6); //Pick a random attack
 
-            if (rand == 0) //Shoot a Fireball
+            if (rand <= 2) //Shoot a Fireball
             {
                 NPC.GetComponent<NecromancerSc>().shootFireball(Player);
-                timeTillNextAttack = Random.Range(2f, 5f); //Randomize the time until the Necromancers next attack
+                timeTillNextAttack = Random.Range(2f, 3f); //Randomize the time until the Necromancers next attack
             }
-            else if (rand == 1) //Summon Zombies
+            else if (rand == 5) //Summon Zombies
             {
                 NPC.GetComponent<NecromancerSc>().summonZombies(Player);
-                timeTillNextAttack = Random.Range(2f, 5f); //Randomize the time until the Necromancers next attack
+                timeTillNextAttack = Random.Range(4f, 5f); //Randomize the time until the Necromancers next attack
             }
-            else if (rand == 2) //Shoot Homing Fireballs
+            else if (rand <= 4) //Shoot Homing Fireballs
             {
                 NPC.GetComponent<NecromancerSc>().shootHomingFireballs(Player);
-                timeTillNextAttack = Random.Range(2f, 5f); //Randomize the time until the Necromancers next attack
+                timeTillNextAttack = Random.Range(4f, 5f); //Randomize the time until the Necromancers next attack
             }
         }
         else
