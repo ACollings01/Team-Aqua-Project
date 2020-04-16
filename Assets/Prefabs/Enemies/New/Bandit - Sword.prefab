@@ -12557,6 +12557,7 @@ GameObject:
   - component: {fileID: 6556441301342782453}
   - component: {fileID: 6556441301342782448}
   - component: {fileID: 6556441300769777997}
+  - component: {fileID: 2048686610}
   m_Layer: 8
   m_Name: Bandit - Sword
   m_TagString: Enemy
@@ -12751,10 +12752,6 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
-  bandit: {fileID: 8300000, guid: e762240d17b2ac2459c3a0b7a7a5660f, type: 3}
-  attack: {fileID: 8300000, guid: fabc45322c924e14792d92dddc31fc2f, type: 3}
-  damage: {fileID: 8300000, guid: 56b3ef57d7171184c919bcd2b253883b, type: 3}
-  death: {fileID: 8300000, guid: 9008bc95fa7aa584584288eff63b69bf, type: 3}
   inv: {fileID: 0}
 --- !u!195 &6556441300769777997
 NavMeshAgent:
@@ -12778,6 +12775,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2048686610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6556441301197716727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6556441301197716729
 GameObject:
   m_ObjectHideFlags: 0

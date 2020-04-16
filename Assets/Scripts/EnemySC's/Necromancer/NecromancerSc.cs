@@ -20,6 +20,7 @@ public class NecromancerSc : EnemyAI
         anim = GetComponent<Animator>();
         EpicFightAudioSource = GetComponent<AudioSource>();
         Necromancer.SetActive(false);
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame

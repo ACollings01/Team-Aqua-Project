@@ -16,6 +16,7 @@ public class MiniSlimeSc : EnemyAI
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         anim.SetFloat("Health", health);
+        inv = GameObject.Find("InventoryScreen");
 
         this.name = "MiniSlime";
     }
@@ -35,7 +36,7 @@ public class MiniSlimeSc : EnemyAI
         if (health <= 0)
         {
             inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 1.5f);
         }
     }
 

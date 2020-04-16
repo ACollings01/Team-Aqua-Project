@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6066843869911136413}
   - component: {fileID: 7750424926088719681}
   - component: {fileID: 7750424926697947455}
+  - component: {fileID: 296066947}
   m_Layer: 8
   m_Name: miniSlime
   m_TagString: Enemy
@@ -236,6 +237,7 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  inv: {fileID: 0}
   slime: {fileID: 8300000, guid: 16fa0aa043316c94b9abff729c740cee, type: 3}
 --- !u!195 &7750424926697947455
 NavMeshAgent:
@@ -259,6 +261,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &296066947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066843869911105056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6066843869911105058
 GameObject:
   m_ObjectHideFlags: 0
