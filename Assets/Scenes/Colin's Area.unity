@@ -257,6 +257,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
 --- !u!136 &232849174
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
@@ -1627,6 +1629,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -1816,6 +1819,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -2067,6 +2071,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 754782417, guid: aff2365d7315ba64d9b3aca90d4160d4, type: 3}
+      propertyPath: heavyAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c3867ffd737a1b4bbd3e9c060e8fc9c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff2365d7315ba64d9b3aca90d4160d4, type: 3}
 --- !u!1001 &1178042989
@@ -2191,6 +2199,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -2343,6 +2352,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 388596445}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
 --- !u!65 &1418588913
@@ -2398,6 +2408,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
@@ -4341,6 +4352,7 @@ MonoBehaviour:
   armour: 0
   speed: 5
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
