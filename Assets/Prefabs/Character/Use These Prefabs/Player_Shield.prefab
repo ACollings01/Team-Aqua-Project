@@ -14371,6 +14371,7 @@ GameObject:
   - component: {fileID: 3872420282299199955}
   - component: {fileID: 3872420282299199953}
   - component: {fileID: 3872420282299199952}
+  - component: {fileID: 3348573501314741123}
   m_Layer: 9
   m_Name: Player_Shield
   m_TagString: Player
@@ -14425,8 +14426,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3872420281869847413}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 5
+  m_Mass: 10000
+  m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -14563,6 +14564,18 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 428963a34d54cce45a88d4a1818e6de8, type: 2}
   stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+--- !u!114 &3348573501314741123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3872420281869847413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3872420281869847415
 GameObject:
   m_ObjectHideFlags: 0
