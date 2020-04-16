@@ -994,6 +994,7 @@ MonoBehaviour:
     pitch: 1
     randvolume: 0.1
     randpitch: 0.1
+  stroll: {fileID: 0}
 --- !u!1 &193886840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3816,6 +3817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LoadingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808325831565195654, guid: 740709867eef5134d8cbb2ab80f108d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6808325831565195659, guid: 740709867eef5134d8cbb2ab80f108d7,
         type: 3}
