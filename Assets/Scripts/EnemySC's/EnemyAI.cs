@@ -8,8 +8,8 @@ public class EnemyAI : MonoBehaviour
     protected GameObject player;
 
     public float speed;
-    public int health;
-    public int lasthp;
+    public float health;
+    public float lasthp;
 
     public int minDamage;
     public int maxDamage;
@@ -43,9 +43,19 @@ public class EnemyAI : MonoBehaviour
         //}
 
 
-        public int dealDamageToPlayer(int min, int max)
+    public int dealDamageToPlayer(int min, int max)
     {
         int damage = Random.Range(min, max + 1);
         return damage;
+    }
+
+    public void damageCheck()
+    {
+        if (health < lasthp) //Checks to see if the enemy has recently taken damage
+        {
+            lasthp = health; //If so, reset it
+            var bloodSystem = Instantiate(blood, transform.position, Quaternion.identity); //Spawn the blood particle system
+            Destroy(bloodSystem.gameObject, 1f); //Destroy that system after 1 second
+        }
     }
 }

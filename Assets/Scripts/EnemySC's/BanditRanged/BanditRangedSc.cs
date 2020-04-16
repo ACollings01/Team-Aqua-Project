@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BanditRangedSc : EnemyAI
 {
+    public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        inv = GameObject.Find("InventoryScreen");
+        gameObject.name = "RangedBandit";
     }
 
     // Update is called once per frame
@@ -22,7 +28,12 @@ public class BanditRangedSc : EnemyAI
 
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
         }
     }
 
@@ -33,7 +44,9 @@ public class BanditRangedSc : EnemyAI
         GameObject arrow;
         Rigidbody rb;
 
-        arrow = Instantiate(arrowPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        GameObject arrowShot = GameObject.Find("RangedBandit/Fire");
+
+        arrow = Instantiate(arrowPrefab, new Vector3(arrowShot.transform.position.x, arrowShot.transform.position.y, arrowShot.transform.position.z), Quaternion.identity);
         //spit.transform.parent = gameObject.transform;
         rb = arrow.GetComponent<Rigidbody>();
 
@@ -52,6 +65,7 @@ public class BanditRangedSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }

@@ -10409,6 +10409,8 @@ GameObject:
   - component: {fileID: 7227438896493447402}
   - component: {fileID: 7227438896493447405}
   - component: {fileID: 1644898749204861770}
+  - component: {fileID: 7227438896933350443}
+  - component: {fileID: 793933322}
   m_Layer: 8
   m_Name: Wolf
   m_TagString: Enemy
@@ -10507,6 +10509,7 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  inv: {fileID: 0}
   attack: {fileID: 8300000, guid: 9263c16aa32e06d49be060ffaac91391, type: 3}
   death: {fileID: 8300000, guid: cc67aa9f64fce8f43af493269d16fe06, type: 3}
 --- !u!82 &1644898749204861770
@@ -10605,6 +10608,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!195 &7227438896933350443
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227438896493413011}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &793933322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227438896493413011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7227438896493413017
 GameObject:
   m_ObjectHideFlags: 0

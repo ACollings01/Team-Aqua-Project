@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BanditMeleeSc : EnemyAI
 {
+    public GameObject inv;
     bool spawned = false;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        
+        inv = GameObject.Find("InventoryScreen");
+
+        gameObject.name = "MeleeBandit";
     }
 
     // Update is called once per frame
@@ -22,9 +27,16 @@ public class BanditMeleeSc : EnemyAI
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
         audioSource.Play();
 
+        damageCheck();
+
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(12);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
         }
     }
 
@@ -52,6 +64,7 @@ public class BanditMeleeSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
       

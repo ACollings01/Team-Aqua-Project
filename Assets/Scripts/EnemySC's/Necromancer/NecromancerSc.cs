@@ -1,14 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NecromancerSc : EnemyAI
 {
+    public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame
@@ -21,13 +26,19 @@ public class NecromancerSc : EnemyAI
 
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(100);
+                Destroy(this.gameObject, 2f);
+            }
+            isDead = true;
         }
+
     }
 
     public void shootFireball(GameObject player)
     {
-        anim.SetBool("shootFireball", true);  //Set animator to shootingFireball
+        anim.SetTrigger("shootFireball");  //Set animator to shootingFireball
 
         GameObject fireballPrefab = (GameObject)Resources.Load("Projectiles/Fireball");             //Find the Fireball projectile GameObject
         GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity); //Instantiate said GameObject
@@ -38,12 +49,12 @@ public class NecromancerSc : EnemyAI
         fireball.transform.LookAt(player.transform.position);
         rb.AddForce(fireball.transform.forward * 500.0f);
 
-        anim.SetBool("shootFireball", false);
+        
     }
 
     public void summonZombies(GameObject player)
     {
-        anim.SetBool("summonZombies", true);  //Set animator to summoningZombies
+        anim.SetTrigger("summonZombies");  //Set animator to summoningZombies
 
         int rand = Random.Range(2, 4); //Randomize the amount of zombies that will spawn
 
@@ -56,16 +67,15 @@ public class NecromancerSc : EnemyAI
             zombie.name = "Zombie";
         }
 
-        anim.SetBool("summonZombies", false);
+ 
     }
 
     public void shootHomingFireballs(GameObject player)
     {
-        anim.SetBool("shootHomingFireballs", true);  //Set animator to shootingHomingFireballs
+        anim.SetTrigger("shootHomingFireballs");  //Set animator to shootingHomingFireballs
 
         StartCoroutine(spawnHomingFireballs());
 
-        anim.SetBool("shootHomingFireballs", false);
     }
 
     IEnumerator spawnHomingFireballs()
@@ -91,13 +101,13 @@ public class NecromancerSc : EnemyAI
 
     public int dealHomingDamage(int min, int max)
     {
-        int damage = Random.Range(min - 9, max - 9);
+        int damage = Random.Range(min, max);
         return damage;
     }
 
     public int dealFireballDamage(int min, int max)
     {
-        int damage = Random.Range(min, max + 1);
+        int damage = Random.Range(min + 30, max + 40);
         return damage;
     }
 
@@ -112,6 +122,7 @@ public class NecromancerSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }

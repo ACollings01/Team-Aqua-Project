@@ -8,7 +8,7 @@ public class WeaponSwitcher : MonoBehaviour
 
     public GameObject Sword;
     public GameObject Bow;
-    public GameObject Staff;
+    //public GameObject Staff;
     public GameObject Spear;
     public GameObject Shield;
 
@@ -21,44 +21,74 @@ public class WeaponSwitcher : MonoBehaviour
 
     void Start()
     {
-        activeWeaponType = "Sword";
+        activeWeaponType = "Player_Sword";
         activeWeapon = Sword;
     }
 
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown("1"))
         {
             loadWeapon(Sword);
-            activeWeaponType = "Sword";
+            activeWeaponType = "Player_Sword";
         }
         else if (Input.GetKeyDown("2"))
         {
             loadWeapon(Bow);
-            activeWeaponType = "Bow";
+            activeWeaponType = "Player_Bow";
         }
-        else if (Input.GetKeyDown("3"))
-        {
-            loadWeapon(Staff);
-            activeWeaponType = "Staff";
-        }
+        //else if (Input.GetKeyDown("3"))
+        //{
+        //    loadWeapon(Staff);
+        //    activeWeaponType = "Player_Staff";
+        //}
         else if (Input.GetKeyDown("4"))
         {
             loadWeapon(Spear);
-            activeWeaponType = "Spear";
+            activeWeaponType = "Player_Spear";
         }
         else if (Input.GetKeyDown("5"))
         {
             loadWeapon(Shield);
-            activeWeaponType = "Shield";
+            activeWeaponType = "Player_Shield";
         }
+#endif
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        if (Input.GetKeyDown("1"))
+        {
+            loadWeapon(Sword);
+            activeWeaponType = "Player_Sword";
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            loadWeapon(Bow);
+            activeWeaponType = "Player_Bow";
+        }
+        //else if (Input.GetKeyDown("3"))
+        //{
+        //    loadWeapon(Staff);
+        //    activeWeaponType = "Player_Staff";
+        //}
+        else if (Input.GetKeyDown("4"))
+        {
+            loadWeapon(Spear);
+            activeWeaponType = "Player_Spear";
+        }
+        else if (Input.GetKeyDown("5"))
+        {
+            loadWeapon(Shield);
+            activeWeaponType = "Player_Shield";
+        }
+#endif
     }
 
     private void loadWeapon(GameObject weapon)
     {
         Sword.SetActive(false);
         Bow.SetActive(false);
-        Staff.SetActive(false);
+        //Staff.SetActive(false);
         Spear.SetActive(false);
         Shield.SetActive(false);
         weapon.SetActive(true);

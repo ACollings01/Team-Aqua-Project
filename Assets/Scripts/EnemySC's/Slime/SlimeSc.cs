@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlimeSc : EnemyAI
 {
@@ -10,11 +11,16 @@ public class SlimeSc : EnemyAI
 
     bool spawned = false;
 
+    private bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        anim.SetFloat("Health", health);
+
+        this.name = "Slime";
     }
 
     // Update is called once per frame
@@ -29,10 +35,15 @@ public class SlimeSc : EnemyAI
 
         anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
 
-        if (health <= 0)
+        damageCheck();
+
+        anim.SetFloat("Health", health);
+
+        if (health <= 0 && isDead == false)
         {
+            isDead = true;
             slimeSplit();
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 1.5f);
         }
     }
 
@@ -60,12 +71,12 @@ public class SlimeSc : EnemyAI
         {
             int splitRand = Random.Range(2, 4);
 
-            audioSource.PlayOneShot(split);
+            audioSource.PlayOneShot(split, 0.5f);
 
             for (int i = 0; i < splitRand; i++)
             {
                 GameObject miniSlime;
-                GameObject miniSlimePrefab = (GameObject)Resources.Load("miniSlime");
+                GameObject miniSlimePrefab = (GameObject)Resources.Load("MiniSlime");
                 Vector3 miniSlimePos = new Vector3(transform.position.x + Random.Range(-4, 4),
                                                     transform.position.y,
                                                     transform.position.z + Random.Range(-4, 4));
@@ -86,6 +97,7 @@ public class SlimeSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }

@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieSc : EnemyAI
 {
+    public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        inv = GameObject.Find("InventoryScreen");
+
+        gameObject.name = "Zombie";
     }
 
     // Update is called once per frame
@@ -22,7 +29,12 @@ public class ZombieSc : EnemyAI
 
         if (this.health <= 0)
         {
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(12);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
         }
     }
 
@@ -48,6 +60,7 @@ public class ZombieSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }
