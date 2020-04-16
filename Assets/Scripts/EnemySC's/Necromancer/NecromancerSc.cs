@@ -7,6 +7,8 @@ public class NecromancerSc : EnemyAI
 {
     public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,12 @@ public class NecromancerSc : EnemyAI
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(100);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(100);
+                Destroy(this.gameObject, 2f);
+            }
+            isDead = true;
         }
 
     }
