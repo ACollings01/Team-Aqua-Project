@@ -14560,6 +14560,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 428963a34d54cce45a88d4a1818e6de8, type: 2}
   stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!1 &3872420281869847415
@@ -14797,6 +14798,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -14804,7 +14806,7 @@ MonoBehaviour:
   playerSpear: {fileID: 0}
   playerShield: {fileID: 3872420281869847421}
   lightAttackSound: {fileID: 8300000, guid: 7673733754c99e64c822de78c0296bca, type: 3}
-  heavyAttackSound: {fileID: 0}
+  heavyAttackSound: {fileID: 8300000, guid: 7c3867ffd737a1b4bbd3e9c060e8fc9c, type: 3}
 --- !u!82 &8725376926989419159
 AudioSource:
   m_ObjectHideFlags: 0

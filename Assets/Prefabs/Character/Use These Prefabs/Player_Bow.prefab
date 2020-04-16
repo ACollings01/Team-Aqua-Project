@@ -10217,7 +10217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8037863739609199444
 Transform:
   m_ObjectHideFlags: 0
@@ -10404,6 +10404,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 428963a34d54cce45a88d4a1818e6de8, type: 2}
   stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
 --- !u!1 &8037863739608901558
@@ -15830,6 +15831,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.4

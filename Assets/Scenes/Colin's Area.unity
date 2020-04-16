@@ -257,6 +257,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
 --- !u!136 &232849174
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
@@ -1627,6 +1629,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -1816,6 +1819,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -2007,11 +2011,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Shield
       objectReference: {fileID: 0}
-    - target: {fileID: 3872420281869847413, guid: aff2365d7315ba64d9b3aca90d4160d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3872420281869492053, guid: aff2365d7315ba64d9b3aca90d4160d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2191,6 +2190,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0
@@ -2343,6 +2343,7 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 388596445}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
 --- !u!65 &1418588913
@@ -2398,6 +2399,7 @@ MonoBehaviour:
   armour: 0
   speed: 10
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
@@ -3417,11 +3419,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Bow
       objectReference: {fileID: 0}
-    - target: {fileID: 8037863739608901556, guid: f79060f87957a254c932feeb44dc8ade,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8037863739609199444, guid: f79060f87957a254c932feeb44dc8ade,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4341,6 +4338,7 @@ MonoBehaviour:
   armour: 0
   speed: 5
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.5
