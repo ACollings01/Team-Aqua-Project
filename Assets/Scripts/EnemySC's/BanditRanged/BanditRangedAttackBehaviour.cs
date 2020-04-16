@@ -7,7 +7,7 @@ public class BanditRangedAttackBehaviour : StateMachineBehaviour
     private GameObject Player;
     private GameObject NPC;
 
-    float timeBtwBatAtt = 2f;
+    float timeBtwBatAtt = 2.668f;
     float timeTillNextAttack = 4f;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -24,7 +24,7 @@ public class BanditRangedAttackBehaviour : StateMachineBehaviour
 
         if (timeBtwBatAtt <= 0)
         {
-            timeBtwBatAtt = 2;
+            timeBtwBatAtt = 2.668f;
             NPC.GetComponent<BanditRangedSc>().attackBandit(Player);
         }
         else
