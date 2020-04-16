@@ -21,6 +21,8 @@ public class HomingFireball : NecromancerSc
         var direction = player.transform.position - transform.position;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
         transform.Translate(0, 0, Time.deltaTime * Speed);
+
+        Destroy(this.gameObject, 7f);
     }
 
     void OnCollisionEnter(Collision other)
