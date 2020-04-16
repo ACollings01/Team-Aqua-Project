@@ -11,7 +11,11 @@ public class BuyScript : MonoBehaviour
         if (inv.GetComponent<DisplayInventory>().inventory.Container[0].amount >= 50)
         {
             inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(-50);
-            inv.GetComponent<DisplayInventory>().inventory.Container[1].AddAmount(1);
+            
+            if(inv.GetComponent<DisplayInventory>().inventory.Container[0].amount >= 0)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[1].AddAmount(1);
+            }
         }
     }
 
