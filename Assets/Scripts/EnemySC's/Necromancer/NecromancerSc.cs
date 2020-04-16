@@ -9,6 +9,8 @@ public class NecromancerSc : EnemyAI
     private bool canRunAudio = true;
     public GameObject Necromancer;
     public AudioClip EpicFight;
+    [SerializeField] public AudioClip fireballshot;
+    [SerializeField] public AudioClip fireballhit;
 
     public GameObject inv;
     bool spawned = false;
@@ -26,8 +28,15 @@ public class NecromancerSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        audioSource.PlayOneShot(EpicFight);
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
+        audioSource = GetComponent<AudioSource>();
+
+        // only play EpicFight sounds when they are within 15ft
+        if (!audioSource.isPlaying && DistToPlayer < 15)
+        {
+            audioSource.PlayOneShot(EpicFight, 0.5f);
+        }
 
         if (this.health <= 0)
         {
@@ -59,8 +68,9 @@ public class NecromancerSc : EnemyAI
 
         fireball.transform.LookAt(player.transform.position);
         rb.AddForce(fireball.transform.forward * 500.0f);
+        audioSource.PlayOneShot(fireballshot, 0.5f);
 
-        
+
     }
 
     public void summonZombies(GameObject player)
