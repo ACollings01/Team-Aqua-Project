@@ -93,7 +93,7 @@ public class BatSc : EnemyAI
         spit.transform.LookAt(player.transform.position);
         rb.AddForce(spit.transform.forward * 500.0f);
 
-        audioSource.PlayOneShot(projectile, 0.5f);
+        audioSource.PlayOneShot(projectile, 0.2f);
     }
 
     void crawlToSurface()

@@ -23,6 +23,7 @@ public class HealthDrain : Player
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         hp = player.GetComponent<Player>().health;
         Health.fillAmount = hp / healthHold;
 
