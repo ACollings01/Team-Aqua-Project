@@ -8,7 +8,6 @@ public class MagicCircle : MonoBehaviour
 {
     private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
-    private bool canRunAudio = true;
 
     public GameObject mMenu; //Play menu in unity ..to trigger to pop up
 
@@ -21,12 +20,12 @@ public class MagicCircle : MonoBehaviour
 
     void OnTriggerEnter(Collider player)
     {
-        if (player.gameObject.tag == "Player" && canRunAudio)
+        if (player.gameObject.tag == "Player")
         {
+            Debug.Log("I hit the shop today");
             mMenu.SetActive(true); //main menu pop up when player enters magic circle
             StartCoroutine(ExitMap());
-            canRunAudio = false;
-            //magicCircleAudioSource.Play();
+            //magicCircleAudioSource.PlayOneShot();
         }
     }
 
