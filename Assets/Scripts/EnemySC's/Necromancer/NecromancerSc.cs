@@ -1,15 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NecromancerSc : EnemyAI
 {
+    private AudioSource EpicFightAudioSource;
+    private bool canRunAudio = true;
+    public GameObject Necromancer;
+    public AudioClip EpicFight;
+    [SerializeField] public AudioClip fireballshot;
+    [SerializeField] public AudioClip fireballhit;
+
     public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        EpicFightAudioSource = GetComponent<AudioSource>();
+        Necromancer.SetActive(false);
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame
@@ -18,14 +31,36 @@ public class NecromancerSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
+        audioSource = GetComponent<AudioSource>();
+
+        // only play EpicFight sounds when they are within 15ft
+        if (!audioSource.isPlaying && DistToPlayer < 15)
+        {
+            audioSource.PlayOneShot(EpicFight, 0.5f);
+        }
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(100);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(100);
+                Destroy(this.gameObject, 2f);
+            }
+            isDead = true;
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Necromancer" && canRunAudio)
+        {
+            Necromancer.SetActive(true);
+            canRunAudio = false;
+            EpicFightAudioSource.Play();
+        }
     }
 
     public void shootFireball(GameObject player)
@@ -40,8 +75,9 @@ public class NecromancerSc : EnemyAI
 
         fireball.transform.LookAt(player.transform.position);
         rb.AddForce(fireball.transform.forward * 500.0f);
+        audioSource.PlayOneShot(fireballshot, 0.5f);
 
-        
+
     }
 
     public void summonZombies(GameObject player)
@@ -93,13 +129,13 @@ public class NecromancerSc : EnemyAI
 
     public int dealHomingDamage(int min, int max)
     {
-        int damage = Random.Range(min - 9, max - 9);
+        int damage = Random.Range(min, max);
         return damage;
     }
 
     public int dealFireballDamage(int min, int max)
     {
-        int damage = Random.Range(min, max + 1);
+        int damage = Random.Range(min + 30, max + 40);
         return damage;
     }
 
@@ -114,6 +150,7 @@ public class NecromancerSc : EnemyAI
             this.GetComponent<Animator>().enabled = true;
             this.GetComponent<Collider>().enabled = true;
             this.GetComponent<Rigidbody>().useGravity = true;
+            this.GetComponent<NavMeshAgent>().enabled = true;
             spawned = true;
         }
     }

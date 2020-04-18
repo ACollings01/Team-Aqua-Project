@@ -7,6 +7,8 @@ namespace UnityStandardAssets.Water
     [ExecuteInEditMode] // Make water live-update even when not in play mode
     public class Water : MonoBehaviour
     {
+        [SerializeField] public AudioClip riverflow;
+
         public enum WaterMode
         {
             Simple = 0,

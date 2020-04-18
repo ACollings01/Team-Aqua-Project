@@ -6,13 +6,14 @@ using UnityEngine.AI;
 public class WolfSc : EnemyAI
 {
     public GameObject inv;
-    //public AudioSource howl;
+    public AudioClip howl;
     public AudioClip attack;
     //public AudioSource damagetaken;
     public AudioClip death;
     
     bool spawned = false;
     bool playSound = false;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class WolfSc : EnemyAI
         this.name = "Wolf";
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        inv = GameObject.Find("InventoryScreen");
     }
 
     // Update is called once per frame
@@ -29,7 +31,15 @@ public class WolfSc : EnemyAI
         if(!spawned) //Checks to see if the wolf has spawned or not
             crawlToSurface(); //If it already hasn't, then run the spawning function
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position)); //Determines the distance between the player and the wolf
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer); //Determines the distance between the player and the wolf
+        audioSource = GetComponent<AudioSource>();
+
+        //Only play howl sounds when they are within 10 ft
+        if (!audioSource.isPlaying && DistToPlayer < 10)
+        {
+            audioSource.PlayOneShot(howl, 0.5f);
+        }
 
         damageCheck();
 
@@ -40,8 +50,12 @@ public class WolfSc : EnemyAI
                 playSound = true;
                 audioSource.PlayOneShot(death); //Play the death sound
             }
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(6);
-            Destroy(this.gameObject, 3f); //Then destroy the object after 3 seconds
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(6);
+                Destroy(this.gameObject, 3f);
+            }
+            isDead = true;
         }
     }
 

@@ -10,12 +10,15 @@ public class MiniSlimeSc : EnemyAI
 
     private bool spawned = false;
 
+    bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         anim.SetFloat("Health", health);
+        inv = GameObject.Find("InventoryScreen");
 
         this.name = "MiniSlime";
     }
@@ -34,8 +37,13 @@ public class MiniSlimeSc : EnemyAI
 
         if (health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
+
         }
     }
 

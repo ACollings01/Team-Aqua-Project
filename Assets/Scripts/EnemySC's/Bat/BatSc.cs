@@ -13,12 +13,14 @@ public class BatSc : EnemyAI
     GameObject[] spitProjectiles;
 
     bool spawned = false;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         rand = Random.Range(0, 2);
+        inv = GameObject.Find("InventoryScreen");
 
         gameObject.name = "Bat";
     }
@@ -55,8 +57,12 @@ public class BatSc : EnemyAI
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(3);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(3);
+                Destroy(this.gameObject, 2f);
+            }
+            isDead = true;
         }
         
        
@@ -87,7 +93,7 @@ public class BatSc : EnemyAI
         spit.transform.LookAt(player.transform.position);
         rb.AddForce(spit.transform.forward * 500.0f);
 
-        audioSource.PlayOneShot(projectile, 0.5f);
+        audioSource.PlayOneShot(projectile, 0.2f);
     }
 
     void crawlToSurface()
