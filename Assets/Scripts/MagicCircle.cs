@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MagicCircle : MonoBehaviour
 {
     private AudioSource magicCircleAudioSource;
     private GameManager _gameManager;
+
 
     public GameObject mMenu; //Play menu in unity ..to trigger to pop up
 

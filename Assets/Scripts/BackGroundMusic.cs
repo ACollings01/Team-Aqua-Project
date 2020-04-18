@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackGroundMusic : MonoBehaviour
+public class BackGroundMusic : SoundManager
 {
     void Start()
     {
