@@ -3,7 +3,14 @@ guid: f811c257d756d0c43b9a48363e64f1d1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - blood: {instanceID: 0}
+  - bandit: {fileID: 8300000, guid: e762240d17b2ac2459c3a0b7a7a5660f, type: 3}
+  - attack: {fileID: 8300000, guid: fabc45322c924e14792d92dddc31fc2f, type: 3}
+  - damage: {fileID: 8300000, guid: 56b3ef57d7171184c919bcd2b253883b, type: 3}
+  - death: {fileID: 8300000, guid: 9008bc95fa7aa584584288eff63b69bf, type: 3}
+  - inv: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

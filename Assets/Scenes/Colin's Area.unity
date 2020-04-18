@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -259,6 +259,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
 --- !u!136 &232849174
 CapsuleCollider:
@@ -1032,6 +1033,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0.5
   SwordBlade: {fileID: 0}
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0
   SwordBlade: {fileID: 1715937165}
@@ -1821,12 +1824,13 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0
   SwordBlade: {fileID: 0}
   playerSpear: {fileID: 0}
   playerShield: {fileID: 0}
-  lightAttackSound: {fileID: 0}
+  lightAttackSound: {fileID: 8300000, guid: 7673733754c99e64c822de78c0296bca, type: 3}
   heavyAttackSound: {fileID: 0}
 --- !u!54 &1032916672
 Rigidbody:
@@ -2066,6 +2070,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872420282299199952, guid: aff2365d7315ba64d9b3aca90d4160d4,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: e1f17e7aeda3afe4c91b6cd8af089ebc, type: 3}
+    - target: {fileID: 754782417, guid: aff2365d7315ba64d9b3aca90d4160d4, type: 3}
+      propertyPath: heavyAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 442c1acea6d57114580454eb3e61647c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff2365d7315ba64d9b3aca90d4160d4, type: 3}
 --- !u!1001 &1178042989
@@ -2192,6 +2205,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0
   SwordBlade: {fileID: 1017184717}
@@ -2345,6 +2359,7 @@ MonoBehaviour:
   joystick: {fileID: 388596445}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
 --- !u!65 &1418588913
 BoxCollider:
@@ -2401,6 +2416,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0.5
   SwordBlade: {fileID: 0}
@@ -2416,8 +2432,8 @@ MonoBehaviour:
   magicLaunchPosition: {fileID: 0}
   spearLaunchPosition: {fileID: 0}
   projectileSpeed: 0
-  lightAttackSound: {fileID: 0}
-  heavyAttackSound: {fileID: 0}
+  lightAttackSound: {fileID: 8300000, guid: 8d105685177833b40ba7f2bffe72635b, type: 3}
+  heavyAttackSound: {fileID: 8300000, guid: 85d1aa03a7c189542b91b9745d9dd68e, type: 3}
   arrowParticle: {fileID: 0}
 --- !u!95 &1459651937
 Animator:
@@ -4340,6 +4356,7 @@ MonoBehaviour:
   joystick: {fileID: 0}
   inventory: {fileID: 0}
   stopMoving: 0
+  death: {fileID: 0}
   blood: {fileID: 0}
   fireRate: 0.5
   SwordBlade: {fileID: 0}
@@ -4618,6 +4635,16 @@ PrefabInstance:
     - target: {fileID: 8333048901474216765, guid: ef2b2f2ad652c4b4181b60d8199f3a21,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333048902067366597, guid: ef2b2f2ad652c4b4181b60d8199f3a21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333048902067366594, guid: ef2b2f2ad652c4b4181b60d8199f3a21,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8333048901768273566, guid: ef2b2f2ad652c4b4181b60d8199f3a21,

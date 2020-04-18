@@ -5,6 +5,11 @@ using UnityEngine.AI;
 
 public class BanditMeleeSc : EnemyAI
 {
+    [SerializeField] public AudioClip bandit;
+    [SerializeField] public AudioClip attack;
+    [SerializeField] public AudioClip damage;
+    [SerializeField] public AudioClip death;
+
     public GameObject inv;
     bool spawned = false;
     private bool isDead;
@@ -24,8 +29,15 @@ public class BanditMeleeSc : EnemyAI
         if(!spawned)
             crawlToSurface();
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position));
-        audioSource.Play();
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer);
+        audioSource = GetComponent<AudioSource>();
+
+        // only play bandit sounds when they are within 10 ft
+        if (!audioSource.isPlaying && DistToPlayer < 10)
+        {
+            audioSource.PlayOneShot(bandit, 0.5f);
+        }
 
         damageCheck();
 
@@ -51,6 +63,7 @@ public class BanditMeleeSc : EnemyAI
             playerHit[i].GetComponent<Player>().health -= dealDamageToPlayer(minDamage, maxDamage);
             Debug.Log("The player has been hit by the Bandit!");
         }
+        audioSource.PlayOneShot(attack);
     }
 
     void crawlToSurface()

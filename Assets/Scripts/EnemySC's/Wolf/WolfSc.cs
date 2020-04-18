@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class WolfSc : EnemyAI
 {
     public GameObject inv;
-    //public AudioSource howl;
+    public AudioClip howl;
     public AudioClip attack;
     //public AudioSource damagetaken;
     public AudioClip death;
@@ -31,7 +31,15 @@ public class WolfSc : EnemyAI
         if(!spawned) //Checks to see if the wolf has spawned or not
             crawlToSurface(); //If it already hasn't, then run the spawning function
 
-        anim.SetFloat("Distance", Vector3.Distance(transform.position, player.transform.position)); //Determines the distance between the player and the wolf
+        float DistToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        anim.SetFloat("Distance", DistToPlayer); //Determines the distance between the player and the wolf
+        audioSource = GetComponent<AudioSource>();
+
+        //Only play howl sounds when they are within 10 ft
+        if (!audioSource.isPlaying && DistToPlayer < 10)
+        {
+            audioSource.PlayOneShot(howl, 0.5f);
+        }
 
         damageCheck();
 
