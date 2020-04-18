@@ -21,6 +21,10 @@ public class ArrowDamage : RangedWeapons
         {
             enemy.gameObject.GetComponent<EnemyAI>().health -= bowDamageDone();
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public int bowDamageDone()

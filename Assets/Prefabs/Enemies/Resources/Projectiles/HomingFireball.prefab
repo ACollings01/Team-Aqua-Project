@@ -137,3 +137,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740d02d09f00e784687cac148a0d6aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  health: 0
+  lasthp: 0
+  minDamage: 1
+  maxDamage: 4
+  audioSource: {fileID: 0}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  attackRadius: 0
+  blood: {fileID: 0}
+  inv: {fileID: 0}

@@ -7,6 +7,8 @@ public class BanditRangedSc : EnemyAI
 {
     public GameObject inv;
     bool spawned = false;
+    private bool isDead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +28,12 @@ public class BanditRangedSc : EnemyAI
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(12);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
         }
     }
 

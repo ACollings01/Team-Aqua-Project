@@ -13,8 +13,7 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        // Automatically finds the object tagged as "Player"
-        player = GameObject.FindGameObjectWithTag("Player");
+        
 
 		transform.position = new Vector3(player.transform.position.x, player.transform.position.y + yOffset, player.transform.position.z - zOffset);
 		transform.LookAt(player.transform);
@@ -23,10 +22,13 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Automatically finds the object tagged as "Player"
+        player = GameObject.FindGameObjectWithTag("Player");
+
         // Should automatically look at the player regardless of zoom amount or angle
         //AdjustZoom(Input.mouseScrollDelta.y);
         // Ensures that player doesn't zoom in or out further than allowed
-		//ConstrainZoom();
+        //ConstrainZoom();
 
         // Comment out the two lines above to remove zoom functionality
 

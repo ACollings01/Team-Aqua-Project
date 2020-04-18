@@ -13,6 +13,7 @@ public class WolfSc : EnemyAI
     
     bool spawned = false;
     bool playSound = false;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -41,8 +42,12 @@ public class WolfSc : EnemyAI
                 playSound = true;
                 audioSource.PlayOneShot(death); //Play the death sound
             }
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(6);
-            Destroy(this.gameObject, 3f); //Then destroy the object after 3 seconds
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(6);
+                Destroy(this.gameObject, 3f);
+            }
+            isDead = true;
         }
     }
 

@@ -13,6 +13,7 @@ public class BatSc : EnemyAI
     GameObject[] spitProjectiles;
 
     bool spawned = false;
+    private bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +57,12 @@ public class BatSc : EnemyAI
 
         if (this.health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(3);
-            Destroy(this.gameObject);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(3);
+                Destroy(this.gameObject, 2f);
+            }
+            isDead = true;
         }
         
        

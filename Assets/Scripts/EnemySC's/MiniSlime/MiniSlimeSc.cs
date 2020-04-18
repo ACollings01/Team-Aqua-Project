@@ -10,6 +10,8 @@ public class MiniSlimeSc : EnemyAI
 
     private bool spawned = false;
 
+    bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +37,13 @@ public class MiniSlimeSc : EnemyAI
 
         if (health <= 0)
         {
-            inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
-            Destroy(this.gameObject, 1.5f);
+            if (!isDead)
+            {
+                inv.GetComponent<DisplayInventory>().inventory.Container[0].AddAmount(2);
+                Destroy(this.gameObject, 1.5f);
+            }
+            isDead = true;
+
         }
     }
 
