@@ -12859,7 +12859,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 917141051}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2054885863}
+        m_MethodName: buyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &917141051
@@ -32724,6 +32735,7 @@ GameObject:
   - component: {fileID: 2054885860}
   - component: {fileID: 2054885862}
   - component: {fileID: 2054885861}
+  - component: {fileID: 2054885863}
   m_Layer: 5
   m_Name: HealthPotion
   m_TagString: Untagged
@@ -32787,6 +32799,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054885859}
   m_CullTransparentMesh: 0
+--- !u!114 &2054885863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054885859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829bf2589bc5fc7439a30cb8e15efbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inv: {fileID: 1487575578}
 --- !u!1 &2073650503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100322, guid: d532a53a6b502464da2110a3bc93b010,
