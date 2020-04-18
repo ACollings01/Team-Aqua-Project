@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Sound
 {
     public string name;
     public AudioClip clip;
+    private GameManager gameManager;
+    public GameObject mMenu;
 
     [Range(0f, 10f)]
     public float volume = 5f;
@@ -85,6 +88,7 @@ public class SoundManager : Singleton<SoundManager>
     public Sound town;
     public Sound batspit;
     public Sound player_death;
+    private object mMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -96,12 +100,14 @@ public class SoundManager : Singleton<SoundManager>
         else if (Instance != this)
         {
             Destroy(gameObject);
+            //mMenu.SetActive(false);
 
             AudioSource[] sources = GetComponents<AudioSource>();
             foreach (AudioSource source in sources)
             {
                 if (source.clip == null)
                 {
+                   // mMenu.SetActive(true);
                     soundEffectAudio = source;
                 }
             }

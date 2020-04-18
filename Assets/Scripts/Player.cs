@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool stopMoving = false;
     private Animator playerAnimator;
     private AudioSource playerAudioSource;
+    [SerializeField] public AudioClip death;
 
 
     public ParticleSystem blood;
@@ -195,6 +196,7 @@ public class Player : MonoBehaviour
         {
             game.GameOver();
         }
+        
     }
 
     private void OnApplicationQuit()

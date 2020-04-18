@@ -3,7 +3,25 @@ guid: 832248169df317f438ef3c324ddcbd61
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - game: {instanceID: 0}
+  - joystick: {instanceID: 0}
+  - inventory: {instanceID: 0}
+  - death: {instanceID: 0}
+  - blood: {instanceID: 0}
+  - SwordBlade: {instanceID: 0}
+  - playerSpear: {instanceID: 0}
+  - playerShield: {instanceID: 0}
+  - arrowPrefab: {instanceID: 0}
+  - heavyArrowPrefab: {instanceID: 0}
+  - magicPrefab: {instanceID: 0}
+  - spearPrefab: {instanceID: 0}
+  - fireAtPrefab: {instanceID: 0}
+  - arrowLaunchPosition: {instanceID: 0}
+  - magicLaunchPosition: {instanceID: 0}
+  - spearLaunchPosition: {instanceID: 0}
+  - lightAttackSound: {fileID: 8300000, guid: 738c8fe964aa032419c4e8362cc0de40, type: 3}
+  - heavyAttackSound: {fileID: 8300000, guid: 1c15d40bd62563b43957981abf307343, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
