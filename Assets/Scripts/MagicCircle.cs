@@ -25,6 +25,9 @@ public class MagicCircle : MonoBehaviour
             Debug.Log("I hit the shop today");
             mMenu.SetActive(true); //main menu pop up when player enters magic circle
             StartCoroutine(ExitMap());
+            canRunAudio = false;
+            magicCircleAudioSource.Play();
+           
             //magicCircleAudioSource.PlayOneShot();
         }
     }
