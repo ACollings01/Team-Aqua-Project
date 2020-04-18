@@ -2015,11 +2015,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Shield
       objectReference: {fileID: 0}
-    - target: {fileID: 3872420281869847413, guid: aff2365d7315ba64d9b3aca90d4160d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3872420281869492053, guid: aff2365d7315ba64d9b3aca90d4160d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3439,11 +3434,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player_Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8037863739608901556, guid: f79060f87957a254c932feeb44dc8ade,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037863739609199444, guid: f79060f87957a254c932feeb44dc8ade,
         type: 3}

@@ -12,6 +12,7 @@ public class Shield : Weapons
 
     [SerializeField]
     private AudioClip heavyAttackSound;
+
     Rigidbody playerBody;
 
     void Start()
@@ -70,6 +71,7 @@ public class Shield : Weapons
 
                 if (attackOnce == false)
                 {
+
                     audioSource.PlayOneShot(heavyAttackSound);
                     shieldAttack();
                 }

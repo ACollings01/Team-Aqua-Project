@@ -13,7 +13,7 @@ public class BanditArrowDamage : BanditRangedSc
     // Update is called once per frame
     void Update()
     {
-        Destroy(this.gameObject, 4f);
+        Destroy(this.gameObject, 10f);
     }
 
     void OnCollisionEnter(Collision other)

@@ -10211,13 +10211,14 @@ GameObject:
   - component: {fileID: 8037863740026464310}
   - component: {fileID: 8037863740026464304}
   - component: {fileID: 8037863740026464308}
+  - component: {fileID: 4911905009112749208}
   m_Layer: 9
   m_Name: Player_Bow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8037863739609199444
 Transform:
   m_ObjectHideFlags: 0
@@ -10269,10 +10270,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8037863739608901556}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 5
+  m_Mass: 10000
+  m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -10404,8 +10405,21 @@ MonoBehaviour:
   armour: 0
   speed: 6
   joystick: {fileID: 0}
+  inventory: {fileID: 11400000, guid: 428963a34d54cce45a88d4a1818e6de8, type: 2}
   stopMoving: 0
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+--- !u!114 &4911905009112749208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037863739608901556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab60bd8e52faa6741a44ba49513f0591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8037863739608901558
 GameObject:
   m_ObjectHideFlags: 0
@@ -15830,6 +15844,7 @@ MonoBehaviour:
   armour: 0
   speed: 0
   joystick: {fileID: 0}
+  inventory: {fileID: 0}
   stopMoving: 0
   blood: {fileID: 0}
   fireRate: 0.4
