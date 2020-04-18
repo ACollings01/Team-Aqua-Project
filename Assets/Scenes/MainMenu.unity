@@ -767,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 388, y: 186}
+  m_AnchoredPosition: {x: 413, y: 186}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &199183452
@@ -2426,7 +2426,7 @@ GameObject:
   - component: {fileID: 922584408}
   - component: {fileID: 922584407}
   m_Layer: 5
-  m_Name: Names
+  m_Name: Roles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2448,8 +2448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 183, y: -86.82004}
-  m_SizeDelta: {x: 149.2, y: 292.66}
+  m_AnchoredPosition: {x: 276.4, y: -171.12}
+  m_SizeDelta: {x: 335.9, y: 461.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922584407
 MonoBehaviour:
@@ -2473,9 +2473,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 39
+    m_FontSize: 31
     m_FontStyle: 2
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
@@ -2484,29 +2484,38 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'ALEX
+  m_Text: 'CHARACTER ARTIST
 
 
-    COLIN
-
-    TANNER
+    GAMEPLAY PROGRAMMER
 
 
-    ANDREW
+    GAMEPLAY PROGRAMMER
+
+    2D GRAPHICS ARTIST
 
 
-    TIM
+    AI PROGRAMMER
 
 
-    VIKK
+    AUDIO PROGRAMMER
+
+    AUDIO ENGINEER
 
 
-    BRITTANY
+    ARTIST-LEVEL DESIGNER
+
+    GRAPHICS PROGRAMMER
 
 
-    JEAN
+    UI PROGRAMMER
 
-    EPIDEMIC STUDIOS'
+
+    AUDIO ENGINEER
+
+
+
+    AUDIO ENGINEER'
 --- !u!222 &922584408
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2527,7 +2536,7 @@ GameObject:
   - component: {fileID: 943924983}
   - component: {fileID: 943924982}
   m_Layer: 5
-  m_Name: Role
+  m_Name: Names
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2549,8 +2558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -128.3, y: -86.82004}
-  m_SizeDelta: {x: 207.38, y: 292.66}
+  m_AnchoredPosition: {x: -225.5, y: -171.1}
+  m_SizeDelta: {x: 408.2, y: 461.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943924982
 MonoBehaviour:
@@ -2574,9 +2583,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
-    m_FontSize: 39
+    m_FontSize: 31
     m_FontStyle: 2
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 2
@@ -2585,28 +2594,36 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'NETWORKING PROGRAMMER
+  m_Text: 'ALEX COLLINGS
 
 
-    GAMEPLAY PROGRAMMER
+    COLIN LABELLE
+
+
+    TANNER LEE OLSEN
 
 
 
-    AI PROGRAMMER
+    ANDREW SCARLETT
 
 
-    SOUND PROGRAMMER
+    TIM WOODS
 
 
-    GRAPHICS PROGRAMMER
+
+    BHAVAY SHARMA
 
 
-    UI PROGRAMMER
+
+    BRITTANY CRYDERMAN
 
 
-    AUDIO ARTIST
+    JEAN-NICOLAS RICHARDSON
 
-'
+    ATOMIC AUDIO - AFFINITY PRODUCTIONS
+
+
+    EPIDEMICSOUNDS'
 --- !u!222 &943924983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4518,7 +4535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1626686007
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4577,8 +4594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -12.349976, y: 102.30003}
-  m_SizeDelta: {x: 253.52, y: 80.44}
+  m_AnchoredPosition: {x: 7.375, y: 110.6}
+  m_SizeDelta: {x: 873.95, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634611120
 MonoBehaviour:
@@ -4604,16 +4621,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
     m_FontSize: 85
     m_FontStyle: 1
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 102
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CREDITS
+  m_Text: GAME CREDITS
 --- !u!222 &1634611121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4966,7 +4983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1682425864
 RectTransform:
   m_ObjectHideFlags: 0
