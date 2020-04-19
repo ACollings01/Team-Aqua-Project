@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MagicCircle : MonoBehaviour
 {
@@ -23,7 +24,8 @@ public class MagicCircle : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             Debug.Log("I hit the shop today");
-            mMenu.SetActive(true); //main menu pop up when player enters magic circle
+            //mMenu.SetActive(true); //main menu pop up when player enters magic circle
+            SceneManager.LoadScene("ReLevel2");
             StartCoroutine(ExitMap());
             //magicCircleAudioSource.PlayOneShot();
         }
