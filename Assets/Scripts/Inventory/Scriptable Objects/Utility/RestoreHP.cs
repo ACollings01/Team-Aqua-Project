@@ -9,6 +9,8 @@ public class RestoreHP : MonoBehaviour
 
     public void RestoreHealth()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         if(inv.GetComponent<DisplayInventory>().inventory.Container[1].amount > 0)
         {
             player.GetComponent<Player>().health += 25;
