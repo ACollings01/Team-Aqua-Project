@@ -22,7 +22,6 @@ public class NecromancerSc : EnemyAI
         anim = GetComponent<Animator>();
         EpicFightAudioSource = GetComponent<AudioSource>();
         this.name = "Necromancer";
-        Necromancer.SetActive(false);
         inv = GameObject.Find("InventoryScreen");
     }
 
