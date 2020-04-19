@@ -5,15 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 1602848f42f87964aa9d8128ef295d3d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
-    guid: 9014b17de35411545a0be0169b14a1f8
+    guid: 68ffdb95e89b6054abbdcd2a550e9df1
   - enabled: 1
     path: Assets/Scenes/ReLevel2.unity
     guid: af8198e900f0562408cb47ce5a6fd83a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/TownScene.unity
     guid: 1d37581c8cdcc6548b756357a3a736fb
@@ -23,13 +26,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MagicCircleUI.unity
     guid: e7b1c216dbe001747b72dc625ffc630e
-  - enabled: 0
-    path: Assets/Scenes/Andrew's Playground.unity
-    guid: f68ba6fb56d9ca6429347f119bc6fc9a
-  - enabled: 0
-    path: Assets/Scenes/Colin's Area.unity
-    guid: 9fe0970f15741f94bbc892e293e1274f
-  - enabled: 0
-    path: Assets/Scenes/Brittany's Scene.unity
-    guid: 25f81edeb51666b4d80ba7458de56ab4
   m_configObjects: {}

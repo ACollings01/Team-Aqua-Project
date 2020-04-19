@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MagicCircle : MonoBehaviour
 {
     private AudioSource magicCircleAudioSource;
+    public AudioClip portalSound;
     private GameManager _gameManager;
 
 
@@ -23,19 +24,22 @@ public class MagicCircle : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            Debug.Log("I hit the shop today");
-            //mMenu.SetActive(true); //main menu pop up when player enters magic circle
-            SceneManager.LoadScene("ReLevel2");
-            StartCoroutine(ExitMap());
-            //canRunAudio = false;
-            magicCircleAudioSource.Play();
-           
-            //magicCircleAudioSource.PlayOneShot();
+            if(this.name == "Magic Circle")
+            {
+                magicCircleAudioSource.PlayOneShot(portalSound, 0.5f);
+                StartCoroutine(LoadLevel2());
+            }
+            else
+            {
+                Debug.Log("I hit the shop today");
+                mMenu.SetActive(true); //main menu pop up when player enters magic circle
+            }
         }
     }
 
-    IEnumerator ExitMap()
+    IEnumerator LoadLevel2()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("ReLevel2");
     }
 }
