@@ -296,6 +296,8 @@ MonoBehaviour:
     m_Bits: 512
   attackRadius: 1
   blood: {fileID: 8012189697294709596, guid: a554061f2b4024b4ca9a67ccec146813, type: 3}
+  zombie: {fileID: 0}
+  death: {fileID: 0}
   inv: {fileID: 0}
 --- !u!95 &31816597
 Animator:
@@ -1599,7 +1601,7 @@ PrefabInstance:
     - target: {fileID: 3248844404566334078, guid: 368249aea5e62134f8771cc3b33b8af4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3248844404566691422, guid: 368249aea5e62134f8771cc3b33b8af4,
         type: 3}
@@ -1673,7 +1675,7 @@ PrefabInstance:
     - target: {fileID: 3682106638380804112, guid: cac124dd4c9bb5c4f84c669ee9eb8f89,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3682106638380839984, guid: cac124dd4c9bb5c4f84c669ee9eb8f89,
         type: 3}

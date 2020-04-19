@@ -32,5 +32,9 @@ public class HomingFireball : NecromancerSc
             Destroy(gameObject);
             other.gameObject.GetComponent<Player>().health -= dealHomingDamage(minDamage, maxDamage);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
