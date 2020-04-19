@@ -27,7 +27,7 @@ public class MagicCircle : MonoBehaviour
             //mMenu.SetActive(true); //main menu pop up when player enters magic circle
             SceneManager.LoadScene("ReLevel2");
             StartCoroutine(ExitMap());
-            canRunAudio = false;
+            //canRunAudio = false;
             magicCircleAudioSource.Play();
            
             //magicCircleAudioSource.PlayOneShot();

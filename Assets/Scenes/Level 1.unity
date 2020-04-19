@@ -22294,14 +22294,14 @@ PrefabInstance:
       propertyPath: numberOfEnemies
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8400355807367051871, guid: 0565fccab3800dd48b5d214f6c332a5f,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8039683088311393250, guid: 0565fccab3800dd48b5d214f6c332a5f,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400355807367051871, guid: 0565fccab3800dd48b5d214f6c332a5f,
+        type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
